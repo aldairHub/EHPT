@@ -1,695 +1,1040 @@
-<?xml version="1.0" encoding="utf-8"?>
-<mxfile>
-  <diagram id="aeroandes_pagina" name="AeroAndes Reservas">
-    <mxGraphModel dx="3540" dy="2940" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="3540" pageHeight="2940" background="#FFFFFF" math="0" shadow="0">
-      <root>
-        <mxCell id="0" />
-        <mxCell id="1" parent="0" />
-        <object id="B_frontera_centro" label="Centro de datos AeroAndes" zona="B,C">
-          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=14;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=center;verticalAlign=middle;fillColor=none;dashed=1;dashPattern=2 4;fontSize=12;verticalAlign=top;align=left;spacingTop=10;spacingLeft=20;container=1;collapsible=0;recursiveResize=0;pointerEvents=0;" vertex="1" parent="1">
-            <mxGeometry x="700" y="60" width="1840" height="1540" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="D_frontera_aeropuerto" label="Aeropuerto" zona="D">
-          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=14;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=center;verticalAlign=middle;fillColor=none;dashed=1;dashPattern=2 4;fontSize=12;verticalAlign=top;align=left;spacingTop=10;spacingLeft=20;container=1;collapsible=0;recursiveResize=0;pointerEvents=0;" vertex="1" parent="1">
-            <mxGeometry x="700" y="1900" width="1840" height="600" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="A_frontera_agencias" label="Sistemas externos" zona="A">
-          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=14;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=center;verticalAlign=middle;fillColor=none;dashed=1;dashPattern=2 4;fontSize=12;verticalAlign=top;align=left;spacingTop=10;spacingLeft=20;container=1;collapsible=0;recursiveResize=0;pointerEvents=0;" vertex="1" parent="1">
-            <mxGeometry x="80" y="80" width="560" height="300" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="A_frontera_pasarela" label="Sistemas externos" zona="A">
-          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=14;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=center;verticalAlign=middle;fillColor=none;dashed=1;dashPattern=2 4;fontSize=12;verticalAlign=top;align=left;spacingTop=10;spacingLeft=20;container=1;collapsible=0;recursiveResize=0;pointerEvents=0;" vertex="1" parent="1">
-            <mxGeometry x="2740" y="1000" width="560" height="300" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="A_enlace_pasajero_cliente" label="" zona="A">
-          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=14;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=none;endFill=0;exitX=1;exitY=0.3;entryX=0;entryY=0.3;exitPerimeter=0;entryPerimeter=0;" edge="1" parent="1" source="A_pasajero" target="A_cliente">
-            <mxGeometry relative="1" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="A_enlace_pasajero_quioscos" label="" zona="A">
-          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=14;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=none;endFill=0;exitX=0;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;" edge="1" parent="1" source="A_pasajero" target="D_quioscos">
-            <mxGeometry relative="1" as="geometry">
-              <Array as="points">
-                <mxPoint x="20" y="650" />
-                <mxPoint x="20" y="2100" />
-              </Array>
-            </mxGeometry>
-          </mxCell>
-        </object>
-        <object id="D_enlace_personal_lectores" label="" zona="D">
-          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=14;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=none;endFill=0;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;" edge="1" parent="1" source="D_personal" target="D_lectores">
-            <mxGeometry relative="1" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="A_enlace_cliente_reservas" label="" zona="A">
-          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=14;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=none;endFill=0;exitX=1;exitY=0.5;entryX=0;entryY=0.7;exitPerimeter=0;entryPerimeter=0;" edge="1" parent="1" source="A_cliente" target="B_reservas">
-            <mxGeometry relative="1" as="geometry">
-              <Array as="points">
-                <mxPoint x="740" y="650" />
-                <mxPoint x="740" y="550" />
-              </Array>
-            </mxGeometry>
-          </mxCell>
-        </object>
-        <object id="A_enlace_agencias_reservas" label="" zona="A">
-          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=14;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=none;endFill=0;exitX=1;exitY=0.5;entryX=0;entryY=0.2;exitPerimeter=0;entryPerimeter=0;" edge="1" parent="1" source="A_agencias" target="B_reservas">
-            <mxGeometry relative="1" as="geometry">
-              <Array as="points">
-                <mxPoint x="660" y="230" />
-                <mxPoint x="660" y="500" />
-              </Array>
-            </mxGeometry>
-          </mxCell>
-        </object>
-        <object id="B_enlace_reservas_inventario" label="[RPC]&lt;br&gt;gRPC · HTTP/2" zona="B">
-          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=2;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=none;endFill=0;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;shape=link;labelBackgroundColor=#FFFFFF;labelWidth=160;whiteSpace=wrap;align=center;verticalAlign=middle;spacing=0;" edge="1" parent="1" source="B_reservas" target="B_inventario">
-            <mxGeometry relative="1" as="geometry" x="1" y="0">
-              <mxPoint x="-340" y="-150" as="offset" />
-            </mxGeometry>
-          </mxCell>
-        </object>
-        <object id="B_enlace_reservas_cache" label="[Acceso a datos]&lt;br&gt;Redis · TCP" zona="B">
-          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=2;shadow=0;dashed=1;startArrow=none;startFill=0;endArrow=none;endFill=0;exitX=0.5;exitY=0;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;dashPattern=12 4 2 4;labelBackgroundColor=#FFFFFF;labelWidth=160;whiteSpace=wrap;align=center;verticalAlign=middle;spacing=0;" edge="1" parent="1" source="B_reservas" target="B_cache">
-            <mxGeometry relative="1" as="geometry" x="1" y="0">
-              <Array as="points">
-                <mxPoint x="1000" y="230" />
-              </Array>
-              <mxPoint x="-200" y="-40" as="offset" />
-            </mxGeometry>
-          </mxCell>
-        </object>
-        <object id="B_enlace_inventario_cache" label="[Acceso a datos]&lt;br&gt;Redis · TCP" zona="B">
-          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=2;shadow=0;dashed=1;startArrow=none;startFill=0;endArrow=none;endFill=0;exitX=0.5;exitY=0;entryX=1;entryY=0.5;exitPerimeter=0;entryPerimeter=0;dashPattern=12 4 2 4;labelBackgroundColor=#FFFFFF;labelWidth=160;whiteSpace=wrap;align=center;verticalAlign=middle;spacing=0;" edge="1" parent="1" source="B_inventario" target="B_cache">
-            <mxGeometry relative="1" as="geometry" x="1" y="0">
-              <Array as="points">
-                <mxPoint x="2140" y="230" />
-              </Array>
-              <mxPoint x="200" y="-40" as="offset" />
-            </mxGeometry>
-          </mxCell>
-        </object>
-        <object id="B_enlace_reservas_bd" label="[Acceso a datos]&lt;br&gt;PostgreSQL · TCP" zona="B">
-          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=2;shadow=0;dashed=1;startArrow=none;startFill=0;endArrow=none;endFill=0;exitX=0.75;exitY=1;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;dashPattern=12 4 2 4;labelBackgroundColor=#FFFFFF;labelWidth=160;whiteSpace=wrap;align=center;verticalAlign=middle;spacing=0;" edge="1" parent="1" source="B_reservas" target="B_bd_reservas">
-            <mxGeometry relative="1" as="geometry" x="1" y="0">
-              <Array as="points">
-                <mxPoint x="1100" y="830" />
-              </Array>
-              <mxPoint x="-300" y="-50" as="offset" />
-            </mxGeometry>
-          </mxCell>
-        </object>
-        <object id="B_enlace_inventario_bd" label="[Acceso a datos]&lt;br&gt;PostgreSQL · TCP" zona="B">
-          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=2;shadow=0;dashed=1;startArrow=none;startFill=0;endArrow=none;endFill=0;exitX=0.5;exitY=1;entryX=1;entryY=0.5;exitPerimeter=0;entryPerimeter=0;dashPattern=12 4 2 4;labelBackgroundColor=#FFFFFF;labelWidth=160;whiteSpace=wrap;align=center;verticalAlign=middle;spacing=0;" edge="1" parent="1" source="B_inventario" target="B_bd_reservas">
-            <mxGeometry relative="1" as="geometry" x="1" y="0">
-              <Array as="points">
-                <mxPoint x="2140" y="830" />
-              </Array>
-              <mxPoint x="-80" y="-130" as="offset" />
-            </mxGeometry>
-          </mxCell>
-        </object>
-        <object id="B_enlace_reservas_pagos" label="[RPC síncrono]&lt;br&gt;gRPC · HTTP/2 + TLS" zona="B" tooltip="Reservas solicita el cobro de una reserva ya retenida. RPC es el mecanismo acordado; gRPC concreta el middleware. Devuelve resultado del pago, no confirmación de inventario. La interfaz debe mostrar pago en proceso durante la espera (R4)."><mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=14;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=none;endFill=0;exitX=0.5;exitY=1;entryX=0.5;entryY=0;exitPerimeter=0;entryPerimeter=0;shape=link;strokeWidth=2;fontSize=12;labelBackgroundColor=#FFFFFF;labelWidth=220;align=center;verticalAlign=middle;spacing=0;" edge="1" parent="1" source="B_reservas" target="C_pagos"><mxGeometry relative="1" as="geometry" x="0" y="0"><Array as="points"><mxPoint x="1000" y="920" /><mxPoint x="2200" y="920" /></Array><mxPoint x="150" y="50" as="offset" /></mxGeometry></mxCell></object>
-        <object id="C_enlace_pagos_pasarela" label="[Solicitud/respuesta síncrona]&lt;br&gt;REST · HTTPS (HTTP/1.1 + TLS)" zona="C" tooltip="API propuesta para la pasarela ficticia. Token del medio de pago e identificador único de intento. Se espera su respuesta, que puede tardar hasta 30 s. El tratamiento de timeout y reconciliación se desarrolla con F1 en el siguiente avance."><mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=14;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=none;endFill=0;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;fontSize=12;labelBackgroundColor=#FFFFFF;labelWidth=250;align=center;verticalAlign=middle;spacing=0;" edge="1" parent="1" source="C_pagos" target="A_pasarela"><mxGeometry relative="1" as="geometry" x="0" y="0"><mxPoint x="0" y="-60" as="offset" /></mxGeometry></mxCell></object>
-        <object id="B_enlace_reservas_broker" label="[Mensajería]&lt;br&gt;RabbitMQ · AMQP" zona="B">
-          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=2;shadow=0;dashed=1;startArrow=none;startFill=0;endArrow=none;endFill=0;exitX=0.25;exitY=1;entryX=0.25;entryY=0;exitPerimeter=0;entryPerimeter=0;dashPattern=12 6;labelBackgroundColor=#FFFFFF;labelWidth=160;whiteSpace=wrap;align=center;verticalAlign=middle;spacing=0;" edge="1" parent="1" source="B_reservas" target="C_rabbitmq">
-            <mxGeometry relative="1" as="geometry" x="1" y="0">
-              <Array as="points">
-                <mxPoint x="900" y="980" />
-                <mxPoint x="1500" y="980" />
-              </Array>
-              <mxPoint x="-260" y="-60" as="offset" />
-            </mxGeometry>
-          </mxCell>
-        </object>
-        <object id="C_enlace_pagos_broker" label="" zona="C">
-          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=14;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=none;endFill=0;exitX=0;exitY=0.5;entryX=1;entryY=0.5;exitPerimeter=0;entryPerimeter=0;" edge="1" parent="1" source="C_pagos" target="C_rabbitmq">
-            <mxGeometry relative="1" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="C_enlace_broker_notificaciones" label="" zona="C">
-          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=14;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=none;endFill=0;exitX=0;exitY=0.5;entryX=1;entryY=0.5;exitPerimeter=0;entryPerimeter=0;" edge="1" parent="1" source="C_rabbitmq" target="C_notificaciones">
-            <mxGeometry relative="1" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="C_enlace_broker_fallidos" label="" zona="C">
-          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=14;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=none;endFill=0;exitX=0.5;exitY=1;entryX=0.5;entryY=0;exitPerimeter=0;entryPerimeter=0;" edge="1" parent="1" source="C_rabbitmq" target="C_cola_fallidos">
-            <mxGeometry relative="1" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="C_enlace_notificaciones_pasajero" label="" zona="C">
-          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=14;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=none;endFill=0;exitX=0;exitY=0.5;entryX=1;entryY=0.8;exitPerimeter=0;entryPerimeter=0;" edge="1" parent="1" source="C_notificaciones" target="A_pasajero">
-            <mxGeometry relative="1" as="geometry">
-              <Array as="points">
-                <mxPoint x="190" y="1150" />
-                <mxPoint x="190" y="680" />
-              </Array>
-            </mxGeometry>
-          </mxCell>
-        </object>
-        <object id="D_enlace_quioscos_embarque" label="" zona="D">
-          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=14;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=none;endFill=0;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;" edge="1" parent="1" source="D_quioscos" target="D_embarque">
-            <mxGeometry relative="1" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="D_enlace_lectores_embarque" label="" zona="D">
-          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=14;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=none;endFill=0;exitX=0.5;exitY=0;entryX=0.5;entryY=1;exitPerimeter=0;entryPerimeter=0;" edge="1" parent="1" source="D_lectores" target="D_embarque">
-            <mxGeometry relative="1" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="D_enlace_embarque_manifiesto" label="" zona="D">
-          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=14;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=none;endFill=0;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;" edge="1" parent="1" source="D_embarque" target="D_manifiesto">
-            <mxGeometry relative="1" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="D_enlace_embarque_reservas" label="" zona="D">
-          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=14;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=none;endFill=0;exitX=0.75;exitY=0;entryX=0.25;entryY=0;exitPerimeter=0;entryPerimeter=0;" edge="1" parent="1" source="D_embarque" target="B_reservas">
-            <mxGeometry relative="1" as="geometry">
-              <Array as="points">
-                <mxPoint x="1700" y="1740" />
-                <mxPoint x="3380" y="1740" />
-                <mxPoint x="3380" y="100" />
-                <mxPoint x="900" y="100" />
-              </Array>
-            </mxGeometry>
-          </mxCell>
-        </object>
-        <object id="A_pasajero" label="Pasajero" zona="A">
-          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=14;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=center;verticalAlign=middle;shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;labelWidth=300;" vertex="1" parent="1">
-            <mxGeometry x="60" y="600" width="80" height="100" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="D_personal" label="Personal de aeropuerto" zona="D">
-          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=14;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=center;verticalAlign=middle;shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;labelWidth=300;" vertex="1" parent="1">
-            <mxGeometry x="480" y="2350" width="80" height="100" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="A_cliente" label="cliente : AppMovilWeb" zona="A">
-          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=14;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=center;verticalAlign=middle;" vertex="1" parent="1">
-            <mxGeometry x="240" y="600" width="400" height="100" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="A_agencias" label="agencias : AgenciasDeViajes" zona="A">
-          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=14;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=center;verticalAlign=middle;" vertex="1" parent="A_frontera_agencias">
-            <mxGeometry x="80" y="100" width="400" height="100" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="A_pasarela" label="pasarela : PasarelaDePagos" zona="A">
-          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=14;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=center;verticalAlign=middle;" vertex="1" parent="A_frontera_pasarela">
-            <mxGeometry x="80" y="100" width="400" height="100" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="B_reservas" label="reservas : ServicioReservas" zona="B">
-          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=14;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=center;verticalAlign=middle;" vertex="1" parent="B_frontera_centro">
-            <mxGeometry x="100" y="420" width="400" height="100" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="B_inventario" label="inventario : ServicioInventarioAsientos" zona="B">
-          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=14;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=center;verticalAlign=middle;" vertex="1" parent="B_frontera_centro">
-            <mxGeometry x="1240" y="420" width="400" height="100" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="B_cache" label="cache : CacheDisponibilidad" zona="B">
-          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=14;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=center;verticalAlign=middle;" vertex="1" parent="B_frontera_centro">
-            <mxGeometry x="700" y="120" width="400" height="100" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="B_bd_reservas" label="bd : BaseDatosReservas" zona="B">
-          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=14;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=center;verticalAlign=middle;shape=cylinder3;boundedLbl=1;size=15;" vertex="1" parent="B_frontera_centro">
-            <mxGeometry x="1000" y="720" width="400" height="100" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="C_pagos" label="pagos : ServicioPagos" zona="C">
-          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=14;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=center;verticalAlign=middle;" vertex="1" parent="B_frontera_centro">
-            <mxGeometry x="1300" y="1040" width="400" height="100" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="C_rabbitmq" label="broker : RabbitMQ" zona="C">
-          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=14;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=center;verticalAlign=middle;" vertex="1" parent="B_frontera_centro">
-            <mxGeometry x="700" y="1040" width="400" height="100" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="C_cola_fallidos" label="fallidos : ColaMensajesFallidos" zona="C">
-          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=14;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=center;verticalAlign=middle;" vertex="1" parent="B_frontera_centro">
-            <mxGeometry x="700" y="1340" width="400" height="100" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="C_notificaciones" label="notificaciones : ServicioNotificaciones" zona="C">
-          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=14;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=center;verticalAlign=middle;" vertex="1" parent="B_frontera_centro">
-            <mxGeometry x="100" y="1040" width="400" height="100" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="D_quioscos" label="quioscos : QuioscoAutoservicio" zona="D">
-          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=14;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=center;verticalAlign=middle;" vertex="1" parent="D_frontera_aeropuerto">
-            <mxGeometry x="100" y="150" width="400" height="100" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="D_lectores" label="lectores : LectorPuertaEmbarque" zona="D">
-          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=14;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=center;verticalAlign=middle;" vertex="1" parent="D_frontera_aeropuerto">
-            <mxGeometry x="700" y="450" width="400" height="100" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="D_embarque" label="embarque : ServidorEmbarque" zona="D">
-          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=14;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=center;verticalAlign=middle;" vertex="1" parent="D_frontera_aeropuerto">
-            <mxGeometry x="700" y="150" width="400" height="100" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="D_manifiesto" label="manifiesto : CacheManifiestoLocal" zona="D">
-          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=14;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=center;verticalAlign=middle;" vertex="1" parent="D_frontera_aeropuerto">
-            <mxGeometry x="1300" y="150" width="400" height="100" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="L_marco" label="Leyenda" zona="A,B,C,D">
-          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;fontSize=14;align=center;verticalAlign=top;spacingTop=20;container=1;collapsible=0;recursiveResize=0;" vertex="1" parent="1">
-            <mxGeometry x="2740" y="1900" width="620" height="1020" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="L_titulo_simbolos" label="Símbolos" zona="A,B,C,D">
-          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;fontStyle=1;" vertex="1" parent="L_marco">
-            <mxGeometry x="40" y="60" width="540" height="20" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="L_simbolo_proceso" label="" zona="A,B,C,D">
-          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;align=center;" vertex="1" parent="L_marco">
-            <mxGeometry x="40" y="100" width="60" height="20" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="L_texto_proceso" label="Proceso (rectángulo)" zona="A,B,C,D">
-          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;spacing=0;" vertex="1" parent="L_marco">
-            <mxGeometry x="120" y="100" width="460" height="20" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="L_simbolo_bd" label="" zona="A,B,C,D">
-          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;shape=cylinder3;boundedLbl=1;size=5;align=center;" vertex="1" parent="L_marco">
-            <mxGeometry x="40" y="140" width="60" height="20" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="L_texto_bd" label="Base de datos (cilindro)" zona="A,B,C,D">
-          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;spacing=0;" vertex="1" parent="L_marco">
-            <mxGeometry x="120" y="140" width="460" height="20" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="L_simbolo_actor" label="" zona="A,B,C,D">
-          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;shape=umlActor;align=center;" vertex="1" parent="L_marco">
-            <mxGeometry x="60" y="180" width="20" height="40" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="L_texto_actor" label="Actor (usuario)" zona="A,B,C,D">
-          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;spacing=0;" vertex="1" parent="L_marco">
-            <mxGeometry x="120" y="180" width="460" height="40" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="L_texto_enlace" label="Enlace de comunicación" zona="A,B,C,D">
-          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;spacing=0;" vertex="1" parent="L_marco">
-            <mxGeometry x="120" y="240" width="460" height="20" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="L_simbolo_frontera" label="" zona="A,B,C,D">
-          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;dashed=1;dashPattern=2 4;align=center;" vertex="1" parent="L_marco">
-            <mxGeometry x="40" y="280" width="60" height="20" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="L_texto_frontera" label="Frontera (recuadro punteado)" zona="A,B,C,D">
-          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;spacing=0;" vertex="1" parent="L_marco">
-            <mxGeometry x="120" y="280" width="460" height="20" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="L_titulo_tecnologia" label="Tecnología del enlace" zona="A,B,C,D">
-          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;fontStyle=1;" vertex="1" parent="L_marco">
-            <mxGeometry x="40" y="320" width="540" height="20" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="L_muestra_enlace_inicio" label="" zona="A,B,C,D">
-          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;connectable=0;" vertex="1" parent="L_marco">
-            <mxGeometry x="40" y="250" width="0" height="0" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="L_muestra_enlace_fin" label="" zona="A,B,C,D">
-          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;connectable=0;" vertex="1" parent="L_marco">
-            <mxGeometry x="100" y="250" width="0" height="0" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="L_texto_sockets" label="Sockets TCP" zona="A,B,C,D">
-          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;spacing=0;" vertex="1" parent="L_marco">
-            <mxGeometry x="120" y="360" width="460" height="20" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="L_muestra_sockets_inicio" label="" zona="A,B,C,D">
-          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;connectable=0;" vertex="1" parent="L_marco">
-            <mxGeometry x="40" y="370" width="0" height="0" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="L_muestra_sockets_fin" label="" zona="A,B,C,D">
-          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;connectable=0;" vertex="1" parent="L_marco">
-            <mxGeometry x="100" y="370" width="0" height="0" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="L_texto_rpc" label="RPC (gRPC)" zona="A,B,C,D">
-          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;spacing=0;" vertex="1" parent="L_marco">
-            <mxGeometry x="120" y="400" width="460" height="20" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="L_muestra_rpc_inicio" label="" zona="A,B,C,D">
-          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;connectable=0;" vertex="1" parent="L_marco">
-            <mxGeometry x="40" y="410" width="0" height="0" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="L_muestra_rpc_fin" label="" zona="A,B,C,D">
-          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;connectable=0;" vertex="1" parent="L_marco">
-            <mxGeometry x="100" y="410" width="0" height="0" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="L_texto_rest" label="REST sobre HTTPS" zona="A,B,C,D">
-          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;spacing=0;" vertex="1" parent="L_marco">
-            <mxGeometry x="120" y="440" width="460" height="20" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="L_muestra_rest_inicio" label="" zona="A,B,C,D">
-          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;connectable=0;" vertex="1" parent="L_marco">
-            <mxGeometry x="40" y="450" width="0" height="0" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="L_muestra_rest_fin" label="" zona="A,B,C,D">
-          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;connectable=0;" vertex="1" parent="L_marco">
-            <mxGeometry x="100" y="450" width="0" height="0" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="L_texto_mensajeria" label="Mensajería (AMQP / RabbitMQ)" zona="A,B,C,D">
-          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;spacing=0;" vertex="1" parent="L_marco">
-            <mxGeometry x="120" y="480" width="460" height="20" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="L_muestra_mensajeria_inicio" label="" zona="A,B,C,D">
-          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;connectable=0;" vertex="1" parent="L_marco">
-            <mxGeometry x="40" y="490" width="0" height="0" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="L_muestra_mensajeria_fin" label="" zona="A,B,C,D">
-          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;connectable=0;" vertex="1" parent="L_marco">
-            <mxGeometry x="100" y="490" width="0" height="0" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="L_texto_datos" label="Acceso a datos (SGBD)" zona="A,B,C,D">
-          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;spacing=0;" vertex="1" parent="L_marco">
-            <mxGeometry x="120" y="520" width="460" height="20" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="L_muestra_datos_inicio" label="" zona="A,B,C,D">
-          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;connectable=0;" vertex="1" parent="L_marco">
-            <mxGeometry x="40" y="530" width="0" height="0" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="L_muestra_datos_fin" label="" zona="A,B,C,D">
-          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;connectable=0;" vertex="1" parent="L_marco">
-            <mxGeometry x="100" y="530" width="0" height="0" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="L_texto_tecnologia_frontera" label="Frontera del sistema: solo agrupa" zona="A,B,C,D">
-          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;spacing=0;" vertex="1" parent="L_marco">
-            <mxGeometry x="120" y="560" width="460" height="20" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="L_muestra_frontera_inicio" label="" zona="A,B,C,D">
-          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;connectable=0;" vertex="1" parent="L_marco">
-            <mxGeometry x="40" y="570" width="0" height="0" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="L_muestra_frontera_fin" label="" zona="A,B,C,D">
-          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;connectable=0;" vertex="1" parent="L_marco">
-            <mxGeometry x="100" y="570" width="0" height="0" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="L_titulo_mensajes" label="Mensajes" zona="A,B,C,D">
-          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;fontStyle=1;" vertex="1" parent="L_marco">
-            <mxGeometry x="40" y="600" width="540" height="20" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="L_texto_sincrono" label="Mensaje síncrono (el emisor espera respuesta)" zona="A,B,C,D">
-          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;spacing=0;" vertex="1" parent="L_marco">
-            <mxGeometry x="120" y="640" width="460" height="40" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="L_muestra_sincrono_inicio" label="" zona="A,B,C,D">
-          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;connectable=0;" vertex="1" parent="L_marco">
-            <mxGeometry x="40" y="660" width="0" height="0" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="L_muestra_sincrono_fin" label="" zona="A,B,C,D">
-          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;connectable=0;" vertex="1" parent="L_marco">
-            <mxGeometry x="70" y="660" width="0" height="0" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="L_texto_asincrono" label="Mensaje asíncrono (el emisor continúa sin esperar)" zona="A,B,C,D">
-          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;spacing=0;" vertex="1" parent="L_marco">
-            <mxGeometry x="120" y="700" width="460" height="40" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="L_muestra_asincrono_inicio" label="" zona="A,B,C,D">
-          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;connectable=0;" vertex="1" parent="L_marco">
-            <mxGeometry x="40" y="720" width="0" height="0" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="L_muestra_asincrono_fin" label="" zona="A,B,C,D">
-          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;connectable=0;" vertex="1" parent="L_marco">
-            <mxGeometry x="70" y="720" width="0" height="0" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="L_texto_numeracion" label="Numeración estándar de diagrama de comunicación: 1, 2, 3...; los submensajes se anidan (1.1, 3.2.1). La respuesta de un mensaje síncrono va en su misma etiqueta: resultado := mensaje(datos)." zona="A,B,C,D">
-          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;spacing=0;" vertex="1" parent="L_marco">
-            <mxGeometry x="40" y="760" width="560" height="30" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="L_texto_operaciones" label="Operaciones: 1 = (a) buscar vuelos · 2 = (b) retener asiento · 3 = (c) pagar y confirmar · 4 = (d) enviar confirmación y pase · 5 = (e) validar pase." zona="A,B,C,D">
-          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;spacing=0;" vertex="1" parent="L_marco">
-            <mxGeometry x="40" y="810" width="540" height="30" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="L_texto_semantica" label="El enlace indica la tecnología; la flecha junto al enlace indica el mensaje, su sincronía y sus datos." zona="A,B,C,D">
-          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;spacing=0;" vertex="1" parent="L_marco">
-            <mxGeometry x="40" y="840" width="540" height="30" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="L_muestra_enlace" label="" zona="A,B,C,D">
-          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=none;endFill=0;exitX=0;exitY=0;entryX=0;entryY=0;exitPerimeter=0;entryPerimeter=0;" edge="1" parent="L_marco" source="L_muestra_enlace_inicio" target="L_muestra_enlace_fin">
-            <mxGeometry relative="1" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="L_muestra_sockets" label="" zona="A,B,C,D">
-          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=none;endFill=0;exitX=0;exitY=0;entryX=0;entryY=0;exitPerimeter=0;entryPerimeter=0;strokeWidth=4;" edge="1" parent="L_marco" source="L_muestra_sockets_inicio" target="L_muestra_sockets_fin">
-            <mxGeometry relative="1" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="L_muestra_rpc" label="" zona="A,B,C,D">
-          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=none;endFill=0;exitX=0;exitY=0;entryX=0;entryY=0;exitPerimeter=0;entryPerimeter=0;shape=link;strokeWidth=2;" edge="1" parent="L_marco" source="L_muestra_rpc_inicio" target="L_muestra_rpc_fin">
-            <mxGeometry relative="1" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="L_muestra_rest" label="" zona="A,B,C,D">
-          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=none;endFill=0;exitX=0;exitY=0;entryX=0;entryY=0;exitPerimeter=0;entryPerimeter=0;strokeWidth=1;" edge="1" parent="L_marco" source="L_muestra_rest_inicio" target="L_muestra_rest_fin">
-            <mxGeometry relative="1" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="L_muestra_mensajeria" label="" zona="A,B,C,D">
-          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=none;endFill=0;exitX=0;exitY=0;entryX=0;entryY=0;exitPerimeter=0;entryPerimeter=0;dashed=1;dashPattern=12 6;strokeWidth=2;" edge="1" parent="L_marco" source="L_muestra_mensajeria_inicio" target="L_muestra_mensajeria_fin">
-            <mxGeometry relative="1" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="L_muestra_datos" label="" zona="A,B,C,D">
-          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=none;endFill=0;exitX=0;exitY=0;entryX=0;entryY=0;exitPerimeter=0;entryPerimeter=0;dashed=1;dashPattern=12 4 2 4;strokeWidth=2;" edge="1" parent="L_marco" source="L_muestra_datos_inicio" target="L_muestra_datos_fin">
-            <mxGeometry relative="1" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="L_muestra_frontera" label="" zona="A,B,C,D">
-          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=none;endFill=0;exitX=0;exitY=0;entryX=0;entryY=0;exitPerimeter=0;entryPerimeter=0;dashed=1;dashPattern=2 4;strokeWidth=1;" edge="1" parent="L_marco" source="L_muestra_frontera_inicio" target="L_muestra_frontera_fin">
-            <mxGeometry relative="1" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="L_muestra_sincrono" label="" zona="A,B,C,D">
-          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=none;endFill=0;exitX=0;exitY=0;entryX=0;entryY=0;exitPerimeter=0;entryPerimeter=0;endArrow=block;endFill=1;" edge="1" parent="L_marco" source="L_muestra_sincrono_inicio" target="L_muestra_sincrono_fin">
-            <mxGeometry relative="1" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="L_muestra_asincrono" label="" zona="A,B,C,D">
-          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=none;endFill=0;exitX=0;exitY=0;entryX=0;entryY=0;exitPerimeter=0;entryPerimeter=0;endArrow=open;endFill=0;" edge="1" parent="L_marco" source="L_muestra_asincrono_inicio" target="L_muestra_asincrono_fin">
-            <mxGeometry relative="1" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="B_m_1_1_flecha" label="" zona="B" emisor="B_reservas" receptor="B_cache" mensaje="1.1" enlace="B_enlace_reservas_cache">
-          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;dashed=0;shadow=0;startArrow=none;startFill=0;endArrow=block;endFill=1;" edge="1" parent="B_frontera_centro">
-            <mxGeometry relative="1" as="geometry">
-              <mxPoint x="320" y="190" as="sourcePoint" />
-              <mxPoint x="350" y="190" as="targetPoint" />
-            </mxGeometry>
-          </mxCell>
-        </object>
-        <object id="B_m_1_1_etiqueta" label="1.1: asientos := leerDisponibilidad(vuelo)" zona="B" emisor="B_reservas" receptor="B_cache" mensaje="1.1" enlace="B_enlace_reservas_cache">
-          <mxCell style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="B_frontera_centro">
-            <mxGeometry x="360" y="180" width="240" height="20" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="B_m_1_2_flecha" label="" zona="B" emisor="B_reservas" receptor="B_inventario" mensaje="1.2" enlace="B_enlace_reservas_inventario">
-          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;dashed=0;shadow=0;startArrow=none;startFill=0;endArrow=block;endFill=1;" edge="1" parent="B_frontera_centro">
-            <mxGeometry relative="1" as="geometry">
-              <mxPoint x="540" y="450" as="sourcePoint" />
-              <mxPoint x="570" y="450" as="targetPoint" />
-            </mxGeometry>
-          </mxCell>
-        </object>
-        <object id="B_m_1_2_etiqueta" label="1.2 [cache miss]: asientos := consultarDisponibilidad(vuelo)" zona="B" emisor="B_reservas" receptor="B_inventario" mensaje="1.2" enlace="B_enlace_reservas_inventario">
-          <mxCell style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="B_frontera_centro">
-            <mxGeometry x="580" y="440" width="340" height="20" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="B_m_1_2_1_flecha" label="" zona="B" emisor="B_inventario" receptor="B_bd_reservas" mensaje="1.2.1" enlace="B_enlace_inventario_bd">
-          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;dashed=0;shadow=0;startArrow=none;startFill=0;endArrow=block;endFill=1;" edge="1" parent="B_frontera_centro">
-            <mxGeometry relative="1" as="geometry">
-              <mxPoint x="1460" y="550" as="sourcePoint" />
-              <mxPoint x="1460" y="570" as="targetPoint" />
-            </mxGeometry>
-          </mxCell>
-        </object>
-        <object id="B_m_1_2_1_etiqueta" label="1.2.1: estados := leerEstadosAsiento(vuelo)" zona="B" emisor="B_inventario" receptor="B_bd_reservas" mensaje="1.2.1" enlace="B_enlace_inventario_bd">
-          <mxCell style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="B_frontera_centro">
-            <mxGeometry x="1480" y="550" width="260" height="20" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="B_m_1_2_2_flecha" label="" zona="B" emisor="B_inventario" receptor="B_cache" mensaje="1.2.2" enlace="B_enlace_inventario_cache">
-          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;dashed=0;shadow=0;startArrow=none;startFill=0;endArrow=open;endFill=0;" edge="1" parent="B_frontera_centro">
-            <mxGeometry relative="1" as="geometry">
-              <mxPoint x="1460" y="250" as="sourcePoint" />
-              <mxPoint x="1460" y="230" as="targetPoint" />
-            </mxGeometry>
-          </mxCell>
-        </object>
-        <object id="B_m_1_2_2_etiqueta" label="1.2.2: guardarDisponibilidad(vuelo, asientos)" zona="B" emisor="B_inventario" receptor="B_cache" mensaje="1.2.2" enlace="B_enlace_inventario_cache">
-          <mxCell style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="B_frontera_centro">
-            <mxGeometry x="1480" y="230" width="260" height="20" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="B_m_2_1_flecha" label="" zona="B" emisor="B_reservas" receptor="B_inventario" mensaje="2.1" enlace="B_enlace_reservas_inventario">
-          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;dashed=0;shadow=0;startArrow=none;startFill=0;endArrow=block;endFill=1;" edge="1" parent="B_frontera_centro">
-            <mxGeometry relative="1" as="geometry">
-              <mxPoint x="540" y="420" as="sourcePoint" />
-              <mxPoint x="570" y="420" as="targetPoint" />
-            </mxGeometry>
-          </mxCell>
-        </object>
-        <object id="B_m_2_1_etiqueta" label="2.1: resultado := retenerAsiento(vuelo, asiento, reserva)" zona="B" emisor="B_reservas" receptor="B_inventario" mensaje="2.1" enlace="B_enlace_reservas_inventario">
-          <mxCell style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="B_frontera_centro">
-            <mxGeometry x="580" y="410" width="320" height="20" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="B_m_2_1_1_flecha" label="" zona="B" emisor="B_inventario" receptor="B_bd_reservas" mensaje="2.1.1" enlace="B_enlace_inventario_bd">
-          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;dashed=0;shadow=0;startArrow=none;startFill=0;endArrow=block;endFill=1;" edge="1" parent="B_frontera_centro">
-            <mxGeometry relative="1" as="geometry">
-              <mxPoint x="1460" y="580" as="sourcePoint" />
-              <mxPoint x="1460" y="600" as="targetPoint" />
-            </mxGeometry>
-          </mxCell>
-        </object>
-        <object id="B_m_2_1_1_etiqueta" label="2.1.1: filas := retenerSiLibre(vuelo, asiento, reserva, venceEn)" zona="B" emisor="B_inventario" receptor="B_bd_reservas" mensaje="2.1.1" enlace="B_enlace_inventario_bd">
-          <mxCell style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="B_frontera_centro">
-            <mxGeometry x="1480" y="580" width="350" height="20" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="B_m_2_1_2_flecha" label="" zona="B" emisor="B_inventario" receptor="B_cache" mensaje="2.1.2" enlace="B_enlace_inventario_cache">
-          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;dashed=0;shadow=0;startArrow=none;startFill=0;endArrow=open;endFill=0;" edge="1" parent="B_frontera_centro">
-            <mxGeometry relative="1" as="geometry">
-              <mxPoint x="1460" y="280" as="sourcePoint" />
-              <mxPoint x="1460" y="260" as="targetPoint" />
-            </mxGeometry>
-          </mxCell>
-        </object>
-        <object id="B_m_2_1_2_etiqueta" label="2.1.2 [retenido]: invalidar(vuelo, asiento)" zona="B" emisor="B_inventario" receptor="B_cache" mensaje="2.1.2" enlace="B_enlace_inventario_cache">
-          <mxCell style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="B_frontera_centro">
-            <mxGeometry x="1480" y="260" width="240" height="20" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="B_m_2_2_flecha" label="" zona="B" emisor="B_reservas" receptor="B_bd_reservas" mensaje="2.2" enlace="B_enlace_reservas_bd">
-          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;dashed=0;shadow=0;startArrow=none;startFill=0;endArrow=block;endFill=1;" edge="1" parent="B_frontera_centro">
-            <mxGeometry relative="1" as="geometry">
-              <mxPoint x="420" y="550" as="sourcePoint" />
-              <mxPoint x="420" y="580" as="targetPoint" />
-            </mxGeometry>
-          </mxCell>
-        </object>
-        <object id="B_m_2_2_etiqueta" label="2.2 [retenido]: crearReserva(reserva, estado = PENDIENTE_PAGO)" zona="B" emisor="B_reservas" receptor="B_bd_reservas" mensaje="2.2" enlace="B_enlace_reservas_bd">
-          <mxCell style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="B_frontera_centro">
-            <mxGeometry x="440" y="550" width="390" height="20" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="B_m_2_3_flecha" label="" zona="B" emisor="B_inventario" receptor="B_inventario" mensaje="2.3">
-          <mxCell source="B_inventario" target="B_inventario" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;dashed=0;shadow=0;startArrow=none;startFill=0;endArrow=open;endFill=0;exitX=1;exitY=0.2;entryX=1;entryY=0.8;exitPerimeter=0;entryPerimeter=0;" edge="1" parent="B_frontera_centro">
-            <mxGeometry relative="1" as="geometry">
-              <Array as="points">
-                <mxPoint x="1700" y="440" />
-                <mxPoint x="1700" y="500" />
-              </Array>
-            </mxGeometry>
-          </mxCell>
-        </object>
-        <object id="B_m_2_3_etiqueta" label="2.3 *[cada 30 s]: liberarVencidas()" zona="B" emisor="B_inventario" receptor="B_inventario" mensaje="2.3">
-          <mxCell style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="B_frontera_centro">
-            <mxGeometry x="1720" y="430" width="100" height="60" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="B_m_2_3_1_flecha" label="" zona="B" emisor="B_inventario" receptor="B_bd_reservas" mensaje="2.3.1" enlace="B_enlace_inventario_bd">
-          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;dashed=0;shadow=0;startArrow=none;startFill=0;endArrow=block;endFill=1;" edge="1" parent="B_frontera_centro">
-            <mxGeometry relative="1" as="geometry">
-              <mxPoint x="1460" y="610" as="sourcePoint" />
-              <mxPoint x="1460" y="630" as="targetPoint" />
-            </mxGeometry>
-          </mxCell>
-        </object>
-        <object id="B_m_2_3_1_etiqueta" label="2.3.1: filas := liberarVencidas(ahora)" zona="B" emisor="B_inventario" receptor="B_bd_reservas" mensaje="2.3.1" enlace="B_enlace_inventario_bd">
-          <mxCell style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="B_frontera_centro">
-            <mxGeometry x="1480" y="610" width="220" height="20" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="B_m_2_3_2_flecha" label="" zona="B" emisor="B_inventario" receptor="B_cache" mensaje="2.3.2" enlace="B_enlace_inventario_cache">
-          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;dashed=0;shadow=0;startArrow=none;startFill=0;endArrow=open;endFill=0;" edge="1" parent="B_frontera_centro">
-            <mxGeometry relative="1" as="geometry">
-              <mxPoint x="1460" y="310" as="sourcePoint" />
-              <mxPoint x="1460" y="290" as="targetPoint" />
-            </mxGeometry>
-          </mxCell>
-        </object>
-        <object id="B_m_2_3_2_etiqueta" label="2.3.2: invalidar(vuelo, asientos)" zona="B" emisor="B_inventario" receptor="B_cache" mensaje="2.3.2" enlace="B_enlace_inventario_cache">
-          <mxCell style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="B_frontera_centro">
-            <mxGeometry x="1480" y="290" width="190" height="20" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="L_texto_condicion" label="[condición]: el mensaje solo ocurre si se cumple la condición." zona="A,B,C,D">
-          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;spacing=0;" vertex="1" parent="L_marco">
-            <mxGeometry x="40" y="890" width="540" height="20" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="L_texto_repeticion" label="*[condición]: el mensaje se repite mientras o cada vez que se cumple la condición." zona="A,B,C,D">
-          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;spacing=0;" vertex="1" parent="L_marco">
-            <mxGeometry x="40" y="930" width="540" height="20" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="L_texto_bucle" label="Bucle sobre un mismo participante: mensaje que el participante se envía a sí mismo." zona="A,B,C,D">
-          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;spacing=0;" vertex="1" parent="L_marco">
-            <mxGeometry x="40" y="970" width="540" height="20" as="geometry" />
-          </mxCell>
-        </object>
-        <object id="C_bd_pagos" label="registro : BaseDatosPagos" zona="C" tooltip="Registro persistente propio de Pagos. intentoId único; reservaId, importe, moneda, estado y transaccionId. No almacena datos completos de tarjeta. No reemplaza la base de Reservas ni controla el inventario."><mxCell style="shape=cylinder3;boundedLbl=1;size=15;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=14;" vertex="1" parent="B_frontera_centro"><mxGeometry x="1300" y="1400" width="400" height="100" as="geometry"/></mxCell></object>
-        <object id="C_enlace_pagos_registro" label="[Acceso a datos síncrono]&lt;br&gt;PostgreSQL · TCP + TLS" zona="C" tooltip="Driver PostgreSQL. Transacciones locales cortas para guardar intento y resultado; ninguna transacción permanece abierta durante la llamada a la pasarela."><mxCell source="C_pagos" target="C_bd_pagos" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#000000;dashed=1;dashPattern=12 4 2 4;strokeWidth=2;startArrow=none;endArrow=none;fontFamily=Helvetica;fontSize=12;labelBackgroundColor=#FFFFFF;labelWidth=210;whiteSpace=wrap;" edge="1" parent="1"><mxGeometry x="0" y="0" relative="1" as="geometry"><mxPoint x="-160" y="0" as="offset"/></mxGeometry></mxCell></object>
-        <object id="C_m_3_1_flecha" label="" zona="C" emisor="B_reservas" receptor="C_pagos" mensaje="3.1" enlace="B_enlace_reservas_pagos"><mxCell style="edgeStyle=none;html=1;strokeColor=#000000;strokeWidth=1;startArrow=none;endArrow=block;endFill=1;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="1240" y="895" as="sourcePoint"/><mxPoint x="1270" y="895" as="targetPoint"/></mxGeometry></mxCell></object>
-        <object id="C_m_3_1_etiqueta" label="3.1 [reserva pendiente y retención vigente]:&lt;br&gt;resultadoPago := cobrarReserva(reservaId, intentoId,&lt;br&gt;importe, moneda, tokenPago)" zona="C" emisor="B_reservas" receptor="C_pagos" mensaje="3.1" enlace="B_enlace_reservas_pagos"><mxCell style="text;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=12;align=left;verticalAlign=middle;spacing=2;" vertex="1" parent="1"><mxGeometry x="1280" y="860" width="560" height="60" as="geometry" /></mxCell></object>
-        <object id="C_m_3_1_1_flecha" label="" zona="C" emisor="C_pagos" receptor="C_bd_pagos" mensaje="3.1.1" enlace="C_enlace_pagos_registro"><mxCell style="edgeStyle=none;html=1;strokeColor=#000000;strokeWidth=1;startArrow=none;endArrow=block;endFill=1;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="2220" y="1265" as="sourcePoint"/><mxPoint x="2220" y="1290" as="targetPoint"/></mxGeometry></mxCell></object>
-        <object id="C_m_3_1_1_etiqueta" label="3.1.1: creado := registrarIntento(&lt;br&gt;intentoId único, reservaId, importe,&lt;br&gt;moneda, estado = PROCESANDO)" zona="C" emisor="C_pagos" receptor="C_bd_pagos" mensaje="3.1.1" enlace="C_enlace_pagos_registro"><mxCell style="text;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=12;align=left;verticalAlign=middle;spacing=2;" vertex="1" parent="1"><mxGeometry x="2240" y="1230" width="290" height="65" as="geometry" /></mxCell></object>
-        <object id="C_m_3_1_2_flecha" label="" zona="C" emisor="C_pagos" receptor="A_pasarela" mensaje="3.1.2" enlace="C_enlace_pagos_pasarela"><mxCell style="edgeStyle=none;html=1;strokeColor=#000000;strokeWidth=1;startArrow=none;endArrow=block;endFill=1;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="2490" y="1180" as="sourcePoint"/><mxPoint x="2520" y="1180" as="targetPoint"/></mxGeometry></mxCell></object>
-        <object id="C_m_3_1_2_etiqueta" label="3.1.2 [intento nuevo]:&lt;br&gt;respuesta := cobrar(intentoId, reservaId,&lt;br&gt;importe, moneda, tokenPago)" zona="C" emisor="C_pagos" receptor="A_pasarela" mensaje="3.1.2" enlace="C_enlace_pagos_pasarela"><mxCell style="text;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=12;align=left;verticalAlign=middle;spacing=2;" vertex="1" parent="1"><mxGeometry x="2530" y="1160" width="285" height="70" as="geometry" /></mxCell></object>
-        <object id="C_m_3_1_3_flecha" label="" zona="C" emisor="C_pagos" receptor="C_bd_pagos" mensaje="3.1.3" enlace="C_enlace_pagos_registro"><mxCell style="edgeStyle=none;html=1;strokeColor=#000000;strokeWidth=1;startArrow=none;endArrow=block;endFill=1;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="2220" y="1375" as="sourcePoint"/><mxPoint x="2220" y="1400" as="targetPoint"/></mxGeometry></mxCell></object>
-        <object id="C_m_3_1_3_etiqueta" label="3.1.3 [respuesta definitiva]:&lt;br&gt;guardado := registrarResultado(&lt;br&gt;intentoId, estado, transaccionId, motivo)" zona="C" emisor="C_pagos" receptor="C_bd_pagos" mensaje="3.1.3" enlace="C_enlace_pagos_registro"><mxCell style="text;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=12;align=left;verticalAlign=middle;spacing=2;" vertex="1" parent="1"><mxGeometry x="2240" y="1330" width="290" height="65" as="geometry" /></mxCell></object>
-        <object id="C_m_3_ui_flecha" label="" zona="C" emisor="A_cliente" receptor="A_cliente" mensaje="3"><mxCell source="A_cliente" target="A_cliente" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#000000;strokeWidth=1;endArrow=block;endFill=1;exitX=0.3;exitY=1;entryX=0.7;entryY=1;exitPerimeter=0;entryPerimeter=0;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="360" y="760"/><mxPoint x="520" y="760"/></Array></mxGeometry></mxCell></object>
-        <object id="C_m_3_ui_etiqueta" label="3 [al solicitar el pago]:&lt;br&gt;mostrarEstado(PROCESANDO_PAGO)&lt;br&gt;Interfaz activa durante la espera (R4)." zona="C" emisor="A_cliente" receptor="A_cliente" mensaje="3"><mxCell style="text;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=12;align=left;verticalAlign=middle;spacing=2;" vertex="1" parent="1"><mxGeometry x="250" y="790" width="380" height="65" as="geometry"/></mxCell></object>
-      </root>
-    </mxGraphModel>
-  </diagram>
+<mxfile host="65bd71144e">
+    <diagram id="aeroandes_pagina" name="AeroAndes Reservas">
+        <mxGraphModel dx="1493" dy="1026" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="5100" pageHeight="4600" background="#FFFFFF" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <object label="Centro de datos AeroAndes" zona="B,C" id="B_frontera_centro">
+                    <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=14;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=center;verticalAlign=middle;fillColor=none;dashed=1;dashPattern=2 4;fontSize=12;verticalAlign=top;align=left;spacingTop=10;spacingLeft=20;container=1;collapsible=0;recursiveResize=0;pointerEvents=0;" vertex="1">
+                        <mxGeometry height="3400" width="3500" x="700" y="60" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="reservas : ServicioReservas" zona="B" id="B_reservas">
+                    <mxCell parent="B_frontera_centro" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=14;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=center;verticalAlign=middle;" vertex="1">
+                        <mxGeometry height="100" width="400" x="100" y="420" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="inventario : ServicioInventarioAsientos" zona="B" id="B_inventario">
+                    <mxCell parent="B_frontera_centro" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=14;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=center;verticalAlign=middle;" vertex="1">
+                        <mxGeometry height="100" width="400" x="1240" y="420" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="cache : CacheDisponibilidad" zona="B" id="B_cache">
+                    <mxCell parent="B_frontera_centro" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=14;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=center;verticalAlign=middle;" vertex="1">
+                        <mxGeometry height="100" width="400" x="700" y="120" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="bd : BaseDatosReservas" zona="B" id="B_bd_reservas">
+                    <mxCell parent="B_frontera_centro" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=14;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=center;verticalAlign=middle;shape=cylinder3;boundedLbl=1;size=15;" vertex="1">
+                        <mxGeometry height="100" width="400" x="1000" y="720" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="pagos : ServicioPagos" zona="C" id="C_pagos">
+                    <mxCell parent="B_frontera_centro" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=14;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=center;verticalAlign=middle;" vertex="1">
+                        <mxGeometry height="100" width="400" x="2300" y="1740" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="broker : RabbitMQ" zona="C" id="C_rabbitmq">
+                    <mxCell parent="B_frontera_centro" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=14;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=center;verticalAlign=middle;" vertex="1">
+                        <mxGeometry height="100" width="400" x="700" y="2240" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="fallidos : ColaMensajesFallidos" zona="C" id="C_cola_fallidos">
+                    <mxCell parent="B_frontera_centro" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=14;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=center;verticalAlign=middle;" vertex="1">
+                        <mxGeometry height="100" width="400" x="700" y="2590" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="notificaciones : ServicioNotificaciones" zona="C" id="C_notificaciones">
+                    <mxCell parent="B_frontera_centro" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=14;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=center;verticalAlign=middle;" vertex="1">
+                        <mxGeometry height="100" width="400" x="100" y="2240" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="B" emisor="B_reservas" receptor="B_cache" mensaje="1.1" enlace="B_enlace_reservas_cache" id="B_m_1_1_flecha">
+                    <mxCell edge="1" parent="B_frontera_centro" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;dashed=0;shadow=0;startArrow=none;startFill=0;endArrow=block;endFill=1;">
+                        <mxGeometry relative="1" as="geometry">
+                            <mxPoint x="320" y="190" as="sourcePoint"/>
+                            <mxPoint x="350" y="190" as="targetPoint"/>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="1.1: asientos := leerDisponibilidad(vuelo)" zona="B" emisor="B_reservas" receptor="B_cache" mensaje="1.1" enlace="B_enlace_reservas_cache" id="B_m_1_1_etiqueta">
+                    <mxCell parent="B_frontera_centro" style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1">
+                        <mxGeometry height="20" width="240" x="360" y="180" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="B" emisor="B_reservas" receptor="B_inventario" mensaje="1.2" enlace="B_enlace_reservas_inventario" id="B_m_1_2_flecha">
+                    <mxCell edge="1" parent="B_frontera_centro" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;dashed=0;shadow=0;startArrow=none;startFill=0;endArrow=block;endFill=1;">
+                        <mxGeometry relative="1" as="geometry">
+                            <mxPoint x="540" y="450" as="sourcePoint"/>
+                            <mxPoint x="570" y="450" as="targetPoint"/>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="1.2 [cache miss]: asientos := consultarDisponibilidad(vuelo)" zona="B" emisor="B_reservas" receptor="B_inventario" mensaje="1.2" enlace="B_enlace_reservas_inventario" id="B_m_1_2_etiqueta">
+                    <mxCell parent="B_frontera_centro" style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1">
+                        <mxGeometry height="20" width="340" x="580" y="440" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="B" emisor="B_inventario" receptor="B_bd_reservas" mensaje="1.2.1" enlace="B_enlace_inventario_bd" id="B_m_1_2_1_flecha">
+                    <mxCell edge="1" parent="B_frontera_centro" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;dashed=0;shadow=0;startArrow=none;startFill=0;endArrow=block;endFill=1;">
+                        <mxGeometry relative="1" as="geometry">
+                            <mxPoint x="1460" y="550" as="sourcePoint"/>
+                            <mxPoint x="1460" y="570" as="targetPoint"/>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="1.2.1: estados := leerEstadosAsiento(vuelo)" zona="B" emisor="B_inventario" receptor="B_bd_reservas" mensaje="1.2.1" enlace="B_enlace_inventario_bd" id="B_m_1_2_1_etiqueta">
+                    <mxCell parent="B_frontera_centro" style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1">
+                        <mxGeometry height="20" width="260" x="1480" y="550" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="B" emisor="B_inventario" receptor="B_cache" mensaje="1.2.2" enlace="B_enlace_inventario_cache" id="B_m_1_2_2_flecha">
+                    <mxCell edge="1" parent="B_frontera_centro" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;dashed=0;shadow=0;startArrow=none;startFill=0;endArrow=open;endFill=0;">
+                        <mxGeometry relative="1" as="geometry">
+                            <mxPoint x="1460" y="250" as="sourcePoint"/>
+                            <mxPoint x="1460" y="230" as="targetPoint"/>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="1.2.2: guardarDisponibilidad(vuelo, asientos)" zona="B" emisor="B_inventario" receptor="B_cache" mensaje="1.2.2" enlace="B_enlace_inventario_cache" id="B_m_1_2_2_etiqueta">
+                    <mxCell parent="B_frontera_centro" style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1">
+                        <mxGeometry height="20" width="260" x="1480" y="230" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="B" emisor="B_reservas" receptor="B_inventario" mensaje="2.1" enlace="B_enlace_reservas_inventario" id="B_m_2_1_flecha">
+                    <mxCell edge="1" parent="B_frontera_centro" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;dashed=0;shadow=0;startArrow=none;startFill=0;endArrow=block;endFill=1;">
+                        <mxGeometry relative="1" as="geometry">
+                            <mxPoint x="540" y="420" as="sourcePoint"/>
+                            <mxPoint x="570" y="420" as="targetPoint"/>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="2.1: resultado := retenerAsiento(vuelo, asiento, reserva)" zona="B" emisor="B_reservas" receptor="B_inventario" mensaje="2.1" enlace="B_enlace_reservas_inventario" id="B_m_2_1_etiqueta">
+                    <mxCell parent="B_frontera_centro" style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1">
+                        <mxGeometry height="20" width="320" x="580" y="410" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="B" emisor="B_inventario" receptor="B_bd_reservas" mensaje="2.1.1" enlace="B_enlace_inventario_bd" id="B_m_2_1_1_flecha">
+                    <mxCell edge="1" parent="B_frontera_centro" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;dashed=0;shadow=0;startArrow=none;startFill=0;endArrow=block;endFill=1;">
+                        <mxGeometry relative="1" as="geometry">
+                            <mxPoint x="1460" y="580" as="sourcePoint"/>
+                            <mxPoint x="1460" y="600" as="targetPoint"/>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="2.1.1: filas := retenerSiLibre(vuelo, asiento, reserva, venceEn)" zona="B" emisor="B_inventario" receptor="B_bd_reservas" mensaje="2.1.1" enlace="B_enlace_inventario_bd" id="B_m_2_1_1_etiqueta">
+                    <mxCell parent="B_frontera_centro" style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1">
+                        <mxGeometry height="20" width="350" x="1480" y="580" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="B" emisor="B_inventario" receptor="B_cache" mensaje="2.1.2" enlace="B_enlace_inventario_cache" id="B_m_2_1_2_flecha">
+                    <mxCell edge="1" parent="B_frontera_centro" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;dashed=0;shadow=0;startArrow=none;startFill=0;endArrow=open;endFill=0;">
+                        <mxGeometry relative="1" as="geometry">
+                            <mxPoint x="1460" y="280" as="sourcePoint"/>
+                            <mxPoint x="1460" y="260" as="targetPoint"/>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="2.1.2 [retenido]: invalidar(vuelo, asiento)" zona="B" emisor="B_inventario" receptor="B_cache" mensaje="2.1.2" enlace="B_enlace_inventario_cache" id="B_m_2_1_2_etiqueta">
+                    <mxCell parent="B_frontera_centro" style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1">
+                        <mxGeometry height="20" width="240" x="1480" y="260" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="B" emisor="B_reservas" receptor="B_bd_reservas" mensaje="2.2" enlace="B_enlace_reservas_bd" id="B_m_2_2_flecha">
+                    <mxCell edge="1" parent="B_frontera_centro" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;dashed=0;shadow=0;startArrow=none;startFill=0;endArrow=block;endFill=1;">
+                        <mxGeometry relative="1" as="geometry">
+                            <mxPoint x="420" y="550" as="sourcePoint"/>
+                            <mxPoint x="420" y="580" as="targetPoint"/>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="2.2 [retenido]: crearReserva(reserva, estado = PENDIENTE_PAGO)" zona="B" emisor="B_reservas" receptor="B_bd_reservas" mensaje="2.2" enlace="B_enlace_reservas_bd" id="B_m_2_2_etiqueta">
+                    <mxCell parent="B_frontera_centro" style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1">
+                        <mxGeometry height="20" width="390" x="440" y="550" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="B" emisor="B_inventario" receptor="B_inventario" mensaje="2.3" id="B_m_2_3_flecha">
+                    <mxCell edge="1" parent="B_frontera_centro" source="B_inventario" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;dashed=0;shadow=0;startArrow=none;startFill=0;endArrow=open;endFill=0;exitX=1;exitY=0.2;entryX=1;entryY=0.8;exitPerimeter=0;entryPerimeter=0;" target="B_inventario">
+                        <mxGeometry relative="1" as="geometry">
+                            <Array as="points">
+                                <mxPoint x="1700" y="440"/>
+                                <mxPoint x="1700" y="500"/>
+                            </Array>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="2.3 *[cada 30 s]: liberarVencidas()" zona="B" emisor="B_inventario" receptor="B_inventario" mensaje="2.3" id="B_m_2_3_etiqueta">
+                    <mxCell parent="B_frontera_centro" style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1">
+                        <mxGeometry height="60" width="100" x="1720" y="430" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="B" emisor="B_inventario" receptor="B_bd_reservas" mensaje="2.3.1" enlace="B_enlace_inventario_bd" id="B_m_2_3_1_flecha">
+                    <mxCell edge="1" parent="B_frontera_centro" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;dashed=0;shadow=0;startArrow=none;startFill=0;endArrow=block;endFill=1;">
+                        <mxGeometry relative="1" as="geometry">
+                            <mxPoint x="1460" y="610" as="sourcePoint"/>
+                            <mxPoint x="1460" y="630" as="targetPoint"/>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="2.3.1: filas := liberarVencidas(ahora)" zona="B" emisor="B_inventario" receptor="B_bd_reservas" mensaje="2.3.1" enlace="B_enlace_inventario_bd" id="B_m_2_3_1_etiqueta">
+                    <mxCell parent="B_frontera_centro" style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1">
+                        <mxGeometry height="20" width="220" x="1480" y="610" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="B" emisor="B_inventario" receptor="B_cache" mensaje="2.3.2" enlace="B_enlace_inventario_cache" id="B_m_2_3_2_flecha">
+                    <mxCell edge="1" parent="B_frontera_centro" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;dashed=0;shadow=0;startArrow=none;startFill=0;endArrow=open;endFill=0;">
+                        <mxGeometry relative="1" as="geometry">
+                            <mxPoint x="1460" y="310" as="sourcePoint"/>
+                            <mxPoint x="1460" y="290" as="targetPoint"/>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="2.3.2: invalidar(vuelo, asientos)" zona="B" emisor="B_inventario" receptor="B_cache" mensaje="2.3.2" enlace="B_enlace_inventario_cache" id="B_m_2_3_2_etiqueta">
+                    <mxCell parent="B_frontera_centro" style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1">
+                        <mxGeometry height="20" width="190" x="1480" y="290" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="registro : BaseDatosPagos" zona="C" id="C_bd_pagos">
+                    <mxCell parent="B_frontera_centro" style="shape=cylinder3;boundedLbl=1;size=15;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=14;" vertex="1">
+                        <mxGeometry height="100" width="400" x="2300" y="2940" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="Aeropuerto" zona="D" id="D_frontera_aeropuerto">
+                    <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=14;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=center;verticalAlign=middle;fillColor=none;dashed=1;dashPattern=2 4;fontSize=12;verticalAlign=top;align=left;spacingTop=10;spacingLeft=20;container=1;collapsible=0;recursiveResize=0;pointerEvents=0;" vertex="1">
+                        <mxGeometry height="600" width="1840" x="700" y="3800" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="quioscos : QuioscoAutoservicio" zona="D" id="D_quioscos">
+                    <mxCell parent="D_frontera_aeropuerto" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=14;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=center;verticalAlign=middle;" vertex="1">
+                        <mxGeometry height="100" width="400" x="100" y="150" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="lectores : LectorPuertaEmbarque" zona="D" id="D_lectores">
+                    <mxCell parent="D_frontera_aeropuerto" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=14;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=center;verticalAlign=middle;" vertex="1">
+                        <mxGeometry height="100" width="400" x="700" y="450" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="embarque : ServidorEmbarque" zona="D" id="D_embarque">
+                    <mxCell parent="D_frontera_aeropuerto" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=14;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=center;verticalAlign=middle;" vertex="1">
+                        <mxGeometry height="100" width="400" x="700" y="150" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="manifiesto : CacheManifiestoLocal" zona="D" id="D_manifiesto">
+                    <mxCell parent="D_frontera_aeropuerto" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=14;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=center;verticalAlign=middle;" vertex="1">
+                        <mxGeometry height="100" width="400" x="1300" y="150" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="Sistemas externos" zona="A" id="A_frontera_agencias">
+                    <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=14;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=center;verticalAlign=middle;fillColor=none;dashed=1;dashPattern=2 4;fontSize=12;verticalAlign=top;align=left;spacingTop=10;spacingLeft=20;container=1;collapsible=0;recursiveResize=0;pointerEvents=0;" vertex="1">
+                        <mxGeometry height="300" width="560" x="80" y="80" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="agencias : AgenciasDeViajes" zona="A" id="A_agencias">
+                    <mxCell parent="A_frontera_agencias" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=14;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=center;verticalAlign=middle;" vertex="1">
+                        <mxGeometry height="100" width="400" x="80" y="100" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="Sistemas externos" zona="A" id="A_frontera_pasarela">
+                    <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=14;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=center;verticalAlign=middle;fillColor=none;dashed=1;dashPattern=2 4;fontSize=12;verticalAlign=top;align=left;spacingTop=10;spacingLeft=20;container=1;collapsible=0;recursiveResize=0;pointerEvents=0;" vertex="1">
+                        <mxGeometry height="300" width="560" x="4400" y="1700" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="pasarela : PasarelaDePagos" zona="A" id="A_pasarela">
+                    <mxCell parent="A_frontera_pasarela" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=14;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=center;verticalAlign=middle;" vertex="1">
+                        <mxGeometry height="100" width="400" x="80" y="100" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="A" id="A_enlace_pasajero_cliente">
+                    <mxCell edge="1" parent="1" source="A_pasajero" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=14;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=none;endFill=0;exitX=1;exitY=0.3;entryX=0;entryY=0.3;exitPerimeter=0;entryPerimeter=0;" target="A_cliente">
+                        <mxGeometry relative="1" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="A" id="A_enlace_pasajero_quioscos">
+                    <mxCell edge="1" parent="1" source="A_pasajero" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=14;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=none;endFill=0;exitX=0;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;" target="D_quioscos">
+                        <mxGeometry relative="1" as="geometry">
+                            <Array as="points">
+                                <mxPoint x="20" y="650"/>
+                                <mxPoint x="20" y="4000"/>
+                            </Array>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="" zona="D" id="D_enlace_personal_lectores">
+                    <mxCell edge="1" parent="1" source="D_personal" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=14;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=none;endFill=0;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;" target="D_lectores">
+                        <mxGeometry relative="1" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="A" id="A_enlace_cliente_reservas">
+                    <mxCell edge="1" parent="1" source="A_cliente" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=14;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=none;endFill=0;exitX=1;exitY=0.5;entryX=0;entryY=0.7;exitPerimeter=0;entryPerimeter=0;" target="B_reservas">
+                        <mxGeometry relative="1" as="geometry">
+                            <Array as="points">
+                                <mxPoint x="740" y="650"/>
+                                <mxPoint x="740" y="550"/>
+                            </Array>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="" zona="A" id="A_enlace_agencias_reservas">
+                    <mxCell edge="1" parent="1" source="A_agencias" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=14;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=none;endFill=0;exitX=1;exitY=0.5;entryX=0;entryY=0.2;exitPerimeter=0;entryPerimeter=0;" target="B_reservas">
+                        <mxGeometry relative="1" as="geometry">
+                            <Array as="points">
+                                <mxPoint x="660" y="230"/>
+                                <mxPoint x="660" y="500"/>
+                            </Array>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="[RPC]&lt;br&gt;gRPC · HTTP/2" zona="B" id="B_enlace_reservas_inventario">
+                    <mxCell edge="1" parent="1" source="B_reservas" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=2;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=none;endFill=0;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;shape=link;labelBackgroundColor=#FFFFFF;labelWidth=160;whiteSpace=wrap;align=center;verticalAlign=middle;spacing=0;" target="B_inventario">
+                        <mxGeometry relative="1" x="1" as="geometry">
+                            <mxPoint x="-340" y="-150" as="offset"/>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="[Acceso a datos]&lt;br&gt;Redis · TCP" zona="B" id="B_enlace_reservas_cache">
+                    <mxCell edge="1" parent="1" source="B_reservas" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=2;shadow=0;dashed=1;startArrow=none;startFill=0;endArrow=none;endFill=0;exitX=0.5;exitY=0;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;dashPattern=12 4 2 4;labelBackgroundColor=#FFFFFF;labelWidth=160;whiteSpace=wrap;align=center;verticalAlign=middle;spacing=0;" target="B_cache">
+                        <mxGeometry relative="1" x="1" as="geometry">
+                            <mxPoint x="-200" y="-40" as="offset"/>
+                            <Array as="points">
+                                <mxPoint x="1000" y="230"/>
+                            </Array>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="[Acceso a datos]&lt;br&gt;Redis · TCP" zona="B" id="B_enlace_inventario_cache">
+                    <mxCell edge="1" parent="1" source="B_inventario" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=2;shadow=0;dashed=1;startArrow=none;startFill=0;endArrow=none;endFill=0;exitX=0.5;exitY=0;entryX=1;entryY=0.5;exitPerimeter=0;entryPerimeter=0;dashPattern=12 4 2 4;labelBackgroundColor=#FFFFFF;labelWidth=160;whiteSpace=wrap;align=center;verticalAlign=middle;spacing=0;" target="B_cache">
+                        <mxGeometry relative="1" x="1" as="geometry">
+                            <mxPoint x="200" y="-40" as="offset"/>
+                            <Array as="points">
+                                <mxPoint x="2140" y="230"/>
+                            </Array>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="[Acceso a datos]&lt;br&gt;PostgreSQL · TCP" zona="B" id="B_enlace_reservas_bd">
+                    <mxCell edge="1" parent="1" source="B_reservas" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=2;shadow=0;dashed=1;startArrow=none;startFill=0;endArrow=none;endFill=0;exitX=0.75;exitY=1;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;dashPattern=12 4 2 4;labelBackgroundColor=#FFFFFF;labelWidth=160;whiteSpace=wrap;align=center;verticalAlign=middle;spacing=0;" target="B_bd_reservas">
+                        <mxGeometry relative="1" x="1" as="geometry">
+                            <mxPoint x="-300" y="-50" as="offset"/>
+                            <Array as="points">
+                                <mxPoint x="1100" y="830"/>
+                            </Array>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="[Acceso a datos]&lt;br&gt;PostgreSQL · TCP" zona="B" id="B_enlace_inventario_bd">
+                    <mxCell edge="1" parent="1" source="B_inventario" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=2;shadow=0;dashed=1;startArrow=none;startFill=0;endArrow=none;endFill=0;exitX=0.5;exitY=1;entryX=1;entryY=0.5;exitPerimeter=0;entryPerimeter=0;dashPattern=12 4 2 4;labelBackgroundColor=#FFFFFF;labelWidth=160;whiteSpace=wrap;align=center;verticalAlign=middle;spacing=0;" target="B_bd_reservas">
+                        <mxGeometry relative="1" x="1" as="geometry">
+                            <mxPoint x="-80" y="-130" as="offset"/>
+                            <Array as="points">
+                                <mxPoint x="2140" y="830"/>
+                            </Array>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="[RPC síncrono]&lt;br&gt;gRPC · HTTP/2 + TLS&lt;br&gt;Plazo máximo: 35 s" zona="B" id="B_enlace_reservas_pagos">
+                    <mxCell edge="1" parent="1" source="B_reservas" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=14;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=none;endFill=0;exitX=0.5;exitY=1;entryX=0.5;entryY=0;exitPerimeter=0;entryPerimeter=0;shape=link;strokeWidth=2;fontSize=12;labelBackgroundColor=#FFFFFF;labelWidth=220;align=center;verticalAlign=middle;spacing=0;" target="C_pagos">
+                        <mxGeometry relative="1" x="0.8" as="geometry">
+                            <mxPoint y="-45" as="offset"/>
+                            <Array as="points">
+                                <mxPoint x="1000" y="1400"/>
+                                <mxPoint x="3200" y="1400"/>
+                            </Array>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="[Solicitud/respuesta síncrona]&lt;br&gt;REST · HTTPS (HTTP/1.1 + TLS)&lt;br&gt;Espera máxima: 32 s" zona="C" id="C_enlace_pagos_pasarela">
+                    <mxCell edge="1" parent="1" source="C_pagos" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=14;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=none;endFill=0;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;fontSize=12;labelBackgroundColor=#FFFFFF;labelWidth=250;align=center;verticalAlign=middle;spacing=0;" target="A_pasarela">
+                        <mxGeometry relative="1" y="40" as="geometry">
+                            <mxPoint as="offset"/>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="[Mensajería]&lt;br&gt;RabbitMQ · AMQP" zona="B" id="B_enlace_reservas_broker">
+                    <mxCell edge="1" parent="1" source="B_reservas" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=2;shadow=0;dashed=1;startArrow=none;startFill=0;endArrow=none;endFill=0;exitX=0.25;exitY=1;entryX=0.25;entryY=0;exitPerimeter=0;entryPerimeter=0;dashPattern=12 6;labelBackgroundColor=#FFFFFF;labelWidth=160;whiteSpace=wrap;align=center;verticalAlign=middle;spacing=0;" target="C_rabbitmq">
+                        <mxGeometry relative="1" x="1" as="geometry">
+                            <mxPoint x="-180" y="-150" as="offset"/>
+                            <Array as="points">
+                                <mxPoint x="900" y="2050"/>
+                                <mxPoint x="1500" y="2050"/>
+                            </Array>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="" zona="C" id="C_enlace_pagos_broker">
+                    <mxCell edge="1" parent="1" source="C_pagos" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=14;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=none;endFill=0;exitX=0;exitY=0.5;entryX=1;entryY=0.5;exitPerimeter=0;entryPerimeter=0;" target="C_rabbitmq">
+                        <mxGeometry relative="1" as="geometry">
+                            <Array as="points">
+                                <mxPoint x="2400" y="1850"/>
+                                <mxPoint x="2400" y="2350"/>
+                            </Array>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="" zona="C" id="C_enlace_broker_notificaciones">
+                    <mxCell edge="1" parent="1" source="C_rabbitmq" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=14;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=none;endFill=0;exitX=0;exitY=0.5;entryX=1;entryY=0.5;exitPerimeter=0;entryPerimeter=0;" target="C_notificaciones">
+                        <mxGeometry relative="1" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="C" id="C_enlace_broker_fallidos">
+                    <mxCell edge="1" parent="1" source="C_rabbitmq" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=14;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=none;endFill=0;exitX=0.5;exitY=1;entryX=0.5;entryY=0;exitPerimeter=0;entryPerimeter=0;" target="C_cola_fallidos">
+                        <mxGeometry relative="1" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="C" id="C_enlace_notificaciones_pasajero">
+                    <mxCell edge="1" parent="1" source="C_notificaciones" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=14;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=none;endFill=0;exitX=0;exitY=0.5;entryX=1;entryY=0.8;exitPerimeter=0;entryPerimeter=0;" target="A_pasajero">
+                        <mxGeometry relative="1" as="geometry">
+                            <Array as="points">
+                                <mxPoint x="190" y="2350"/>
+                                <mxPoint x="190" y="680"/>
+                            </Array>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="" zona="D" id="D_enlace_quioscos_embarque">
+                    <mxCell edge="1" parent="1" source="D_quioscos" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=14;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=none;endFill=0;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;" target="D_embarque">
+                        <mxGeometry relative="1" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="D" id="D_enlace_lectores_embarque">
+                    <mxCell edge="1" parent="1" source="D_lectores" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=14;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=none;endFill=0;exitX=0.5;exitY=0;entryX=0.5;entryY=1;exitPerimeter=0;entryPerimeter=0;" target="D_embarque">
+                        <mxGeometry relative="1" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="D" id="D_enlace_embarque_manifiesto">
+                    <mxCell edge="1" parent="1" source="D_embarque" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=14;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=none;endFill=0;exitX=1;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;" target="D_manifiesto">
+                        <mxGeometry relative="1" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="D" id="D_enlace_embarque_reservas">
+                    <mxCell edge="1" parent="1" source="D_embarque" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=14;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=none;endFill=0;exitX=0.75;exitY=0;entryX=0.25;entryY=0;exitPerimeter=0;entryPerimeter=0;" target="B_reservas">
+                        <mxGeometry relative="1" as="geometry">
+                            <Array as="points">
+                                <mxPoint x="1700" y="3640"/>
+                                <mxPoint x="5050" y="3640"/>
+                                <mxPoint x="5050" y="100"/>
+                                <mxPoint x="900" y="100"/>
+                            </Array>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="Pasajero" zona="A" id="A_pasajero">
+                    <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=14;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=center;verticalAlign=middle;shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;labelWidth=300;" vertex="1">
+                        <mxGeometry height="100" width="80" x="60" y="600" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="Personal de aeropuerto" zona="D" id="D_personal">
+                    <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=14;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=center;verticalAlign=middle;shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;labelWidth=300;" vertex="1">
+                        <mxGeometry height="100" width="80" x="480" y="4250" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="cliente : AppMovilWeb" zona="A" id="A_cliente">
+                    <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=14;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=center;verticalAlign=middle;" vertex="1">
+                        <mxGeometry height="100" width="400" x="240" y="600" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="Leyenda" zona="A,B,C,D" id="L_marco">
+                    <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;fontSize=14;align=center;verticalAlign=top;spacingTop=20;container=1;collapsible=0;recursiveResize=0;" vertex="1">
+                        <mxGeometry height="1020" width="620" x="4400" y="2800" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="Símbolos" zona="A,B,C,D" id="L_titulo_simbolos">
+                    <mxCell parent="L_marco" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;fontStyle=1;" vertex="1">
+                        <mxGeometry height="20" width="540" x="40" y="60" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="A,B,C,D" id="L_simbolo_proceso">
+                    <mxCell parent="L_marco" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;align=center;" vertex="1">
+                        <mxGeometry height="20" width="60" x="40" y="100" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="Proceso (rectángulo)" zona="A,B,C,D" id="L_texto_proceso">
+                    <mxCell parent="L_marco" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;spacing=0;" vertex="1">
+                        <mxGeometry height="20" width="460" x="120" y="100" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="A,B,C,D" id="L_simbolo_bd">
+                    <mxCell parent="L_marco" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;shape=cylinder3;boundedLbl=1;size=5;align=center;" vertex="1">
+                        <mxGeometry height="20" width="60" x="40" y="140" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="Base de datos (cilindro)" zona="A,B,C,D" id="L_texto_bd">
+                    <mxCell parent="L_marco" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;spacing=0;" vertex="1">
+                        <mxGeometry height="20" width="460" x="120" y="140" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="A,B,C,D" id="L_simbolo_actor">
+                    <mxCell parent="L_marco" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;shape=umlActor;align=center;" vertex="1">
+                        <mxGeometry height="40" width="20" x="60" y="180" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="Actor (usuario)" zona="A,B,C,D" id="L_texto_actor">
+                    <mxCell parent="L_marco" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;spacing=0;" vertex="1">
+                        <mxGeometry height="40" width="460" x="120" y="180" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="Enlace de comunicación" zona="A,B,C,D" id="L_texto_enlace">
+                    <mxCell parent="L_marco" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;spacing=0;" vertex="1">
+                        <mxGeometry height="20" width="460" x="120" y="240" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="A,B,C,D" id="L_simbolo_frontera">
+                    <mxCell parent="L_marco" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;dashed=1;dashPattern=2 4;align=center;" vertex="1">
+                        <mxGeometry height="20" width="60" x="40" y="280" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="Frontera (recuadro punteado)" zona="A,B,C,D" id="L_texto_frontera">
+                    <mxCell parent="L_marco" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;spacing=0;" vertex="1">
+                        <mxGeometry height="20" width="460" x="120" y="280" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="Tecnología del enlace" zona="A,B,C,D" id="L_titulo_tecnologia">
+                    <mxCell parent="L_marco" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;fontStyle=1;" vertex="1">
+                        <mxGeometry height="20" width="540" x="40" y="320" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="A,B,C,D" id="L_muestra_enlace_inicio">
+                    <mxCell parent="L_marco" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;connectable=0;" vertex="1">
+                        <mxGeometry x="40" y="250" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="A,B,C,D" id="L_muestra_enlace_fin">
+                    <mxCell parent="L_marco" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;connectable=0;" vertex="1">
+                        <mxGeometry x="100" y="250" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="Sockets TCP" zona="A,B,C,D" id="L_texto_sockets">
+                    <mxCell parent="L_marco" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;spacing=0;" vertex="1">
+                        <mxGeometry height="20" width="460" x="120" y="360" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="A,B,C,D" id="L_muestra_sockets_inicio">
+                    <mxCell parent="L_marco" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;connectable=0;" vertex="1">
+                        <mxGeometry x="40" y="370" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="A,B,C,D" id="L_muestra_sockets_fin">
+                    <mxCell parent="L_marco" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;connectable=0;" vertex="1">
+                        <mxGeometry x="100" y="370" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="RPC (gRPC)" zona="A,B,C,D" id="L_texto_rpc">
+                    <mxCell parent="L_marco" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;spacing=0;" vertex="1">
+                        <mxGeometry height="20" width="460" x="120" y="400" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="A,B,C,D" id="L_muestra_rpc_inicio">
+                    <mxCell parent="L_marco" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;connectable=0;" vertex="1">
+                        <mxGeometry x="40" y="410" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="A,B,C,D" id="L_muestra_rpc_fin">
+                    <mxCell parent="L_marco" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;connectable=0;" vertex="1">
+                        <mxGeometry x="100" y="410" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="REST sobre HTTPS" zona="A,B,C,D" id="L_texto_rest">
+                    <mxCell parent="L_marco" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;spacing=0;" vertex="1">
+                        <mxGeometry height="20" width="460" x="120" y="440" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="A,B,C,D" id="L_muestra_rest_inicio">
+                    <mxCell parent="L_marco" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;connectable=0;" vertex="1">
+                        <mxGeometry x="40" y="450" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="A,B,C,D" id="L_muestra_rest_fin">
+                    <mxCell parent="L_marco" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;connectable=0;" vertex="1">
+                        <mxGeometry x="100" y="450" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="Mensajería (AMQP / RabbitMQ)" zona="A,B,C,D" id="L_texto_mensajeria">
+                    <mxCell parent="L_marco" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;spacing=0;" vertex="1">
+                        <mxGeometry height="20" width="460" x="120" y="480" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="A,B,C,D" id="L_muestra_mensajeria_inicio">
+                    <mxCell parent="L_marco" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;connectable=0;" vertex="1">
+                        <mxGeometry x="40" y="490" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="A,B,C,D" id="L_muestra_mensajeria_fin">
+                    <mxCell parent="L_marco" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;connectable=0;" vertex="1">
+                        <mxGeometry x="100" y="490" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="Acceso a datos (SGBD)" zona="A,B,C,D" id="L_texto_datos">
+                    <mxCell parent="L_marco" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;spacing=0;" vertex="1">
+                        <mxGeometry height="20" width="460" x="120" y="520" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="A,B,C,D" id="L_muestra_datos_inicio">
+                    <mxCell parent="L_marco" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;connectable=0;" vertex="1">
+                        <mxGeometry x="40" y="530" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="A,B,C,D" id="L_muestra_datos_fin">
+                    <mxCell parent="L_marco" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;connectable=0;" vertex="1">
+                        <mxGeometry x="100" y="530" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="Frontera del sistema: solo agrupa" zona="A,B,C,D" id="L_texto_tecnologia_frontera">
+                    <mxCell parent="L_marco" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;spacing=0;" vertex="1">
+                        <mxGeometry height="20" width="460" x="120" y="560" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="A,B,C,D" id="L_muestra_frontera_inicio">
+                    <mxCell parent="L_marco" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;connectable=0;" vertex="1">
+                        <mxGeometry x="40" y="570" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="A,B,C,D" id="L_muestra_frontera_fin">
+                    <mxCell parent="L_marco" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;connectable=0;" vertex="1">
+                        <mxGeometry x="100" y="570" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="Mensajes" zona="A,B,C,D" id="L_titulo_mensajes">
+                    <mxCell parent="L_marco" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;fontStyle=1;" vertex="1">
+                        <mxGeometry height="20" width="540" x="40" y="600" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="Mensaje síncrono (el emisor espera respuesta)" zona="A,B,C,D" id="L_texto_sincrono">
+                    <mxCell parent="L_marco" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;spacing=0;" vertex="1">
+                        <mxGeometry height="40" width="460" x="120" y="640" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="A,B,C,D" id="L_muestra_sincrono_inicio">
+                    <mxCell parent="L_marco" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;connectable=0;" vertex="1">
+                        <mxGeometry x="40" y="660" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="A,B,C,D" id="L_muestra_sincrono_fin">
+                    <mxCell parent="L_marco" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;connectable=0;" vertex="1">
+                        <mxGeometry x="70" y="660" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="Mensaje asíncrono (el emisor continúa sin esperar)" zona="A,B,C,D" id="L_texto_asincrono">
+                    <mxCell parent="L_marco" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;spacing=0;" vertex="1">
+                        <mxGeometry height="40" width="460" x="120" y="700" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="A,B,C,D" id="L_muestra_asincrono_inicio">
+                    <mxCell parent="L_marco" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;connectable=0;" vertex="1">
+                        <mxGeometry x="40" y="720" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="A,B,C,D" id="L_muestra_asincrono_fin">
+                    <mxCell parent="L_marco" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;connectable=0;" vertex="1">
+                        <mxGeometry x="70" y="720" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="Numeración estándar de diagrama de comunicación: 1, 2, 3...; los submensajes se anidan (1.1, 3.2.1). La respuesta de un mensaje síncrono va en su misma etiqueta: resultado := mensaje(datos)." zona="A,B,C,D" id="L_texto_numeracion">
+                    <mxCell parent="L_marco" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;spacing=0;" vertex="1">
+                        <mxGeometry height="30" width="560" x="40" y="760" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="Operaciones: 1 = (a) buscar vuelos · 2 = (b) retener asiento · 3 = (c) pagar y confirmar · 4 = (d) enviar confirmación y pase · 5 = (e) validar pase." zona="A,B,C,D" id="L_texto_operaciones">
+                    <mxCell parent="L_marco" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;spacing=0;" vertex="1">
+                        <mxGeometry height="30" width="540" x="40" y="810" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="El enlace indica la tecnología; la flecha junto al enlace indica el mensaje, su sincronía y sus datos." zona="A,B,C,D" id="L_texto_semantica">
+                    <mxCell parent="L_marco" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;spacing=0;" vertex="1">
+                        <mxGeometry height="30" width="540" x="40" y="840" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="A,B,C,D" id="L_muestra_enlace">
+                    <mxCell edge="1" parent="L_marco" source="L_muestra_enlace_inicio" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=none;endFill=0;exitX=0;exitY=0;entryX=0;entryY=0;exitPerimeter=0;entryPerimeter=0;" target="L_muestra_enlace_fin">
+                        <mxGeometry relative="1" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="A,B,C,D" id="L_muestra_sockets">
+                    <mxCell edge="1" parent="L_marco" source="L_muestra_sockets_inicio" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=none;endFill=0;exitX=0;exitY=0;entryX=0;entryY=0;exitPerimeter=0;entryPerimeter=0;strokeWidth=4;" target="L_muestra_sockets_fin">
+                        <mxGeometry relative="1" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="A,B,C,D" id="L_muestra_rpc">
+                    <mxCell edge="1" parent="L_marco" source="L_muestra_rpc_inicio" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=none;endFill=0;exitX=0;exitY=0;entryX=0;entryY=0;exitPerimeter=0;entryPerimeter=0;shape=link;strokeWidth=2;" target="L_muestra_rpc_fin">
+                        <mxGeometry relative="1" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="A,B,C,D" id="L_muestra_rest">
+                    <mxCell edge="1" parent="L_marco" source="L_muestra_rest_inicio" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=none;endFill=0;exitX=0;exitY=0;entryX=0;entryY=0;exitPerimeter=0;entryPerimeter=0;strokeWidth=1;" target="L_muestra_rest_fin">
+                        <mxGeometry relative="1" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="A,B,C,D" id="L_muestra_mensajeria">
+                    <mxCell edge="1" parent="L_marco" source="L_muestra_mensajeria_inicio" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=none;endFill=0;exitX=0;exitY=0;entryX=0;entryY=0;exitPerimeter=0;entryPerimeter=0;dashed=1;dashPattern=12 6;strokeWidth=2;" target="L_muestra_mensajeria_fin">
+                        <mxGeometry relative="1" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="A,B,C,D" id="L_muestra_datos">
+                    <mxCell edge="1" parent="L_marco" source="L_muestra_datos_inicio" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=none;endFill=0;exitX=0;exitY=0;entryX=0;entryY=0;exitPerimeter=0;entryPerimeter=0;dashed=1;dashPattern=12 4 2 4;strokeWidth=2;" target="L_muestra_datos_fin">
+                        <mxGeometry relative="1" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="A,B,C,D" id="L_muestra_frontera">
+                    <mxCell edge="1" parent="L_marco" source="L_muestra_frontera_inicio" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=none;endFill=0;exitX=0;exitY=0;entryX=0;entryY=0;exitPerimeter=0;entryPerimeter=0;dashed=1;dashPattern=2 4;strokeWidth=1;" target="L_muestra_frontera_fin">
+                        <mxGeometry relative="1" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="A,B,C,D" id="L_muestra_sincrono">
+                    <mxCell edge="1" parent="L_marco" source="L_muestra_sincrono_inicio" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=none;endFill=0;exitX=0;exitY=0;entryX=0;entryY=0;exitPerimeter=0;entryPerimeter=0;endArrow=block;endFill=1;" target="L_muestra_sincrono_fin">
+                        <mxGeometry relative="1" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="A,B,C,D" id="L_muestra_asincrono">
+                    <mxCell edge="1" parent="L_marco" source="L_muestra_asincrono_inicio" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=none;endFill=0;exitX=0;exitY=0;entryX=0;entryY=0;exitPerimeter=0;entryPerimeter=0;endArrow=open;endFill=0;" target="L_muestra_asincrono_fin">
+                        <mxGeometry relative="1" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="[condición]: el mensaje solo ocurre si se cumple la condición." zona="A,B,C,D" id="L_texto_condicion">
+                    <mxCell parent="L_marco" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;spacing=0;" vertex="1">
+                        <mxGeometry height="20" width="540" x="40" y="890" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="*[condición]: el mensaje se repite mientras o cada vez que se cumple la condición." zona="A,B,C,D" id="L_texto_repeticion">
+                    <mxCell parent="L_marco" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;spacing=0;" vertex="1">
+                        <mxGeometry height="20" width="540" x="40" y="930" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="Bucle sobre un mismo participante: mensaje que el participante se envía a sí mismo." zona="A,B,C,D" id="L_texto_bucle">
+                    <mxCell parent="L_marco" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;spacing=0;" vertex="1">
+                        <mxGeometry height="20" width="540" x="40" y="970" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="[Acceso a datos síncrono]&lt;br&gt;PostgreSQL · TCP + TLS" zona="C" id="C_enlace_pagos_registro">
+                    <mxCell edge="1" parent="1" source="C_pagos" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#000000;dashed=1;dashPattern=12 4 2 4;strokeWidth=2;startArrow=none;endArrow=none;fontFamily=Helvetica;fontSize=12;labelBackgroundColor=#FFFFFF;labelWidth=210;whiteSpace=wrap;" target="C_bd_pagos">
+                        <mxGeometry relative="1" as="geometry">
+                            <mxPoint x="250" y="310" as="offset"/>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="" zona="C" emisor="B_reservas" receptor="C_pagos" mensaje="3.1" enlace="B_enlace_reservas_pagos" id="C_m_3_1_flecha">
+                    <mxCell edge="1" parent="1" style="edgeStyle=none;html=1;strokeColor=#000000;strokeWidth=1;startArrow=none;endArrow=block;endFill=1;">
+                        <mxGeometry relative="1" as="geometry">
+                            <mxPoint x="1245" y="1324" as="sourcePoint"/>
+                            <mxPoint x="1275" y="1324" as="targetPoint"/>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="3.1 [reserva pendiente y retención vigente]:&lt;br&gt;resultadoPago := cobrarReserva(reservaId, intentoId, importe, moneda, tokenPago)&lt;br&gt;estado = APROBADO | RECHAZADO | PENDIENTE_VERIFICACION" zona="C" emisor="B_reservas" receptor="C_pagos" mensaje="3.1" enlace="B_enlace_reservas_pagos" id="C_m_3_1_etiqueta">
+                    <mxCell parent="1" style="text;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=16;align=left;verticalAlign=top;spacing=2;" vertex="1">
+                        <mxGeometry height="70" width="605" x="1290" y="1310" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="C" emisor="C_pagos" receptor="C_bd_pagos" mensaje="3.1.1" enlace="C_enlace_pagos_registro" id="C_m_3_1_1_flecha">
+                    <mxCell edge="1" parent="1" style="edgeStyle=none;html=1;strokeColor=#000000;strokeWidth=1;startArrow=none;endArrow=block;endFill=1;">
+                        <mxGeometry relative="1" as="geometry">
+                            <mxPoint x="3170" y="2004" as="sourcePoint"/>
+                            <mxPoint x="3170" y="2032" as="targetPoint"/>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="3.1.1: creado := registrarIntentoSiAusente(&lt;br&gt;intentoId, reservaId, importe, moneda,&lt;br&gt;estado = PROCESANDO)" zona="C" emisor="C_pagos" receptor="C_bd_pagos" mensaje="3.1.1" enlace="C_enlace_pagos_registro" id="C_m_3_1_1_etiqueta">
+                    <mxCell parent="1" style="text;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=16;align=left;verticalAlign=top;spacing=2;" vertex="1">
+                        <mxGeometry height="70" width="314" x="2826" y="1990" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="C" emisor="C_pagos" receptor="A_pasarela" mensaje="3.1.2" enlace="C_enlace_pagos_pasarela" id="C_m_3_1_2_flecha">
+                    <mxCell edge="1" parent="1" style="edgeStyle=none;html=1;strokeColor=#000000;strokeWidth=1;startArrow=none;endArrow=block;endFill=1;">
+                        <mxGeometry relative="1" as="geometry">
+                            <mxPoint x="3455" y="1914" as="sourcePoint"/>
+                            <mxPoint x="3485" y="1914" as="targetPoint"/>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="3.1.2 [creado]: respuesta := cobrar(&lt;br&gt;intentoId, reservaId, importe, moneda,&lt;br&gt;tokenPago, claveIdempotencia = intentoId)" zona="C" emisor="C_pagos" receptor="A_pasarela" mensaje="3.1.2" enlace="C_enlace_pagos_pasarela" id="C_m_3_1_2_etiqueta">
+                    <mxCell parent="1" style="text;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=16;align=left;verticalAlign=top;spacing=2;" vertex="1">
+                        <mxGeometry height="70" width="316" x="3500" y="1900" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="C" emisor="C_pagos" receptor="C_bd_pagos" mensaje="3.1.3" enlace="C_enlace_pagos_registro" id="C_m_3_1_3_flecha">
+                    <mxCell edge="1" parent="1" style="edgeStyle=none;html=1;strokeColor=#000000;strokeWidth=1;startArrow=none;endArrow=block;endFill=1;">
+                        <mxGeometry relative="1" as="geometry">
+                            <mxPoint x="3170" y="2098" as="sourcePoint"/>
+                            <mxPoint x="3170" y="2126" as="targetPoint"/>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="3.1.3 [respuesta definitiva]:&lt;br&gt;guardado := guardarResultado(intentoId,&lt;br&gt;estado, transaccionId, motivo,&lt;br&gt;entregaReservas = PENDIENTE)" zona="C" emisor="C_pagos" receptor="C_bd_pagos" mensaje="3.1.3" enlace="C_enlace_pagos_registro" id="C_m_3_1_3_etiqueta">
+                    <mxCell parent="1" style="text;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=16;align=left;verticalAlign=top;spacing=2;" vertex="1">
+                        <mxGeometry height="89" width="301" x="2839" y="2084" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="C" emisor="A_cliente" receptor="A_cliente" mensaje="3" id="C_m_3_ui_flecha">
+                    <mxCell edge="1" parent="1" source="A_cliente" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#000000;strokeWidth=1;endArrow=block;endFill=1;exitX=0.3;exitY=1;entryX=0.7;entryY=1;exitPerimeter=0;entryPerimeter=0;" target="A_cliente">
+                        <mxGeometry relative="1" as="geometry">
+                            <Array as="points">
+                                <mxPoint x="360" y="760"/>
+                                <mxPoint x="520" y="760"/>
+                            </Array>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="3 [al solicitar el pago]:&lt;br&gt;mostrarEstado(PROCESANDO_PAGO)&lt;br&gt;Interfaz activa durante la espera (R4)." zona="C" emisor="A_cliente" receptor="A_cliente" mensaje="3" id="C_m_3_ui_etiqueta">
+                    <mxCell parent="1" style="text;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=12;align=left;verticalAlign=top;spacing=2;" vertex="1">
+                        <mxGeometry height="56" width="224" x="250" y="780" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="3.2.3 [resultado definitivo pendiente de entrega]:&lt;br&gt;ack := aplicarResultadoPagoIdempotente(&lt;br&gt;reservaId, intentoId, estado, transaccionId)" id="F1_m_3_2_3">
+                    <mxCell parent="1" style="text;html=1;fontFamily=Helvetica;fontColor=#000000;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;align=left;verticalAlign=top;fontSize=16;spacing=4;" vertex="1">
+                        <mxGeometry height="70" width="355" x="1300" y="1450" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" id="F1_m_3_2_3_flecha">
+                    <mxCell edge="1" parent="1" style="html=1;fontFamily=Helvetica;fontColor=#000000;strokeColor=#000000;strokeWidth=1;startArrow=none;endArrow=block;endFill=1;">
+                        <mxGeometry relative="1" as="geometry">
+                            <mxPoint x="1255" y="1464" as="sourcePoint"/>
+                            <mxPoint x="1225" y="1464" as="targetPoint"/>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="3.2.3.2 [APROBADO y decision = NO_CONFIRMABLE]:&lt;br&gt;compensacion := compensarPago(intentoId, transaccionId)" id="F1_m_3_2_3_2">
+                    <mxCell parent="1" style="text;html=1;fontFamily=Helvetica;fontColor=#000000;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;align=left;verticalAlign=top;fontSize=16;spacing=4;" vertex="1">
+                        <mxGeometry height="51" width="431" x="2150" y="1450" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" id="F1_m_3_2_3_2_flecha">
+                    <mxCell edge="1" parent="1" style="html=1;fontFamily=Helvetica;fontColor=#000000;strokeColor=#000000;strokeWidth=1;startArrow=none;endArrow=block;endFill=1;">
+                        <mxGeometry relative="1" as="geometry">
+                            <mxPoint x="2105" y="1464" as="sourcePoint"/>
+                            <mxPoint x="2135" y="1464" as="targetPoint"/>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="3.3.3 [compensación definitiva]:&lt;br&gt;ack := aplicarCompensacionIdempotente(&lt;br&gt;reservaId, compensacionId, estado)" id="F1_m_3_3_3">
+                    <mxCell parent="1" style="text;html=1;fontFamily=Helvetica;fontColor=#000000;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;align=left;verticalAlign=top;fontSize=16;spacing=4;" vertex="1">
+                        <mxGeometry height="70" width="308" x="1300" y="1560" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" id="F1_m_3_3_3_flecha">
+                    <mxCell edge="1" parent="1" style="html=1;fontFamily=Helvetica;fontColor=#000000;strokeColor=#000000;strokeWidth=1;startArrow=none;endArrow=block;endFill=1;">
+                        <mxGeometry relative="1" as="geometry">
+                            <mxPoint x="1255" y="1574" as="sourcePoint"/>
+                            <mxPoint x="1225" y="1574" as="targetPoint"/>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="3.2.1 [pago no definitivo]:&lt;br&gt;estado := consultarPago(intentoId)&lt;br&gt;[sin resultado: seguir pendiente; no volver a cobrar]" id="F1_m_3_2_1">
+                    <mxCell parent="1" style="text;html=1;fontFamily=Helvetica;fontColor=#000000;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;align=left;verticalAlign=top;fontSize=16;spacing=4;" vertex="1">
+                        <mxGeometry height="70" width="376" x="3500" y="2006" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" id="F1_m_3_2_1_flecha">
+                    <mxCell edge="1" parent="1" style="html=1;fontFamily=Helvetica;fontColor=#000000;strokeColor=#000000;strokeWidth=1;startArrow=none;endArrow=block;endFill=1;">
+                        <mxGeometry relative="1" as="geometry">
+                            <mxPoint x="3455" y="2020" as="sourcePoint"/>
+                            <mxPoint x="3485" y="2020" as="targetPoint"/>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="3.2.3.2.2 [compensación registrada]:&lt;br&gt;estado := anularOReembolsar(transaccionId,&lt;br&gt;claveIdempotencia = compensacionId)" id="F1_m_comp_2">
+                    <mxCell parent="1" style="text;html=1;fontFamily=Helvetica;fontColor=#000000;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;align=left;verticalAlign=top;fontSize=16;spacing=4;" vertex="1">
+                        <mxGeometry height="70" width="331" x="3500" y="2112" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" id="F1_m_comp_2_flecha">
+                    <mxCell edge="1" parent="1" style="html=1;fontFamily=Helvetica;fontColor=#000000;strokeColor=#000000;strokeWidth=1;startArrow=none;endArrow=block;endFill=1;">
+                        <mxGeometry relative="1" as="geometry">
+                            <mxPoint x="3455" y="2126" as="sourcePoint"/>
+                            <mxPoint x="3485" y="2126" as="targetPoint"/>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="3.3.1: estado := consultarCompensacion(&lt;br&gt;compensacionId)&lt;br&gt;[sin resultado definitivo: seguir pendiente]" id="F1_m_3_3_1">
+                    <mxCell parent="1" style="text;html=1;fontFamily=Helvetica;fontColor=#000000;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;align=left;verticalAlign=top;fontSize=16;spacing=4;" vertex="1">
+                        <mxGeometry height="70" width="307" x="3500" y="2218" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" id="F1_m_3_3_1_flecha">
+                    <mxCell edge="1" parent="1" style="html=1;fontFamily=Helvetica;fontColor=#000000;strokeColor=#000000;strokeWidth=1;startArrow=none;endArrow=block;endFill=1;">
+                        <mxGeometry relative="1" as="geometry">
+                            <mxPoint x="3455" y="2232" as="sourcePoint"/>
+                            <mxPoint x="3485" y="2232" as="targetPoint"/>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="3.1.4 [timeout y estado no definitivo]:&lt;br&gt;guardarEstado(intentoId, PENDIENTE_VERIFICACION)" id="F1_m_3_1_4">
+                    <mxCell parent="1" style="text;html=1;fontFamily=Helvetica;fontColor=#000000;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;align=left;verticalAlign=top;fontSize=16;spacing=4;" vertex="1">
+                        <mxGeometry height="51" width="413" x="2727" y="2197" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" id="F1_m_3_1_4_flecha">
+                    <mxCell edge="1" parent="1" style="html=1;fontFamily=Helvetica;fontColor=#000000;strokeColor=#000000;strokeWidth=1;startArrow=none;endArrow=block;endFill=1;">
+                        <mxGeometry relative="1" as="geometry">
+                            <mxPoint x="3170" y="2211" as="sourcePoint"/>
+                            <mxPoint x="3170" y="2239" as="targetPoint"/>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="3.1.5 [intento ya existente]:&lt;br&gt;previo := leerIntento(intentoId); no duplicar cobro" id="F1_m_3_1_5">
+                    <mxCell parent="1" style="text;html=1;fontFamily=Helvetica;fontColor=#000000;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;align=left;verticalAlign=top;fontSize=16;spacing=4;" vertex="1">
+                        <mxGeometry height="51" width="358" x="2782" y="2272" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" id="F1_m_3_1_5_flecha">
+                    <mxCell edge="1" parent="1" style="html=1;fontFamily=Helvetica;fontColor=#000000;strokeColor=#000000;strokeWidth=1;startArrow=none;endArrow=block;endFill=1;">
+                        <mxGeometry relative="1" as="geometry">
+                            <mxPoint x="3170" y="2286" as="sourcePoint"/>
+                            <mxPoint x="3170" y="2314" as="targetPoint"/>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="3.2.2 [consulta definitiva]: guardarResultado(&lt;br&gt;intentoId, estado, transaccionId,&lt;br&gt;entregaReservas = PENDIENTE)" id="F1_m_3_2_2">
+                    <mxCell parent="1" style="text;html=1;fontFamily=Helvetica;fontColor=#000000;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;align=left;verticalAlign=top;fontSize=16;spacing=4;" vertex="1">
+                        <mxGeometry height="70" width="330" x="2810" y="2347" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" id="F1_m_3_2_2_flecha">
+                    <mxCell edge="1" parent="1" style="html=1;fontFamily=Helvetica;fontColor=#000000;strokeColor=#000000;strokeWidth=1;startArrow=none;endArrow=block;endFill=1;">
+                        <mxGeometry relative="1" as="geometry">
+                            <mxPoint x="3170" y="2361" as="sourcePoint"/>
+                            <mxPoint x="3170" y="2389" as="targetPoint"/>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="3.2.4 [ack de Reservas]:&lt;br&gt;marcarResultadoEntregado(intentoId)" id="F1_m_3_2_4">
+                    <mxCell parent="1" style="text;html=1;fontFamily=Helvetica;fontColor=#000000;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;align=left;verticalAlign=top;fontSize=16;spacing=4;" vertex="1">
+                        <mxGeometry height="51" width="280" x="2860" y="2441" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" id="F1_m_3_2_4_flecha">
+                    <mxCell edge="1" parent="1" style="html=1;fontFamily=Helvetica;fontColor=#000000;strokeColor=#000000;strokeWidth=1;startArrow=none;endArrow=block;endFill=1;">
+                        <mxGeometry relative="1" as="geometry">
+                            <mxPoint x="3170" y="2455" as="sourcePoint"/>
+                            <mxPoint x="3170" y="2483" as="targetPoint"/>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="3.2.3.2.1: compensacionId :=&lt;br&gt;asegurarCompensacion(transaccionId único)&lt;br&gt;[misma transacción: mismo compensacionId]" id="F1_m_comp_1">
+                    <mxCell parent="1" style="text;html=1;fontFamily=Helvetica;fontColor=#000000;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;align=left;verticalAlign=top;fontSize=16;spacing=4;" vertex="1">
+                        <mxGeometry height="70" width="332" x="2808" y="2516" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" id="F1_m_comp_1_flecha">
+                    <mxCell edge="1" parent="1" style="html=1;fontFamily=Helvetica;fontColor=#000000;strokeColor=#000000;strokeWidth=1;startArrow=none;endArrow=block;endFill=1;">
+                        <mxGeometry relative="1" as="geometry">
+                            <mxPoint x="3170" y="2530" as="sourcePoint"/>
+                            <mxPoint x="3170" y="2558" as="targetPoint"/>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="3.2.3.2.3: guardarCompensacion(compensacionId,&lt;br&gt;estado, referencia, entregaReservas = PENDIENTE)" id="F1_m_comp_3">
+                    <mxCell parent="1" style="text;html=1;fontFamily=Helvetica;fontColor=#000000;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;align=left;verticalAlign=top;fontSize=16;spacing=4;" vertex="1">
+                        <mxGeometry height="51" width="386" x="2754" y="2610" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" id="F1_m_comp_3_flecha">
+                    <mxCell edge="1" parent="1" style="html=1;fontFamily=Helvetica;fontColor=#000000;strokeColor=#000000;strokeWidth=1;startArrow=none;endArrow=block;endFill=1;">
+                        <mxGeometry relative="1" as="geometry">
+                            <mxPoint x="3170" y="2624" as="sourcePoint"/>
+                            <mxPoint x="3170" y="2652" as="targetPoint"/>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="3.3.2 [consulta de compensación]:&lt;br&gt;guardarCompensacion(compensacionId,&lt;br&gt;estado, referencia, entregaReservas = PENDIENTE)" id="F1_m_3_3_2">
+                    <mxCell parent="1" style="text;html=1;fontFamily=Helvetica;fontColor=#000000;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;align=left;verticalAlign=top;fontSize=16;spacing=4;" vertex="1">
+                        <mxGeometry height="70" width="386" x="2754" y="2685" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" id="F1_m_3_3_2_flecha">
+                    <mxCell edge="1" parent="1" style="html=1;fontFamily=Helvetica;fontColor=#000000;strokeColor=#000000;strokeWidth=1;startArrow=none;endArrow=block;endFill=1;">
+                        <mxGeometry relative="1" as="geometry">
+                            <mxPoint x="3170" y="2699" as="sourcePoint"/>
+                            <mxPoint x="3170" y="2727" as="targetPoint"/>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="3.3.4 [ack de Reservas]:&lt;br&gt;marcarCompensacionEntregada(compensacionId)" id="F1_m_3_3_4">
+                    <mxCell parent="1" style="text;html=1;fontFamily=Helvetica;fontColor=#000000;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;align=left;verticalAlign=top;fontSize=16;spacing=4;" vertex="1">
+                        <mxGeometry height="51" width="370" x="2770" y="2779" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" id="F1_m_3_3_4_flecha">
+                    <mxCell edge="1" parent="1" style="html=1;fontFamily=Helvetica;fontColor=#000000;strokeColor=#000000;strokeWidth=1;startArrow=none;endArrow=block;endFill=1;">
+                        <mxGeometry relative="1" as="geometry">
+                            <mxPoint x="3170" y="2793" as="sourcePoint"/>
+                            <mxPoint x="3170" y="2821" as="targetPoint"/>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="3.2.3.1 [APROBADO]:&lt;br&gt;decision := confirmarSiRetencionVigente(vuelo, asiento, reservaId, ahora)&lt;br&gt;[ya vendido a esta reserva: devolver CONFIRMADO]&lt;br&gt;CONFIRMADO / NO_CONFIRMABLE / DESCONOCIDO" id="F1_m_confirmar">
+                    <mxCell parent="1" style="text;html=1;fontFamily=Helvetica;fontColor=#000000;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;align=left;verticalAlign=top;fontSize=16;spacing=4;" vertex="1">
+                        <mxGeometry height="89" width="536" x="1120" y="910" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" id="F1_m_confirmar_flecha">
+                    <mxCell edge="1" parent="1" style="html=1;fontFamily=Helvetica;fontColor=#000000;strokeColor=#000000;strokeWidth=1;startArrow=none;endArrow=block;endFill=1;">
+                        <mxGeometry relative="1" as="geometry">
+                            <mxPoint x="1075" y="924" as="sourcePoint"/>
+                            <mxPoint x="1105" y="924" as="targetPoint"/>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="3.2.3.4 [RECHAZADO definitivo]:&lt;br&gt;liberarSiRetenidaPor(reservaId)&lt;br&gt;[no modificar asientos ya vendidos]" id="F1_m_liberar">
+                    <mxCell parent="1" style="text;html=1;fontFamily=Helvetica;fontColor=#000000;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;align=left;verticalAlign=top;fontSize=16;spacing=4;" vertex="1">
+                        <mxGeometry height="70" width="262" x="1790" y="910" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" id="F1_m_liberar_flecha">
+                    <mxCell edge="1" parent="1" style="html=1;fontFamily=Helvetica;fontColor=#000000;strokeColor=#000000;strokeWidth=1;startArrow=none;endArrow=block;endFill=1;">
+                        <mxGeometry relative="1" as="geometry">
+                            <mxPoint x="1745" y="924" as="sourcePoint"/>
+                            <mxPoint x="1775" y="924" as="targetPoint"/>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="3.4 *[decision = DESCONOCIDO, cada 10 s]:&lt;br&gt;decision := consultarConfirmacion(reservaId)&lt;br&gt;[no compensar mientras sea desconocida]" id="F1_m_consultar_inventario">
+                    <mxCell parent="1" style="text;html=1;fontFamily=Helvetica;fontColor=#000000;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;align=left;verticalAlign=top;fontSize=16;spacing=4;" vertex="1">
+                        <mxGeometry height="70" width="335" x="2370" y="910" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" id="F1_m_consultar_inventario_flecha">
+                    <mxCell edge="1" parent="1" style="html=1;fontFamily=Helvetica;fontColor=#000000;strokeColor=#000000;strokeWidth=1;startArrow=none;endArrow=block;endFill=1;">
+                        <mxGeometry relative="1" as="geometry">
+                            <mxPoint x="2325" y="924" as="sourcePoint"/>
+                            <mxPoint x="2355" y="924" as="targetPoint"/>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="" id="F1_reconciliar">
+                    <mxCell edge="1" parent="1" source="C_pagos" style="html=1;fontFamily=Helvetica;fontColor=#000000;edgeStyle=orthogonalEdgeStyle;strokeColor=#000000;strokeWidth=1;endArrow=block;endFill=1;exitX=0.3;exitY=0;entryX=0.7;entryY=0;exitPerimeter=0;entryPerimeter=0;" target="C_pagos">
+                        <mxGeometry relative="1" as="geometry">
+                            <Array as="points">
+                                <mxPoint x="3120" y="1710"/>
+                                <mxPoint x="3280" y="1710"/>
+                            </Array>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="3.2 *[pago o entrega pendiente, cada 10 s]: reconciliarPago(intentoId)&lt;br&gt;3.3 *[compensación o entrega pendiente, cada 10 s]: reconciliarCompensacion(compensacionId)" id="F1_tareas_pago">
+                    <mxCell parent="1" style="text;html=1;fontFamily=Helvetica;fontColor=#000000;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;align=left;verticalAlign=top;fontSize=16;spacing=4;" vertex="1">
+                        <mxGeometry height="51" width="698" x="3380" y="1695" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="venceEn = inicioRetencion + 10 min&lt;br&gt;[solo liberar RETENIDO con venceEn &amp;lt;= ahora]&lt;br&gt;[nunca liberar VENDIDO por vencimiento]" id="F1_vencimiento_condiciones">
+                    <mxCell parent="1" style="text;html=1;fontFamily=Helvetica;fontColor=#000000;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;align=left;verticalAlign=top;fontSize=16;spacing=4;" vertex="1">
+                        <mxGeometry height="70" width="352" x="2570" y="650" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="[APROBADO y CONFIRMADO]: reserva = CONFIRMADA&lt;br&gt;[RECHAZADO]: reserva = CANCELADA&lt;br&gt;[NO_CONFIRMABLE y cobro aprobado]: REEMBOLSO_PENDIENTE&lt;br&gt;[compensación verificada]: CANCELADA_REEMBOLSADA" id="F1_reserva_estados">
+                    <mxCell parent="1" style="text;html=1;fontFamily=Helvetica;fontColor=#000000;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;align=left;verticalAlign=top;fontSize=16;spacing=4;" vertex="1">
+                        <mxGeometry height="89" width="510" x="1300" y="1680" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="[RPC síncrono]&lt;br&gt;gRPC · HTTP/2 + TLS" id="C_enlace_confirmacion_inventario">
+                    <mxCell edge="1" parent="1" source="B_reservas" style="edgeStyle=orthogonalEdgeStyle;html=1;shape=link;strokeWidth=2;strokeColor=#000000;startArrow=none;endArrow=none;exitX=0.5;exitY=1;entryX=1;entryY=0.9;exitPerimeter=0;entryPerimeter=0;fontFamily=Helvetica;fontSize=12;labelBackgroundColor=#FFFFFF;labelWidth=220;whiteSpace=wrap;" target="B_inventario">
+                        <mxGeometry relative="1" x="0.25" as="geometry">
+                            <mxPoint x="-250" y="70" as="offset"/>
+                            <Array as="points">
+                                <mxPoint x="1000" y="1050"/>
+                                <mxPoint x="3000" y="1050"/>
+                                <mxPoint x="3000" y="570"/>
+                            </Array>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+            </root>
+        </mxGraphModel>
+    </diagram>
 </mxfile>
