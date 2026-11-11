@@ -1,0 +1,255 @@
+% !TEX program = pdflatex
+% Compilar desde notas/: pdflatex notas -> biber notas -> pdflatex notas -> pdflatex notas
+% Cada responsable edita SOLO su sección (marcada con ==== nombre ====). Antes de entregar: buscar PENDIENTE (no debe quedar ninguno).
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{mathptmx}
+\usepackage{microtype}
+\usepackage[a4paper,margin=2.54cm]{geometry}
+\usepackage{xcolor}
+\usepackage{tabularx}
+\usepackage{csquotes}
+\usepackage{titlesec}
+\usepackage[backend=biber,style=ieee]{biblatex}
+\addbibresource{referencias.bib}
+\usepackage[colorlinks=true,linkcolor=black,citecolor=black,urlcolor=black]{hyperref}
+
+\setlength{\parindent}{0pt}\setlength{\parskip}{6pt}\setlength{\emergencystretch}{3em}
+\titleformat{\section}{\bfseries\fontsize{16}{19}\selectfont}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\bfseries\fontsize{14}{17}\selectfont}{\thesubsection.}{0.5em}{}
+
+% ---- Macros (no editar) ----
+\newcommand{\pendiente}[1]{\textbf{\textcolor{red}{[PENDIENTE: #1]}}}
+\newcommand{\autor}[1]{\par{\small\textit{Redactado por: #1}}\par}
+% Justificación de una decisión: título, elección y los cinco criterios del escenario
+\newcommand{\decision}[8]{\subsubsection*{#1}%
+  \textbf{Elección.} #2\par
+  \textbf{Latencia.} #3\par
+  \textbf{Volumen de mensajes.} #4\par
+  \textbf{Necesidad de respuesta inmediata.} #5\par
+  \textbf{Tolerancia a fallos.} #6\par
+  \textbf{Consistencia.} #7\par
+  \textbf{Fuentes.} #8\par}
+
+% ---- Datos del equipo (editar solo aquí) ----
+\newcommand{\integranteA}{Herrera Barco Humberto Aldair}
+\newcommand{\integranteB}{Toaquiza Zambrano Belinda Betzabeth}
+\newcommand{\integranteC}{Piguave Montaño Nixon Antonio}
+\newcommand{\integranteD}{Emanuel Pino Juliana Romina}
+\newcommand{\codigoactividad}{GA-TL-02 - FORM}
+
+\begin{document}
+\begin{titlepage}\centering
+{\large\bfseries UNIVERSIDAD TÉCNICA ESTATAL DE QUEVEDO\par}\vspace{4pt}
+Facultad de Ciencias de la Computación\par
+Carrera de Ingeniería de Software\par
+Séptimo semestre, paralelo A\par\vspace{2cm}
+{\Large\bfseries Notas de la presentación: justificación del diseño\par}\vspace{6pt}
+Taller de modelado de comunicación entre procesos distribuidos\par
+Código de la actividad: \codigoactividad\par
+Escenario 1: AeroAndes Reservas\par\vspace{1.5cm}
+Aplicaciones Distribuidas (ISR-701)\par
+Docente: Gleiston Cicerón Guerrero Ulloa, PhD\par\vspace{1.5cm}
+{\bfseries Integrantes}\par\vspace{4pt}
+\begin{tabular}{@{}ll@{}}
+\integranteA & (zona A)\\ \integranteB & (zona B)\\
+\integranteC & (zona C)\\ \integranteD & (zona D)\\
+\end{tabular}\par\vfill
+Quevedo, Ecuador --- 11 de noviembre de 2026\par
+\end{titlepage}
+
+% ==== 01_decisiones_grupo ====
+\section{Decisiones del grupo}\label{sec:decisiones-grupo}
+% Cada decisión la redacta UNA persona y firma con \autor.
+ \decision{Comunicación entre reservas y pagos}
+ {Se eligió una llamada RPC síncrona de Reservas a Pagos (gRPC sobre HTTP/2). Pagos responde CONFIRMADO, RECHAZADO o DESCONOCIDO, y la reserva queda en estado PENDIENTE\_PAGO mientras tanto.}
+ {La llamada directa evita la espera adicional de pasar por un broker y entrega el resultado del pago en cuanto la pasarela responde. Como la pasarela puede tardar hasta 30~s, el cliente ve el estado PENDIENTE\_PAGO mientras espera y no queda bloqueado sin información (R4). RPC se diseñó para ofrecer una semántica simple y una comunicación rápida~\cite{birrell1984rpc}. En pruebas con microservicios, gRPC tuvo menor tiempo de respuesta que REST y GraphQL~\cite{niswar2024grpc}.}
+ {Es un mensaje corto por cada intento de pago. El enunciado no fija una tasa de pagos, así que se dimensiona con la carga de reservas. gRPC reutiliza una conexión HTTP/2 y soporta varias llamadas simultáneas sobre ella.}
+ {Necesita respuesta inmediata: Reservas espera el resultado del pago, y en vuelos los usuarios son sensibles al tiempo de espera. Se descartó RabbitMQ en este enlace porque ordena mejor los reintentos, pero añade un salto y retrasa el resultado.}
+ {Si la pasarela no responde (F1), la llamada vence al superar el plazo máximo de 30~s (R4). El pago queda en DESCONOCIDO, se libera el asiento y, si el cobro sí ocurrió, se reembolsa como compensación (ver la decisión sobre F1, F2 y F3).}
+ {El pago debe ejecutarse a lo sumo una vez. Se logra enviando una clave de idempotencia en cada llamada, de modo que un reintento se detecte como duplicado~\cite{liskov1991atmostonce}.}
+ {\cite{birrell1984rpc,niswar2024grpc,liskov1991atmostonce}}
+ 
+\decision{Comunicación entre embarque y reservas, y operación sin conexión}
+ {Se eligió gRPC entre el servidor de embarque y Reservas. Los lectores y quioscos siguen comunicándose con el servidor de embarque por sockets TCP, que es la interacción obligatoria con sockets. El servidor de embarque guarda el manifiesto del vuelo para poder operar sin red.}
+ {R6 exige responder en menos de 1~s. gRPC y Thrift resultaron más rápidos que REST entre microservicios, gracias a su velocidad y a la compresión de los mensajes~\cite{kumar2021protocols}. Eso respalda gRPC para validar pases rápidamente, en línea con lo medido en~\cite{niswar2024grpc}. Se descartó REST entre embarque y reservas por esa mayor latencia, y UDP en los lectores porque un mensaje perdido dejaría al pasajero sin respuesta.}
+ {R6 indica unos 40 lectores enviando mensajes cortos de formato fijo. Es un volumen bajo por lector, que una conexión persistente soporta sin dificultad.}
+ {Necesita respuesta inmediata mientras haya red, porque el pase se valida en el momento del abordaje. Sin red, la validación se resuelve localmente y la sincronización queda diferida.}
+ {Si se corta la red del aeropuerto (F3), el servidor valida contra el manifiesto local, guarda cada abordaje en una cola y los envía a Reservas cuando la conexión vuelve. Esto sigue la estrategia de continuar operando durante la partición y procesar después las acciones encoladas~\cite{melliarsmith1998partition}.}
+ {Se acepta consistencia eventual con riesgo acotado. Brewer señala que los cajeros automáticos eligen disponibilidad con consistencia débil, pero con riesgo limitado~\cite{brewer2010freedom}. Aquí el riesgo se acota porque el manifiesto local contiene solo los pasajeros del vuelo, y las discrepancias se reconcilian al reconectar.}
+ {\cite{kumar2021protocols,melliarsmith1998partition,brewer2010freedom}}
+ 
+\decision{Control de asientos y retención}
+ {Reservas pide la retención al inventario por gRPC. Se eligió un bloqueo corto en la base de datos, aplicado solo al cambiar el estado del asiento, combinado con una retención lógica con vencimiento de 10~minutos. En el diagrama corresponden los mensajes \texttt{retenerSiLibre}, \texttt{confirmarSiRetencionVigente} y \texttt{liberarSiRetenidaPor}.}
+ {El bloqueo dura lo que tarda una actualización condicional, no los 10 minutos de la compra, por lo que no frena a otros clientes. Mantener un registro bloqueado mientras el usuario completa su compra es riesgoso: si se pierde la comunicación, el registro queda bloqueado. Por eso se recomienda verificar la versión de la fila en lugar de conservar el bloqueo, y el ejemplo típico de ese trabajo es la reserva de pasajes de vuelo~\cite{laux2009occ}.}
+ {Todas las retenciones y confirmaciones se dirigen al servicio de inventario, que es el único dueño del estado de los asientos. El enunciado no fija una tasa de reservas por segundo.}
+ {Necesita respuesta inmediata: retener un asiento o rechazar la solicitud debe resolverse en el momento, para que el cliente sepa si pudo reservar.}
+ {Si el cliente o el pago se caen a mitad de la compra, la retención vence sola a los 10~minutos (R2) y el asiento se libera. Es la idea de un lease, un derecho con plazo en el que las fallas afectan el rendimiento pero no la corrección~\cite{gray1989leases}.}
+ {Un asiento nunca debe venderse dos veces (R3). Se garantiza con una única escritura atómica y condicional sobre el estado del asiento, que solo avanza si el asiento sigue libre o retenido por la misma reserva. El primero en llegar gana.}
+ {\cite{gray1989leases,laux2009occ}}
+ 
+\decision{Uso de la caché de disponibilidad}
+ {Se eligió usar la caché solo para las búsquedas de disponibilidad. Retener y confirmar asientos van siempre al servicio de inventario, y este invalida la entrada de caché cuando un asiento se vende o se libera (mensajes \texttt{invalidar} del diagrama).}
+ {R1 exige 1\,200 consultas por segundo con el 95\,\% por debajo de 300~ms. Consultar la base de datos en cada búsqueda no sostendría esa carga, mientras que la caché responde desde memoria. Se descartó consultar siempre la base de datos por esa razón, y también confirmar compras con datos de la caché, porque podría vender dos veces el mismo asiento (R3).}
+ {Se esperan 1\,200 consultas por segundo (R1). Las lecturas se sirven desde la caché, y solo las compras llegan al inventario y a la base de datos.}
+ {La búsqueda necesita respuesta inmediata, pero tolera datos ligeramente desactualizados: puede mostrar libre un asiento que ya se vendió. Por eso la compra no se apoya en la caché.}
+ {Si la caché falla, las búsquedas pasan a la base de datos con mayor latencia, pero el sistema sigue funcionando. Nunca se vende un asiento por un dato viejo, porque la compra siempre se valida en el inventario.}
+ {La caché ofrece consistencia débil solo para lectura. Expirar entradas por tiempo devuelve documentos desactualizados, mientras que la invalidación mantiene consistencia fuerte con un costo similar~\cite{cao1998cache}. Con el benchmark de comercio web TPC-W, la invalidación resultó la más adecuada para comercio electrónico~\cite{cao2002strong}.}
+ {\cite{cao1998cache,cao2002strong}}
+ 
+\decision{Respuesta conjunta a los fallos F1, F2 y F3}
+ {Para F1 se usa un timeout con liberación del asiento y compensación. Para F2 se usa una cola durable en RabbitMQ con reintento. Para F3 se usa un manifiesto local en el servidor de embarque con sincronización posterior.}
+ {Ninguna de las tres respuestas añade espera al camino normal: cada una actúa solo cuando algo falla. El timeout de 30~s de F1 acota la espera del cliente (R4).}
+ {Las confirmaciones de reserva viajan por la cola hacia Notificaciones (R5), un mensaje por reserva confirmada, que debe llegar en menos de 1~minuto después del pago. El enunciado no fija una tasa para ese flujo. RabbitMQ se puede configurar con nodos agrupados y colas replicadas para ganar disponibilidad, aunque eso compite con el rendimiento~\cite{rostanski2014rabbitmq}.}
+ {F1 es inmediata: el cliente recibe el estado pendiente sin quedar bloqueado. F2 y F3 son diferidas: la notificación se entrega cuando el servicio vuelve, y los abordajes se envían al recuperar la red.}
+ {F1: una transacción larga se divide en pasos y, si uno falla, se ejecutan transacciones compensatorias para deshacer los anteriores~\cite{garciamolina1987sagas}. En microservicios este patrón no aísla las lecturas de estados incompletos~\cite{daraghmi2022saga}, por eso la reserva permanece en PENDIENTE\_PAGO y no se muestra como vendida. F2: la confirmación espera en la cola y se reintenta hasta que Notificaciones responde. F3: se aplica lo descrito en la decisión de embarque.}
+ {F1 exige que el cobro ocurra una sola vez. Lograrlo ante caídas es difícil, porque cliente y servidor deben registrar sus acciones en almacenamiento estable~\cite{ivaki2012exactlyonce}. F2 y F3 aceptan consistencia eventual, con las garantías y límites que describen~\cite{bailis2013eventual}.}
+ {\cite{garciamolina1987sagas,daraghmi2022saga,ivaki2012exactlyonce,rostanski2014rabbitmq,bailis2013eventual}}
+ 
+
+% ==== 02_zona_A ====
+\section{Zona A: Clientes y sistemas externos}\label{sec:zonaA}
+\autor{\integranteA}
+% Una decisión por bloque; duplica o elimina bloques según tu zona.
+
+\decision{\pendiente{nombre de la decisión 1}}
+ {\pendiente{qué se eligió, indicando el enlace o mensaje del diagrama}}
+ {\pendiente{por qué conviene en latencia (citar requisito R)}}
+ {\pendiente{cuántos mensajes se esperan y cómo los soporta}}
+ {\pendiente{si necesita respuesta inmediata o puede ser diferida, y por qué}}
+ {\pendiente{qué pasa si falla (citar F)}}
+ {\pendiente{qué garantía de consistencia se necesita y cómo se logra}}
+ {\pendiente{fuente que respalda la decisión, con \texttt{\textbackslash cite\{clave\}}}}
+
+\decision{\pendiente{nombre de la decisión 2}}
+ {\pendiente{qué se eligió, indicando el enlace o mensaje del diagrama}}
+ {\pendiente{por qué conviene en latencia (citar requisito R)}}
+ {\pendiente{cuántos mensajes se esperan y cómo los soporta}}
+ {\pendiente{si necesita respuesta inmediata o puede ser diferida, y por qué}}
+ {\pendiente{qué pasa si falla (citar F)}}
+ {\pendiente{qué garantía de consistencia se necesita y cómo se logra}}
+ {\pendiente{fuente que respalda la decisión, con \texttt{\textbackslash cite\{clave\}}}}
+
+\decision{\pendiente{nombre de la decisión 3}}
+ {\pendiente{qué se eligió, indicando el enlace o mensaje del diagrama}}
+ {\pendiente{por qué conviene en latencia (citar requisito R)}}
+ {\pendiente{cuántos mensajes se esperan y cómo los soporta}}
+ {\pendiente{si necesita respuesta inmediata o puede ser diferida, y por qué}}
+ {\pendiente{qué pasa si falla (citar F)}}
+ {\pendiente{qué garantía de consistencia se necesita y cómo se logra}}
+ {\pendiente{fuente que respalda la decisión, con \texttt{\textbackslash cite\{clave\}}}}
+
+% ==== 03_zona_B ====
+\section{Zona B: Reservas, inventario y datos}\label{sec:zonaB}
+\autor{\integranteB}
+% Una decisión por bloque; duplica o elimina bloques según tu zona.
+
+\decision{\pendiente{nombre de la decisión 1}}
+ {\pendiente{qué se eligió, indicando el enlace o mensaje del diagrama}}
+ {\pendiente{por qué conviene en latencia (citar requisito R)}}
+ {\pendiente{cuántos mensajes se esperan y cómo los soporta}}
+ {\pendiente{si necesita respuesta inmediata o puede ser diferida, y por qué}}
+ {\pendiente{qué pasa si falla (citar F)}}
+ {\pendiente{qué garantía de consistencia se necesita y cómo se logra}}
+ {\pendiente{fuente que respalda la decisión, con \texttt{\textbackslash cite\{clave\}}}}
+
+\decision{\pendiente{nombre de la decisión 2}}
+ {\pendiente{qué se eligió, indicando el enlace o mensaje del diagrama}}
+ {\pendiente{por qué conviene en latencia (citar requisito R)}}
+ {\pendiente{cuántos mensajes se esperan y cómo los soporta}}
+ {\pendiente{si necesita respuesta inmediata o puede ser diferida, y por qué}}
+ {\pendiente{qué pasa si falla (citar F)}}
+ {\pendiente{qué garantía de consistencia se necesita y cómo se logra}}
+ {\pendiente{fuente que respalda la decisión, con \texttt{\textbackslash cite\{clave\}}}}
+
+\decision{\pendiente{nombre de la decisión 3}}
+ {\pendiente{qué se eligió, indicando el enlace o mensaje del diagrama}}
+ {\pendiente{por qué conviene en latencia (citar requisito R)}}
+ {\pendiente{cuántos mensajes se esperan y cómo los soporta}}
+ {\pendiente{si necesita respuesta inmediata o puede ser diferida, y por qué}}
+ {\pendiente{qué pasa si falla (citar F)}}
+ {\pendiente{qué garantía de consistencia se necesita y cómo se logra}}
+ {\pendiente{fuente que respalda la decisión, con \texttt{\textbackslash cite\{clave\}}}}
+
+% ==== 04_zona_C ====
+\section{Zona C: Pagos y notificaciones}\label{sec:zonaC}
+\autor{\integranteC}
+% Una decisión por bloque; duplica o elimina bloques según tu zona.
+
+\decision{\pendiente{nombre de la decisión 1}}
+ {\pendiente{qué se eligió, indicando el enlace o mensaje del diagrama}}
+ {\pendiente{por qué conviene en latencia (citar requisito R)}}
+ {\pendiente{cuántos mensajes se esperan y cómo los soporta}}
+ {\pendiente{si necesita respuesta inmediata o puede ser diferida, y por qué}}
+ {\pendiente{qué pasa si falla (citar F)}}
+ {\pendiente{qué garantía de consistencia se necesita y cómo se logra}}
+ {\pendiente{fuente que respalda la decisión, con \texttt{\textbackslash cite\{clave\}}}}
+
+\decision{\pendiente{nombre de la decisión 2}}
+ {\pendiente{qué se eligió, indicando el enlace o mensaje del diagrama}}
+ {\pendiente{por qué conviene en latencia (citar requisito R)}}
+ {\pendiente{cuántos mensajes se esperan y cómo los soporta}}
+ {\pendiente{si necesita respuesta inmediata o puede ser diferida, y por qué}}
+ {\pendiente{qué pasa si falla (citar F)}}
+ {\pendiente{qué garantía de consistencia se necesita y cómo se logra}}
+ {\pendiente{fuente que respalda la decisión, con \texttt{\textbackslash cite\{clave\}}}}
+
+\decision{\pendiente{nombre de la decisión 3}}
+ {\pendiente{qué se eligió, indicando el enlace o mensaje del diagrama}}
+ {\pendiente{por qué conviene en latencia (citar requisito R)}}
+ {\pendiente{cuántos mensajes se esperan y cómo los soporta}}
+ {\pendiente{si necesita respuesta inmediata o puede ser diferida, y por qué}}
+ {\pendiente{qué pasa si falla (citar F)}}
+ {\pendiente{qué garantía de consistencia se necesita y cómo se logra}}
+ {\pendiente{fuente que respalda la decisión, con \texttt{\textbackslash cite\{clave\}}}}
+
+% ==== 05_zona_D ====
+\section{Zona D: Aeropuerto}\label{sec:zonaD}
+\autor{\integranteD}
+% Una decisión por bloque; duplica o elimina bloques según tu zona.
+
+\decision{\pendiente{nombre de la decisión 1}}
+ {\pendiente{qué se eligió, indicando el enlace o mensaje del diagrama}}
+ {\pendiente{por qué conviene en latencia (citar requisito R)}}
+ {\pendiente{cuántos mensajes se esperan y cómo los soporta}}
+ {\pendiente{si necesita respuesta inmediata o puede ser diferida, y por qué}}
+ {\pendiente{qué pasa si falla (citar F)}}
+ {\pendiente{qué garantía de consistencia se necesita y cómo se logra}}
+ {\pendiente{fuente que respalda la decisión, con \texttt{\textbackslash cite\{clave\}}}}
+
+\decision{\pendiente{nombre de la decisión 2}}
+ {\pendiente{qué se eligió, indicando el enlace o mensaje del diagrama}}
+ {\pendiente{por qué conviene en latencia (citar requisito R)}}
+ {\pendiente{cuántos mensajes se esperan y cómo los soporta}}
+ {\pendiente{si necesita respuesta inmediata o puede ser diferida, y por qué}}
+ {\pendiente{qué pasa si falla (citar F)}}
+ {\pendiente{qué garantía de consistencia se necesita y cómo se logra}}
+ {\pendiente{fuente que respalda la decisión, con \texttt{\textbackslash cite\{clave\}}}}
+
+\decision{\pendiente{nombre de la decisión 3}}
+ {\pendiente{qué se eligió, indicando el enlace o mensaje del diagrama}}
+ {\pendiente{por qué conviene en latencia (citar requisito R)}}
+ {\pendiente{cuántos mensajes se esperan y cómo los soporta}}
+ {\pendiente{si necesita respuesta inmediata o puede ser diferida, y por qué}}
+ {\pendiente{qué pasa si falla (citar F)}}
+ {\pendiente{qué garantía de consistencia se necesita y cómo se logra}}
+ {\pendiente{fuente que respalda la decisión, con \texttt{\textbackslash cite\{clave\}}}}
+
+% ==== 06_declaracion_ia ====
+\section{Declaración de uso de inteligencia artificial}\label{sec:declaracion-ia}
+% Escriban solo lo que sea cierto.
+\begingroup\footnotesize
+\begin{tabularx}{\textwidth}{@{}p{1.8cm}p{3.2cm}XX@{}}
+\textbf{Herramienta} & \textbf{Versión} & \textbf{Para qué la usamos} & \textbf{Cómo verificamos}\\
+\hline
+Claude & \pendiente{versión} & Apoyo para entender el escenario, revisar el diseño y realizar la plantilla base para main.tex & \pendiente{cómo se verificó}\\
+\end{tabularx}
+\endgroup
+
+
+% Borrar \nocite{*} cuando ya citen las fuentes reales con \cite{clave}; solo deben quedar las citadas y verificadas.
+\nocite{*}
+\printbibliography[title={Referencias}]
+\end{document}
