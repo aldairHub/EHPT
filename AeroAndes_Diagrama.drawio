@@ -277,7 +277,7 @@
         </object>
         <object id="L_marco" label="Leyenda" zona="A,B,C,D">
           <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;fontSize=14;align=center;verticalAlign=top;spacingTop=20;container=1;collapsible=0;recursiveResize=0;" vertex="1" parent="1">
-            <mxGeometry x="2740" y="1900" width="620" height="940" as="geometry" />
+            <mxGeometry x="2740" y="1900" width="620" height="1020" as="geometry" />
           </mxCell>
         </object>
         <object id="L_titulo_simbolos" label="Símbolos" zona="A,B,C,D">
@@ -470,9 +470,9 @@
             <mxGeometry x="70" y="720" width="0" height="0" as="geometry" />
           </mxCell>
         </object>
-        <object id="L_texto_numeracion" label="Numeración estándar de diagrama de comunicación: 1, 2, 3...; los submensajes se anidan (1.1, 3.2.1). Las respuestas se numeran como un mensaje más." zona="A,B,C,D">
+        <object id="L_texto_numeracion" label="Numeración estándar de diagrama de comunicación: 1, 2, 3...; los submensajes se anidan (1.1, 3.2.1). La respuesta de un mensaje síncrono va en su misma etiqueta: resultado := mensaje(datos)." zona="A,B,C,D">
           <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;spacing=0;" vertex="1" parent="L_marco">
-            <mxGeometry x="40" y="760" width="540" height="30" as="geometry" />
+            <mxGeometry x="40" y="760" width="560" height="30" as="geometry" />
           </mxCell>
         </object>
         <object id="L_texto_operaciones" label="Operaciones: 1 = (a) buscar vuelos · 2 = (b) retener asiento · 3 = (c) pagar y confirmar · 4 = (d) enviar confirmación y pase · 5 = (e) validar pase." zona="A,B,C,D">
@@ -482,7 +482,7 @@
         </object>
         <object id="L_texto_semantica" label="El enlace indica la tecnología; la flecha junto al enlace indica el mensaje, su sincronía y sus datos." zona="A,B,C,D">
           <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;spacing=0;" vertex="1" parent="L_marco">
-            <mxGeometry x="40" y="840" width="540" height="60" as="geometry" />
+            <mxGeometry x="40" y="840" width="540" height="30" as="geometry" />
           </mxCell>
         </object>
         <object id="L_muestra_enlace" label="" zona="A,B,C,D">
@@ -673,6 +673,21 @@
         <object id="B_m_2_3_2_etiqueta" label="2.3.2: invalidar(vuelo, asientos)" zona="B" emisor="B_inventario" receptor="B_cache" mensaje="2.3.2" enlace="B_enlace_inventario_cache">
           <mxCell style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="B_frontera_centro">
             <mxGeometry x="1480" y="290" width="190" height="20" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="L_texto_condicion" label="[condición]: el mensaje solo ocurre si se cumple la condición." zona="A,B,C,D">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;spacing=0;" vertex="1" parent="L_marco">
+            <mxGeometry x="40" y="890" width="540" height="20" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="L_texto_repeticion" label="*[condición]: el mensaje se repite mientras o cada vez que se cumple la condición." zona="A,B,C,D">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;spacing=0;" vertex="1" parent="L_marco">
+            <mxGeometry x="40" y="930" width="540" height="20" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="L_texto_bucle" label="Bucle sobre un mismo participante: mensaje que el participante se envía a sí mismo." zona="A,B,C,D">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;spacing=0;" vertex="1" parent="L_marco">
+            <mxGeometry x="40" y="970" width="540" height="20" as="geometry" />
           </mxCell>
         </object>
       </root>
