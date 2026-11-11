@@ -268,6 +268,261 @@
             <mxGeometry x="1300" y="150" width="400" height="100" as="geometry" />
           </mxCell>
         </object>
+        <object id="L_marco" label="Leyenda" zona="A,B,C,D">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;fontSize=14;align=center;verticalAlign=top;spacingTop=20;container=1;collapsible=0;recursiveResize=0;" vertex="1" parent="1">
+            <mxGeometry x="2740" y="1900" width="620" height="940" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="L_titulo_simbolos" label="Símbolos" zona="A,B,C,D">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;fontStyle=1;" vertex="1" parent="L_marco">
+            <mxGeometry x="40" y="60" width="540" height="20" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="L_simbolo_proceso" label="" zona="A,B,C,D">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;align=center;" vertex="1" parent="L_marco">
+            <mxGeometry x="40" y="100" width="60" height="20" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="L_texto_proceso" label="Proceso (rectángulo)" zona="A,B,C,D">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;spacing=0;" vertex="1" parent="L_marco">
+            <mxGeometry x="120" y="100" width="460" height="20" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="L_simbolo_bd" label="" zona="A,B,C,D">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;shape=cylinder3;boundedLbl=1;size=5;align=center;" vertex="1" parent="L_marco">
+            <mxGeometry x="40" y="140" width="60" height="20" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="L_texto_bd" label="Base de datos (cilindro)" zona="A,B,C,D">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;spacing=0;" vertex="1" parent="L_marco">
+            <mxGeometry x="120" y="140" width="460" height="20" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="L_simbolo_actor" label="" zona="A,B,C,D">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;shape=umlActor;align=center;" vertex="1" parent="L_marco">
+            <mxGeometry x="60" y="180" width="20" height="40" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="L_texto_actor" label="Actor (usuario)" zona="A,B,C,D">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;spacing=0;" vertex="1" parent="L_marco">
+            <mxGeometry x="120" y="180" width="460" height="40" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="L_texto_enlace" label="Enlace de comunicación" zona="A,B,C,D">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;spacing=0;" vertex="1" parent="L_marco">
+            <mxGeometry x="120" y="240" width="460" height="20" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="L_simbolo_frontera" label="" zona="A,B,C,D">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;dashed=1;dashPattern=2 4;align=center;" vertex="1" parent="L_marco">
+            <mxGeometry x="40" y="280" width="60" height="20" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="L_texto_frontera" label="Frontera (recuadro punteado)" zona="A,B,C,D">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;spacing=0;" vertex="1" parent="L_marco">
+            <mxGeometry x="120" y="280" width="460" height="20" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="L_titulo_tecnologia" label="Tecnología del enlace" zona="A,B,C,D">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;fontStyle=1;" vertex="1" parent="L_marco">
+            <mxGeometry x="40" y="320" width="540" height="20" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="L_muestra_enlace_inicio" label="" zona="A,B,C,D">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;connectable=0;" vertex="1" parent="L_marco">
+            <mxGeometry x="40" y="250" width="0" height="0" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="L_muestra_enlace_fin" label="" zona="A,B,C,D">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;connectable=0;" vertex="1" parent="L_marco">
+            <mxGeometry x="100" y="250" width="0" height="0" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="L_texto_sockets" label="Sockets TCP" zona="A,B,C,D">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;spacing=0;" vertex="1" parent="L_marco">
+            <mxGeometry x="120" y="360" width="460" height="20" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="L_muestra_sockets_inicio" label="" zona="A,B,C,D">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;connectable=0;" vertex="1" parent="L_marco">
+            <mxGeometry x="40" y="370" width="0" height="0" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="L_muestra_sockets_fin" label="" zona="A,B,C,D">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;connectable=0;" vertex="1" parent="L_marco">
+            <mxGeometry x="100" y="370" width="0" height="0" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="L_texto_rpc" label="RPC (gRPC)" zona="A,B,C,D">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;spacing=0;" vertex="1" parent="L_marco">
+            <mxGeometry x="120" y="400" width="460" height="20" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="L_muestra_rpc_inicio" label="" zona="A,B,C,D">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;connectable=0;" vertex="1" parent="L_marco">
+            <mxGeometry x="40" y="410" width="0" height="0" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="L_muestra_rpc_fin" label="" zona="A,B,C,D">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;connectable=0;" vertex="1" parent="L_marco">
+            <mxGeometry x="100" y="410" width="0" height="0" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="L_texto_rest" label="REST sobre HTTPS" zona="A,B,C,D">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;spacing=0;" vertex="1" parent="L_marco">
+            <mxGeometry x="120" y="440" width="460" height="20" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="L_muestra_rest_inicio" label="" zona="A,B,C,D">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;connectable=0;" vertex="1" parent="L_marco">
+            <mxGeometry x="40" y="450" width="0" height="0" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="L_muestra_rest_fin" label="" zona="A,B,C,D">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;connectable=0;" vertex="1" parent="L_marco">
+            <mxGeometry x="100" y="450" width="0" height="0" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="L_texto_mensajeria" label="Mensajería (AMQP / RabbitMQ)" zona="A,B,C,D">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;spacing=0;" vertex="1" parent="L_marco">
+            <mxGeometry x="120" y="480" width="460" height="20" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="L_muestra_mensajeria_inicio" label="" zona="A,B,C,D">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;connectable=0;" vertex="1" parent="L_marco">
+            <mxGeometry x="40" y="490" width="0" height="0" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="L_muestra_mensajeria_fin" label="" zona="A,B,C,D">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;connectable=0;" vertex="1" parent="L_marco">
+            <mxGeometry x="100" y="490" width="0" height="0" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="L_texto_datos" label="Acceso a datos (SGBD)" zona="A,B,C,D">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;spacing=0;" vertex="1" parent="L_marco">
+            <mxGeometry x="120" y="520" width="460" height="20" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="L_muestra_datos_inicio" label="" zona="A,B,C,D">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;connectable=0;" vertex="1" parent="L_marco">
+            <mxGeometry x="40" y="530" width="0" height="0" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="L_muestra_datos_fin" label="" zona="A,B,C,D">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;connectable=0;" vertex="1" parent="L_marco">
+            <mxGeometry x="100" y="530" width="0" height="0" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="L_texto_tecnologia_frontera" label="Frontera del sistema: solo agrupa" zona="A,B,C,D">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;spacing=0;" vertex="1" parent="L_marco">
+            <mxGeometry x="120" y="560" width="460" height="20" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="L_muestra_frontera_inicio" label="" zona="A,B,C,D">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;connectable=0;" vertex="1" parent="L_marco">
+            <mxGeometry x="40" y="570" width="0" height="0" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="L_muestra_frontera_fin" label="" zona="A,B,C,D">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;connectable=0;" vertex="1" parent="L_marco">
+            <mxGeometry x="100" y="570" width="0" height="0" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="L_titulo_mensajes" label="Mensajes" zona="A,B,C,D">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;fontStyle=1;" vertex="1" parent="L_marco">
+            <mxGeometry x="40" y="600" width="540" height="20" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="L_texto_sincrono" label="Mensaje síncrono (el emisor espera respuesta)" zona="A,B,C,D">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;spacing=0;" vertex="1" parent="L_marco">
+            <mxGeometry x="120" y="640" width="460" height="40" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="L_muestra_sincrono_inicio" label="" zona="A,B,C,D">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;connectable=0;" vertex="1" parent="L_marco">
+            <mxGeometry x="40" y="660" width="0" height="0" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="L_muestra_sincrono_fin" label="" zona="A,B,C,D">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;connectable=0;" vertex="1" parent="L_marco">
+            <mxGeometry x="70" y="660" width="0" height="0" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="L_texto_asincrono" label="Mensaje asíncrono (el emisor continúa sin esperar)" zona="A,B,C,D">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;spacing=0;" vertex="1" parent="L_marco">
+            <mxGeometry x="120" y="700" width="460" height="40" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="L_muestra_asincrono_inicio" label="" zona="A,B,C,D">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;connectable=0;" vertex="1" parent="L_marco">
+            <mxGeometry x="40" y="720" width="0" height="0" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="L_muestra_asincrono_fin" label="" zona="A,B,C,D">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;connectable=0;" vertex="1" parent="L_marco">
+            <mxGeometry x="70" y="720" width="0" height="0" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="L_texto_numeracion" label="Numeración estándar de diagrama de comunicación: 1, 2, 3...; los submensajes se anidan (1.1, 3.2.1). Las respuestas se numeran como un mensaje más." zona="A,B,C,D">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;spacing=0;" vertex="1" parent="L_marco">
+            <mxGeometry x="40" y="760" width="540" height="30" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="L_texto_operaciones" label="Operaciones: 1 = (a) buscar vuelos · 2 = (b) retener asiento · 3 = (c) pagar y confirmar · 4 = (d) enviar confirmación y pase · 5 = (e) validar pase." zona="A,B,C,D">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;spacing=0;" vertex="1" parent="L_marco">
+            <mxGeometry x="40" y="810" width="540" height="30" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="L_texto_semantica" label="El enlace indica la tecnología; la flecha junto al enlace indica el mensaje, su sincronía y sus datos." zona="A,B,C,D">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=left;verticalAlign=middle;strokeColor=none;spacing=0;" vertex="1" parent="L_marco">
+            <mxGeometry x="40" y="840" width="540" height="60" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="L_muestra_enlace" label="" zona="A,B,C,D">
+          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=none;endFill=0;exitX=0;exitY=0;entryX=0;entryY=0;exitPerimeter=0;entryPerimeter=0;" edge="1" parent="L_marco" source="L_muestra_enlace_inicio" target="L_muestra_enlace_fin">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="L_muestra_sockets" label="" zona="A,B,C,D">
+          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=none;endFill=0;exitX=0;exitY=0;entryX=0;entryY=0;exitPerimeter=0;entryPerimeter=0;strokeWidth=4;" edge="1" parent="L_marco" source="L_muestra_sockets_inicio" target="L_muestra_sockets_fin">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="L_muestra_rpc" label="" zona="A,B,C,D">
+          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=none;endFill=0;exitX=0;exitY=0;entryX=0;entryY=0;exitPerimeter=0;entryPerimeter=0;shape=link;strokeWidth=2;" edge="1" parent="L_marco" source="L_muestra_rpc_inicio" target="L_muestra_rpc_fin">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="L_muestra_rest" label="" zona="A,B,C,D">
+          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=none;endFill=0;exitX=0;exitY=0;entryX=0;entryY=0;exitPerimeter=0;entryPerimeter=0;strokeWidth=1;" edge="1" parent="L_marco" source="L_muestra_rest_inicio" target="L_muestra_rest_fin">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="L_muestra_mensajeria" label="" zona="A,B,C,D">
+          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=none;endFill=0;exitX=0;exitY=0;entryX=0;entryY=0;exitPerimeter=0;entryPerimeter=0;dashed=1;dashPattern=12 6;strokeWidth=2;" edge="1" parent="L_marco" source="L_muestra_mensajeria_inicio" target="L_muestra_mensajeria_fin">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="L_muestra_datos" label="" zona="A,B,C,D">
+          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=none;endFill=0;exitX=0;exitY=0;entryX=0;entryY=0;exitPerimeter=0;entryPerimeter=0;dashed=1;dashPattern=12 4 2 4;strokeWidth=2;" edge="1" parent="L_marco" source="L_muestra_datos_inicio" target="L_muestra_datos_fin">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="L_muestra_frontera" label="" zona="A,B,C,D">
+          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=none;endFill=0;exitX=0;exitY=0;entryX=0;entryY=0;exitPerimeter=0;entryPerimeter=0;dashed=1;dashPattern=2 4;strokeWidth=1;" edge="1" parent="L_marco" source="L_muestra_frontera_inicio" target="L_muestra_frontera_fin">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="L_muestra_sincrono" label="" zona="A,B,C,D">
+          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=none;endFill=0;exitX=0;exitY=0;entryX=0;entryY=0;exitPerimeter=0;entryPerimeter=0;endArrow=block;endFill=1;" edge="1" parent="L_marco" source="L_muestra_sincrono_inicio" target="L_muestra_sincrono_fin">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="L_muestra_asincrono" label="" zona="A,B,C,D">
+          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=none;endFill=0;exitX=0;exitY=0;entryX=0;entryY=0;exitPerimeter=0;entryPerimeter=0;endArrow=open;endFill=0;" edge="1" parent="L_marco" source="L_muestra_asincrono_inicio" target="L_muestra_asincrono_fin">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
       </root>
     </mxGraphModel>
   </diagram>
