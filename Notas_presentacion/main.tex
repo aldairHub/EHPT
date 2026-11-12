@@ -144,34 +144,34 @@ Quevedo, Ecuador --- 11 de noviembre de 2026\par
 % ==== 03_zona_B ====
 \section{Zona B: Reservas, inventario y datos}\label{sec:zonaB}
 \autor{\integranteB}
-% Una decisión por bloque; duplica o elimina bloques según tu zona.
 
-\decision{\pendiente{nombre de la decisión 1}}
- {\pendiente{qué se eligió, indicando el enlace o mensaje del diagrama}}
- {\pendiente{por qué conviene en latencia (citar requisito R)}}
- {\pendiente{cuántos mensajes se esperan y cómo los soporta}}
- {\pendiente{si necesita respuesta inmediata o puede ser diferida, y por qué}}
- {\pendiente{qué pasa si falla (citar F)}}
- {\pendiente{qué garantía de consistencia se necesita y cómo se logra}}
- {\pendiente{fuente que respalda la decisión, con \texttt{\textbackslash cite\{clave\}}}}
+\decision{Comunicación entre reservas e inventario}
+ {Se eligió una llamada RPC síncrona con gRPC sobre HTTP/2 entre \texttt{reservas} e \texttt{inventario}. Por este enlace viajan la consulta de disponibilidad cuando la caché no tiene el dato (mensaje 1.2), la solicitud de retención (mensaje 2.1) y, desde la zona C, la confirmación y la liberación del asiento. Es la interacción RPC obligatoria de la guía. La respuesta va dentro del mismo mensaje (por ejemplo, \texttt{resultado := retenerAsiento(\ldots)}) y cada llamada tiene un plazo máximo de espera.}
+ {R1 exige que el 95\,\% de las consultas se responda en menos de 300~ms. Solo las búsquedas con fallo de caché llegan al inventario, y para ellas la llamada directa es el camino más corto. En una comparación entre REST, GraphQL y gRPC en microservicios, gRPC tuvo el menor tiempo de respuesta~\cite{niswar2024grpc}, y RPC se concibió para ofrecer una semántica simple y una comunicación rápida~\cite{birrell1984rpc}. Se descartó REST por esa mayor latencia, y RabbitMQ porque retener un asiento no puede esperar en una cola.}
+ {R1 plantea hasta 1\,200 consultas por segundo, pero la caché absorbe las búsquedas con acierto (véase la decisión sobre la caché en la sección~\ref{sec:decisiones-grupo}). El inventario recibe solo los fallos de caché y las operaciones de retención y confirmación, que son una por intento de compra; el enunciado no fija esa tasa. gRPC usa una conexión HTTP/2 y atiende varias llamadas a la vez sobre ella.}
+ {Sí la necesita. Reservas debe saber en el momento si el asiento quedó retenido o ya no está disponible para responder al pasajero, y no puede continuar con el pago mientras esa respuesta no llegue.}
+ {Si el inventario no responde dentro del plazo, la llamada falla y reservas no continúa con el pago: nunca se da por retenido un asiento sin confirmación. Cada llamada lleva \texttt{reservaId}, de modo que un reintento no genera una segunda retención; evitar que una misma petición se ejecute más de una vez es el objetivo de las semánticas de a lo sumo una vez~\cite{liskov1991atmostonce}. Si el inventario está caído, las búsquedas con acierto en caché siguen respondiendo (R1), pero no se retiene ni se confirma ningún asiento.}
+ {Se necesita consistencia fuerte (R3). El inventario es el único servicio que decide el estado de los asientos, y reservas solo actúa sobre lo que este le responde. No hay copias del estado de un asiento que puedan contradecirse, salvo la caché, que se usa únicamente para consultar.}
+ {\cite{birrell1984rpc,niswar2024grpc,liskov1991atmostonce}}
 
-\decision{\pendiente{nombre de la decisión 2}}
- {\pendiente{qué se eligió, indicando el enlace o mensaje del diagrama}}
- {\pendiente{por qué conviene en latencia (citar requisito R)}}
- {\pendiente{cuántos mensajes se esperan y cómo los soporta}}
- {\pendiente{si necesita respuesta inmediata o puede ser diferida, y por qué}}
- {\pendiente{qué pasa si falla (citar F)}}
- {\pendiente{qué garantía de consistencia se necesita y cómo se logra}}
- {\pendiente{fuente que respalda la decisión, con \texttt{\textbackslash cite\{clave\}}}}
+\decision{Registro de la reserva y su estado en la base de datos}
+ {Reservas guarda cada reserva y su estado en la base de datos de reservas (PostgreSQL sobre TCP) con escrituras síncronas. La reserva se crea en PENDIENTE\_PAGO (mensaje 2.2) y luego pasa a CONFIRMADA o a CANCELADA según el resultado del pago y la respuesta del inventario. Si el cobro se aprobó pero el asiento ya no se pudo confirmar, queda en REEMBOLSO\_PENDIENTE. Los asientos y las reservas están en la misma base de datos, y cada servicio escribe solo en sus propias tablas.}
+ {Cada escritura es una transacción corta sobre un solo registro, así que suma poco a la compra y no toca el camino de búsqueda de R1, que se sirve de la caché. La reserva se registra antes de pasar al cobro porque el cliente ve el estado PENDIENTE\_PAGO mientras la pasarela responde (R4).}
+ {Se hace una escritura por cada cambio de estado de una reserva, un volumen mucho menor que el de consultas de R1. El enunciado no fija la tasa de compras.}
+ {Sí para las escrituras que definen el estado: reservas no debe seguir adelante si no logró registrarlo. En cambio, el envío de la confirmación al pasajero es diferido (véase la decisión siguiente).}
+ {Si reservas se cae después de retener el asiento y antes de registrar la reserva, nada queda bloqueado: la retención vence sola a los 10~minutos (R2). Es la idea de un \emph{lease}, un derecho con plazo en el que las fallas afectan el rendimiento pero no la corrección~\cite{gray1989leases}. Además, ninguna transacción queda abierta mientras el pasajero paga, porque un registro bloqueado durante la compra queda atrapado si se pierde la comunicación~\cite{laux2009occ}. Si la base de datos no está disponible, no se retiene ni se confirma, porque no se acepta vender un asiento sin dejarlo registrado.}
+ {Es consistencia fuerte (R3). El estado del asiento y el de la reserva están en la misma base de datos, y cada cambio es una transacción atómica. El evento de confirmación se guarda en la misma transacción que la reserva. La protección contra la doble venta se explica en la decisión del grupo sobre el control de asientos (sección~\ref{sec:decisiones-grupo}).}
+ {\cite{gray1989leases,laux2009occ}}
 
-\decision{\pendiente{nombre de la decisión 3}}
- {\pendiente{qué se eligió, indicando el enlace o mensaje del diagrama}}
- {\pendiente{por qué conviene en latencia (citar requisito R)}}
- {\pendiente{cuántos mensajes se esperan y cómo los soporta}}
- {\pendiente{si necesita respuesta inmediata o puede ser diferida, y por qué}}
- {\pendiente{qué pasa si falla (citar F)}}
- {\pendiente{qué garantía de consistencia se necesita y cómo se logra}}
- {\pendiente{fuente que respalda la decisión, con \texttt{\textbackslash cite\{clave\}}}}
+\decision{Publicación de la confirmación hacia notificaciones}
+ {Al confirmar la reserva, reservas guarda el evento \texttt{ReservaConfirmada} en la base de datos, dentro de la misma transacción. Después, un ciclo (mensaje 4) lee los eventos pendientes (mensaje 4.1), los publica en RabbitMQ por AMQP como mensajes persistentes (mensaje 4.2) y los marca como publicados (mensaje 4.3). Es el patrón de bandeja de salida (\emph{transactional outbox}).}
+ {R5 pide que la confirmación llegue en menos de 1~minuto después del pago y permite enviarla después de responder al cliente. El ciclo de publicación solo suma su propio intervalo, que debe ser mucho menor que ese minuto. Se descartó publicar directamente en RabbitMQ dentro del flujo de compra, porque haría esperar al cliente por un servicio que no hace falta para responderle.}
+ {Se genera un evento por cada reserva confirmada; el enunciado no fija esa tasa. Es un volumen mucho menor que el de las consultas de R1.}
+ {No la necesita. El pasajero recibe su respuesta cuando la reserva se confirma, y la notificación se entrega después, de forma asíncrona (R5).}
+ {F2: si notificaciones está caído, la confirmación no se pierde, porque el evento queda en la base de datos hasta publicarse y luego en una cola durable hasta que notificaciones lo procese. Si reservas se cae entre publicar y marcar, el evento se publica otra vez, así que notificaciones debe tolerar duplicados. Lograr exactamente una vez ante caídas es difícil, porque cliente y servidor deben registrar sus acciones en almacenamiento estable~\cite{ivaki2012exactlyonce}; por eso se acepta entrega al menos una vez con un receptor idempotente. RabbitMQ se ha evaluado en arquitecturas agrupadas de alta disponibilidad y tolerantes a fallos~\cite{rostanski2014rabbitmq}.}
+ {Se acepta consistencia eventual en este flujo: el estado de la reserva ya es consistente en la base de datos, y la notificación puede llegar con retraso, con los límites que eso implica~\cite{bailis2013eventual}.}
+ {\cite{ivaki2012exactlyonce,rostanski2014rabbitmq,bailis2013eventual}}
+ 
 
 % ==== 04_zona_C ====
 \section{Zona C: Pagos y notificaciones}\label{sec:zonaC}
@@ -239,15 +239,16 @@ Quevedo, Ecuador --- 11 de noviembre de 2026\par
 
 % ==== 06_declaracion_ia ====
 \section{Declaración de uso de inteligencia artificial}\label{sec:declaracion-ia}
+Debido a que no se realizó una presentación presencial en clase, no se redactaron las preguntas previstas para dicha presentación.
+
 % Escriban solo lo que sea cierto.
 \begingroup\footnotesize
-\begin{tabularx}{\textwidth}{@{}p{1.8cm}p{3.2cm}XX@{}}
-\textbf{Herramienta} & \textbf{Versión} & \textbf{Para qué la usamos} & \textbf{Cómo verificamos}\\
+\begin{tabularx}{\textwidth}{@{}p{2cm}XX@{}}
+\textbf{Herramienta} & \textbf{Para qué la usamos} & \textbf{Cómo verificamos}\\
 \hline
-Claude & \pendiente{versión} & Apoyo para entender el escenario, revisar el diseño y realizar la plantilla base para main.tex & \pendiente{cómo se verificó}\\
+Claude & Apoyo para entender el escenario, revisar el diseño y elaborar la plantilla base de \texttt{main.tex}. & Revisión de la correspondencia entre los requisitos del escenario, las decisiones de comunicación y el diagrama; comprobación del formato mediante la compilación del documento.\\
 \end{tabularx}
 \endgroup
-
 
 % Borrar \nocite{*} cuando ya citen las fuentes reales con \cite{clave}; solo deben quedar las citadas y verificadas.
 \nocite{*}
