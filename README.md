@@ -65,8 +65,4 @@ No es necesario instalar `latexmk` ni Perl para seguir los pasos de compilación
 
 Para cambios de texto que no afecten citas ni referencias, normalmente basta con una pasada de pdfLaTeX. Si aparecen avisos de volver a ejecutar LaTeX o Biber, repetir la secuencia completa.
 
-### Archivos generados
 
-El PDF se guarda junto a `main.tex`. Para revisar errores de compilación, consultar `main.log`; para errores de bibliografía, consultar `main.blg`.
-
-Al subir cambios al repositorio, incluir `main.tex`, `referencias.bib` y el PDF actualizado, según cuáles hayan cambiado. Los archivos auxiliares (`.aux`, `.bbl`, `.bcf`, `.blg`, `.log`, `.out`, `.run.xml`, `.synctex*`, entre otros) se generan al compilar y están excluidos mediante `Notas_presentacion/.gitignore`.
