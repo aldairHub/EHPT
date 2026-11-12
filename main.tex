@@ -1,0 +1,395 @@
+% !TEX program = pdflatex
+% Compilar desde notas/: pdflatex notas -> biber notas -> pdflatex notas -> pdflatex notas
+% Cada responsable edita SOLO su sección (marcada con ==== nombre ====). Antes de entregar: buscar PENDIENTE (no debe quedar ninguno).
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{mathptmx}
+\usepackage{microtype}
+\usepackage[a4paper,margin=2.54cm]{geometry}
+\usepackage{xcolor}
+\usepackage{tabularx}
+\usepackage{csquotes}
+\usepackage{titlesec}
+\usepackage[backend=biber,style=ieee]{biblatex}
+\addbibresource{referencias.bib}
+\usepackage[colorlinks=true,linkcolor=black,citecolor=black,urlcolor=black]{hyperref}
+
+\setlength{\parindent}{0pt}\setlength{\parskip}{6pt}\setlength{\emergencystretch}{3em}
+\titleformat{\section}{\bfseries\fontsize{16}{19}\selectfont}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\bfseries\fontsize{14}{17}\selectfont}{\thesubsection.}{0.5em}{}
+
+% ---- Macros (no editar) ----
+\newcommand{\pendiente}[1]{\textbf{\textcolor{red}{[PENDIENTE: #1]}}}
+\newcommand{\autor}[1]{\par{\small\textit{Redactado por: #1}}\par}
+% Justificación de una decisión: título, elección y los cinco criterios del escenario
+\newcommand{\decision}[8]{\subsubsection*{#1}%
+  \textbf{Elección.} #2\par
+  \textbf{Latencia.} #3\par
+  \textbf{Volumen de mensajes.} #4\par
+  \textbf{Necesidad de respuesta inmediata.} #5\par
+  \textbf{Tolerancia a fallos.} #6\par
+  \textbf{Consistencia.} #7\par
+  \textbf{Fuentes.} #8\par}
+
+% ---- Datos del equipo (editar solo aquí) ----
+\newcommand{\integranteA}{Herrera Barco Humberto Aldair}
+\newcommand{\integranteB}{Toaquiza Zambrano Belinda Betzabeth}
+\newcommand{\integranteC}{Piguave Montaño Nixon Antonio}
+\newcommand{\integranteD}{Emanuel Pino Juliana Romina}
+\newcommand{\codigoactividad}{GA-TL-02 - FORM}
+
+\begin{document}
+\begin{titlepage}\centering
+{\large\bfseries UNIVERSIDAD TÉCNICA ESTATAL DE QUEVEDO\par}\vspace{4pt}
+Facultad de Ciencias de la Computación\par
+Carrera de Ingeniería de Software\par
+Séptimo semestre, paralelo A\par\vspace{2cm}
+{\Large\bfseries Notas de la presentación: justificación del diseño\par}\vspace{6pt}
+Taller de modelado de comunicación entre procesos distribuidos\par
+Código de la actividad: \codigoactividad\par
+Escenario 1: AeroAndes Reservas\par\vspace{1.5cm}
+Aplicaciones Distribuidas (ISR-701)\par
+Docente: Gleiston Cicerón Guerrero Ulloa, PhD\par\vspace{1.5cm}
+{\bfseries Integrantes}\par\vspace{4pt}
+\begin{tabular}{@{}ll@{}}
+\integranteA & (zona A)\\ \integranteB & (zona B)\\
+\integranteC & (zona C)\\ \integranteD & (zona D)\\
+\end{tabular}\par\vfill
+Quevedo, Ecuador --- 11 de noviembre de 2026\par
+\end{titlepage}
+
+% ==== 01_decisiones_grupo ====
+\section{Decisiones del grupo}\label{sec:decisiones-grupo}
+% Cada decisión la redacta UNA persona y firma con \autor.
+ \decision{Comunicación entre reservas y pagos}
+ {Se eligió una llamada RPC síncrona de Reservas a Pagos (gRPC sobre HTTP/2). Pagos responde CONFIRMADO, RECHAZADO o DESCONOCIDO, y la reserva queda en estado PENDIENTE\_PAGO mientras tanto.}
+ {La llamada directa evita la espera adicional de pasar por un broker y entrega el resultado del pago en cuanto la pasarela responde. Como la pasarela puede tardar hasta 30~s, el cliente ve el estado PENDIENTE\_PAGO mientras espera y no queda bloqueado sin información (R4). RPC se diseñó para ofrecer una semántica simple y una comunicación rápida~\cite{birrell1984rpc}. En pruebas con microservicios, gRPC tuvo menor tiempo de respuesta que REST y GraphQL~\cite{niswar2024grpc}.}
+ {Es un mensaje corto por cada intento de pago. El enunciado no fija una tasa de pagos, así que se dimensiona con la carga de reservas. gRPC reutiliza una conexión HTTP/2 y soporta varias llamadas simultáneas sobre ella.}
+ {Necesita respuesta inmediata: Reservas espera el resultado del pago, y en vuelos los usuarios son sensibles al tiempo de espera. Se descartó RabbitMQ en este enlace porque ordena mejor los reintentos, pero añade un salto y retrasa el resultado.}
+ {Si la pasarela no responde (F1), la llamada vence al superar el plazo máximo de 30~s (R4). El pago queda en DESCONOCIDO, se libera el asiento y, si el cobro sí ocurrió, se reembolsa como compensación (ver la decisión sobre F1, F2 y F3).}
+ {El pago debe ejecutarse a lo sumo una vez. Se logra enviando una clave de idempotencia en cada llamada, de modo que un reintento se detecte como duplicado~\cite{liskov1991atmostonce}.}
+ {\cite{birrell1984rpc,niswar2024grpc,liskov1991atmostonce}}
+ 
+\decision{Comunicación entre embarque y reservas, y operación sin conexión}
+ {Se eligió gRPC entre el servidor de embarque y Reservas. Los lectores y quioscos siguen comunicándose con el servidor de embarque por sockets TCP, que es la interacción obligatoria con sockets. El servidor de embarque guarda el manifiesto del vuelo para poder operar sin red.}
+ {R6 exige responder en menos de 1~s. gRPC y Thrift resultaron más rápidos que REST entre microservicios, gracias a su velocidad y a la compresión de los mensajes~\cite{kumar2021protocols}. Eso respalda gRPC para validar pases rápidamente, en línea con lo medido en~\cite{niswar2024grpc}. Se descartó REST entre embarque y reservas por esa mayor latencia, y UDP en los lectores porque un mensaje perdido dejaría al pasajero sin respuesta.}
+ {R6 indica unos 40 lectores enviando mensajes cortos de formato fijo. Es un volumen bajo por lector, que una conexión persistente soporta sin dificultad.}
+ {Necesita respuesta inmediata mientras haya red, porque el pase se valida en el momento del abordaje. Sin red, la validación se resuelve localmente y la sincronización queda diferida.}
+ {Si se corta la red del aeropuerto (F3), el servidor valida contra el manifiesto local, guarda cada abordaje en una cola y los envía a Reservas cuando la conexión vuelve. Esto sigue la estrategia de continuar operando durante la partición y procesar después las acciones encoladas~\cite{melliarsmith1998partition}.}
+ {Se acepta consistencia eventual con riesgo acotado. Brewer señala que los cajeros automáticos eligen disponibilidad con consistencia débil, pero con riesgo limitado~\cite{brewer2010freedom}. Aquí el riesgo se acota porque el manifiesto local contiene solo los pasajeros del vuelo, y las discrepancias se reconcilian al reconectar.}
+ {\cite{kumar2021protocols,melliarsmith1998partition,brewer2010freedom}}
+ 
+\decision{Control de asientos y retención}
+ {Reservas pide la retención al inventario por gRPC. Se eligió un bloqueo corto en la base de datos, aplicado solo al cambiar el estado del asiento, combinado con una retención lógica con vencimiento de 10~minutos. En el diagrama corresponden los mensajes \texttt{retenerSiLibre}, \texttt{confirmarSiRetencionVigente} y \texttt{liberarSiRetenidaPor}.}
+ {El bloqueo dura lo que tarda una actualización condicional, no los 10 minutos de la compra, por lo que no frena a otros clientes. Mantener un registro bloqueado mientras el usuario completa su compra es riesgoso: si se pierde la comunicación, el registro queda bloqueado. Por eso se recomienda verificar la versión de la fila en lugar de conservar el bloqueo, y el ejemplo típico de ese trabajo es la reserva de pasajes de vuelo~\cite{laux2009occ}.}
+ {Todas las retenciones y confirmaciones se dirigen al servicio de inventario, que es el único dueño del estado de los asientos. El enunciado no fija una tasa de reservas por segundo.}
+ {Necesita respuesta inmediata: retener un asiento o rechazar la solicitud debe resolverse en el momento, para que el cliente sepa si pudo reservar.}
+ {Si el cliente o el pago se caen a mitad de la compra, la retención vence sola a los 10~minutos (R2) y el asiento se libera. Es la idea de un lease, un derecho con plazo en el que las fallas afectan el rendimiento pero no la corrección~\cite{gray1989leases}.}
+ {Un asiento nunca debe venderse dos veces (R3). Se garantiza con una única escritura atómica y condicional sobre el estado del asiento, que solo avanza si el asiento sigue libre o retenido por la misma reserva. El primero en llegar gana.}
+ {\cite{gray1989leases,laux2009occ}}
+ 
+\decision{Uso de la caché de disponibilidad}
+ {Se eligió usar la caché solo para las búsquedas de disponibilidad. Retener y confirmar asientos van siempre al servicio de inventario, y este invalida la entrada de caché cuando un asiento se vende o se libera (mensajes \texttt{invalidar} del diagrama).}
+ {R1 exige 1\,200 consultas por segundo con el 95\,\% por debajo de 300~ms. Consultar la base de datos en cada búsqueda no sostendría esa carga, mientras que la caché responde desde memoria. Se descartó consultar siempre la base de datos por esa razón, y también confirmar compras con datos de la caché, porque podría vender dos veces el mismo asiento (R3).}
+ {Se esperan 1\,200 consultas por segundo (R1). Las lecturas se sirven desde la caché, y solo las compras llegan al inventario y a la base de datos.}
+ {La búsqueda necesita respuesta inmediata, pero tolera datos ligeramente desactualizados: puede mostrar libre un asiento que ya se vendió. Por eso la compra no se apoya en la caché.}
+ {Si la caché falla, las búsquedas pasan a la base de datos con mayor latencia, pero el sistema sigue funcionando. Nunca se vende un asiento por un dato viejo, porque la compra siempre se valida en el inventario.}
+ {La caché ofrece consistencia débil solo para lectura. Expirar entradas por tiempo devuelve documentos desactualizados, mientras que la invalidación mantiene consistencia fuerte con un costo similar~\cite{cao1998cache}. Con el benchmark de comercio web TPC-W, la invalidación resultó la más adecuada para comercio electrónico~\cite{cao2002strong}.}
+ {\cite{cao1998cache,cao2002strong}}
+ 
+\decision{Respuesta conjunta a los fallos F1, F2 y F3}
+ {Para F1 se usa un timeout con liberación del asiento y compensación. Para F2 se usa una cola durable en RabbitMQ con reintento. Para F3 se usa un manifiesto local en el servidor de embarque con sincronización posterior.}
+ {Ninguna de las tres respuestas añade espera al camino normal: cada una actúa solo cuando algo falla. El timeout de 30~s de F1 acota la espera del cliente (R4).}
+ {Las confirmaciones de reserva viajan por la cola hacia Notificaciones (R5), un mensaje por reserva confirmada, que debe llegar en menos de 1~minuto después del pago. El enunciado no fija una tasa para ese flujo. RabbitMQ se puede configurar con nodos agrupados y colas replicadas para ganar disponibilidad, aunque eso compite con el rendimiento~\cite{rostanski2014rabbitmq}.}
+ {F1 es inmediata: el cliente recibe el estado pendiente sin quedar bloqueado. F2 y F3 son diferidas: la notificación se entrega cuando el servicio vuelve, y los abordajes se envían al recuperar la red.}
+ {F1: una transacción larga se divide en pasos y, si uno falla, se ejecutan transacciones compensatorias para deshacer los anteriores~\cite{garciamolina1987sagas}. En microservicios este patrón no aísla las lecturas de estados incompletos~\cite{daraghmi2022saga}, por eso la reserva permanece en PENDIENTE\_PAGO y no se muestra como vendida. F2: la confirmación espera en la cola y se reintenta hasta que Notificaciones responde. F3: se aplica lo descrito en la decisión de embarque.}
+ {F1 exige que el cobro ocurra una sola vez. Lograrlo ante caídas es difícil, porque cliente y servidor deben registrar sus acciones en almacenamiento estable~\cite{ivaki2012exactlyonce}. F2 y F3 aceptan consistencia eventual, con las garantías y límites que describen~\cite{bailis2013eventual}.}
+ {\cite{garciamolina1987sagas,daraghmi2022saga,ivaki2012exactlyonce,rostanski2014rabbitmq,bailis2013eventual}}
+ 
+
+% ==== 02_zona_A ====
+\section{Zona A: Clientes y sistemas externos}\label{sec:zonaA}
+\autor{\integranteA}
+% Una decisión por bloque; duplica o elimina bloques según tu zona.
+
+\decision{Exposición de interfaz perimetral mediante REST/HTTPS hacia clientes y agencias externas}
+ {Se eligió utilizar una interfaz REST sobre HTTPS mediada por un API Gateway para la comunicación externa con clientes web, móviles y sistemas de agencias de viajes, evitando exponer gRPC o contratos binarios directamente fuera de la red corporativa.}
+ {Conviene en latencia (requisitos R1 y R2) porque la infraestructura HTTP estándar aprovecha el almacenamiento en caché perimetral, el balanceo de carga y la terminación TLS optimizada, reduciendo la complejidad de integración para clientes heterogéneos sin requerir la sobrecarga de traducción de protocolos personalizados en la frontera. Además, estudios recientes sobre la gestión de arquitectura y calidad demuestran que mantener contratos de API estandarizados previene la acumulación de deuda técnica por acoplamiento perimetral~\cite{CERNY2023111829, DETOLEDO2021110968}.}
+ {Se espera un volumen masivo y concurrente de consultas de disponibilidad (lecturas frecuentes) y un tráfico moderado de transacciones de compra (escrituras). El sistema lo soporta mediante el escalado horizontal independiente del API Gateway y el uso de análisis estricto de componentes para asegurar que los contratos de servicio no introduzcan dependencias cruzadas innecesarias~\cite{9737496}.}
+ {Sí la necesita de forma inmediata (síncrona) para las consultas de disponibilidad y la recepción inicial de la orden de reserva, permitiendo que el usuario o la agencia externa obtengan una confirmación instantánea del estado de su solicitud.}
+ {Si la pasarela perimetral o el servicio externo sufre saturación o caídas (F1), el cliente recibe códigos de estado HTTP estándar (como 503 o 504), permitiendo implementar reintentos con retroceso exponencial en el cliente sin propagar fallos en cascada hacia los microservicios internos.}
+ {Se requiere consistencia fuerte en el momento crítico de retener el asiento y confirmar la transacción, mientras que las búsquedas perimetrales de disponibilidad toleran consistencia eventual mediante caché.}
+ {~\cite{CERNY2023111829, DETOLEDO2021110968, 9737496}.}
+
+\decision{Gestión de plazos (timeouts), reintentos e idempotencia ante servicios externos lentos}
+ {Se eligió configurar plazos de espera estrictos (\textit{timeouts}) acotados para las llamadas hacia pasarelas de pago externas, devolviendo un estado pendiente inmediato en la interfaz y utilizando claves de idempotencia por transacción junto con la compensación por Saga (F1).}
+ {Para cumplir con los requerimientos de tiempo de respuesta (R1), no se puede permitir que una pasarela externa lenta mantenga bloqueados indefinidamente los hilos de ejecución del servicio de Reservas. Cortar la espera síncrona a tiempo optimiza el rendimiento general y previene la propagación de retardos. Asimismo, optimizaciones de ejecución y análisis a nivel de infraestructura y tiempo de ejecución permiten mantener los tiempos de respuesta dentro de los márgenes esperados~\cite{10.1145/3486606.3488075}.}
+ {Se procesa una solicitud por cada intento de pago realizado por los usuarios. El sistema soporta este flujo liberando de inmediato las conexiones de red y delegando la verificación asíncrona o la compensación posterior sin agotar el pool de recursos.}
+ {La interfaz del cliente necesita mostrar de inmediato un estado de procesamiento pendiente para evitar la incertidumbre o reenvíos duplicados por parte del usuario, mientras que la verificación definitiva con la pasarela se difiere controladamente.}
+ {Ante un fallo o ausencia de respuesta de la pasarela (F1), la expiración del plazo activa la transacción compensatoria (Saga) para liberar la retención del asiento en el inventario. Si el cliente reintenta la operación, el uso de identificadores de idempotencia previene cargos duplicados, mitigando las interacciones inestables y problemas de latencia externa identificados en la literatura~\cite{CERNY2023111829}.}
+ {Se asegura consistencia eventual transaccional entre el sistema de reservas y los sistemas de pago externos mediante el control de estados idempotentes y compensaciones automatizadas.}
+ {~\cite{CERNY2023111829, 10.1145/3486606.3488075}.}
+
+\decision{Confirmación diferida de correo electrónico mediante colas y consistencia eventual}
+ {Se eligió desacoplar completamente el envío de correos electrónicos de confirmación y boletos mediante el patrón de bandeja de salida (\textit{transactional outbox}) y una cola de mensajería durable hacia el microservicio de Notificaciones, respaldado por una cola de mensajes fallidos (\textit{DLQ}).}
+ {R2 establece pautas temporales estrictas para la confirmación de la reserva. Realizar un envío de correo electrónico de forma síncrona añadiría una latencia innecesaria y dependiente de servidores SMTP externos en la ruta crítica de compra. Extraer esta tarea acelera notablemente la respuesta visual al pasajero.}
+ {Se genera exactamente un evento de notificación por cada reserva confirmada con éxito. El bróker de mensajes absorbe las ráfagas de transacciones y alimenta al servicio de Notificaciones de forma regulada, protegiendo las bases de datos transaccionales de sobrecargas innecesarias y asegurando la evolvibilidad a largo plazo del sistema~\cite{Bogner2021}.}
+ {El envío del correo debe ser completamente diferido: el pasajero visualiza el resultado y su código de confirmación de manera instantánea en pantalla, y el correo electrónico llega a su bandeja de entrada segundos o minutos después sin alterar la validez jurídica ni operativa de la compra.}
+ {Si el microservicio de Notificaciones o el servidor SMTP externo se encuentran caídos (F2), los eventos de confirmación no se pierden ya que permanecen almacenados de forma segura en la tabla outbox y en el bróker durable. El sistema ejecuta reintentos automatizados con backoff y aísla los errores persistentes sin afectar la experiencia del usuario ni generar deuda técnica por acoplamiento temporal~\cite{DETOLEDO2021110968}.}
+ {Se garantiza consistencia eventual con entrega al menos una vez (\textit{at-least-once}), asegurando que el estado del correo electrónico enviado coincida siempre con el registro persistido en el sistema de reservas.}
+ {~\cite{CERNY2023111829, Bogner2021, DETOLEDO2021110968}.}
+
+% ==== 03_zona_B ====
+\section{Zona B: Reservas, inventario y datos}\label{sec:zonaB}
+\autor{\integranteB}
+
+\decision{Comunicación entre reservas e inventario}
+ {Se eligió una llamada RPC síncrona con gRPC sobre HTTP/2 entre \texttt{reservas} e \texttt{inventario}. Por este enlace viajan la consulta de disponibilidad cuando la caché no tiene el dato (mensaje 1.2), la solicitud de retención (mensaje 2.1) y, desde la zona C, la confirmación y la liberación del asiento. Es la interacción RPC obligatoria de la guía. La respuesta va dentro del mismo mensaje (por ejemplo, \texttt{resultado := retenerAsiento(\ldots)}) y cada llamada tiene un plazo máximo de espera.}
+ {R1 exige que el 95\,\% de las consultas se responda en menos de 300~ms. Solo las búsquedas con fallo de caché llegan al inventario, y para ellas la llamada directa es el camino más corto. En una comparación entre REST, GraphQL y gRPC en microservicios, gRPC tuvo el menor tiempo de respuesta~\cite{niswar2024grpc}, y RPC se concibió para ofrecer una semántica simple y una comunicación rápida~\cite{birrell1984rpc}. Se descartó REST por esa mayor latencia, y RabbitMQ porque retener un asiento no puede esperar en una cola.}
+ {R1 plantea hasta 1\,200 consultas por segundo, pero la caché absorbe las búsquedas con acierto (véase la decisión sobre la caché en la sección~\ref{sec:decisiones-grupo}). El inventario recibe solo los fallos de caché y las operaciones de retención y confirmación, que son una por intento de compra; el enunciado no fija esa tasa. gRPC usa una conexión HTTP/2 y atiende varias llamadas a la vez sobre ella.}
+ {Sí la necesita. Reservas debe saber en el momento si el asiento quedó retenido o ya no está disponible para responder al pasajero, y no puede continuar con el pago mientras esa respuesta no llegue.}
+ {Si el inventario no responde dentro del plazo, la llamada falla y reservas no continúa con el pago: nunca se da por retenido un asiento sin confirmación. Cada llamada lleva \texttt{reservaId}, de modo que un reintento no genera una segunda retención; evitar que una misma petición se ejecute más de una vez es el objetivo de las semánticas de a lo sumo una vez~\cite{liskov1991atmostonce}. Si el inventario está caído, las búsquedas con acierto en caché siguen respondiendo (R1), pero no se retiene ni se confirma ningún asiento.}
+ {Se necesita consistencia fuerte (R3). El inventario es el único servicio que decide el estado de los asientos, y reservas solo actúa sobre lo que este le responde. No hay copias del estado de un asiento que puedan contradecirse, salvo la caché, que se usa únicamente para consultar.}
+ {\cite{birrell1984rpc,niswar2024grpc,liskov1991atmostonce}}
+
+\decision{Registro de la reserva y su estado en la base de datos}
+ {Reservas guarda cada reserva y su estado en la base de datos de reservas (PostgreSQL sobre TCP) con escrituras síncronas. La reserva se crea en PENDIENTE\_PAGO (mensaje 2.2) y luego pasa a CONFIRMADA o a CANCELADA según el resultado del pago y la respuesta del inventario. Si el cobro se aprobó pero el asiento ya no se pudo confirmar, queda en REEMBOLSO\_PENDIENTE. Los asientos y las reservas están en la misma base de datos, y cada servicio escribe solo en sus propias tablas.}
+ {Cada escritura es una transacción corta sobre un solo registro, así que suma poco a la compra y no toca el camino de búsqueda de R1, que se sirve de la caché. La reserva se registra antes de pasar al cobro porque el cliente ve el estado PENDIENTE\_PAGO mientras la pasarela responde (R4).}
+ {Se hace una escritura por cada cambio de estado de una reserva, un volumen mucho menor que el de consultas de R1. El enunciado no fija la tasa de compras.}
+ {Sí para las escrituras que definen el estado: reservas no debe seguir adelante si no logró registrarlo. En cambio, el envío de la confirmación al pasajero es diferido (véase la decisión siguiente).}
+ {Si reservas se cae después de retener el asiento y antes de registrar la reserva, nada queda bloqueado: la retención vence sola a los 10~minutos (R2). Es la idea de un \emph{lease}, un derecho con plazo en el que las fallas afectan el rendimiento pero no la corrección~\cite{gray1989leases}. Además, ninguna transacción queda abierta mientras el pasajero paga, porque un registro bloqueado durante la compra queda atrapado si se pierde la comunicación~\cite{laux2009occ}. Si la base de datos no está disponible, no se retiene ni se confirma, porque no se acepta vender un asiento sin dejarlo registrado.}
+ {Es consistencia fuerte (R3). El estado del asiento y el de la reserva están en la misma base de datos, y cada cambio es una transacción atómica. El evento de confirmación se guarda en la misma transacción que la reserva. La protección contra la doble venta se explica en la decisión del grupo sobre el control de asientos (sección~\ref{sec:decisiones-grupo}).}
+ {\cite{gray1989leases,laux2009occ}}
+
+\decision{Publicación de la confirmación hacia notificaciones}
+ {Al confirmar la reserva, reservas guarda el evento \texttt{ReservaConfirmada} en la base de datos, dentro de la misma transacción. Después, un ciclo (mensaje 4) lee los eventos pendientes (mensaje 4.1), los publica en RabbitMQ por AMQP como mensajes persistentes (mensaje 4.2) y los marca como publicados (mensaje 4.3). Es el patrón de bandeja de salida (\emph{transactional outbox}).}
+ {R5 pide que la confirmación llegue en menos de 1~minuto después del pago y permite enviarla después de responder al cliente. El ciclo de publicación solo suma su propio intervalo, que debe ser mucho menor que ese minuto. Se descartó publicar directamente en RabbitMQ dentro del flujo de compra, porque haría esperar al cliente por un servicio que no hace falta para responderle.}
+ {Se genera un evento por cada reserva confirmada; el enunciado no fija esa tasa. Es un volumen mucho menor que el de las consultas de R1.}
+ {No la necesita. El pasajero recibe su respuesta cuando la reserva se confirma, y la notificación se entrega después, de forma asíncrona (R5).}
+ {F2: si notificaciones está caído, la confirmación no se pierde, porque el evento queda en la base de datos hasta publicarse y luego en una cola durable hasta que notificaciones lo procese. Si reservas se cae entre publicar y marcar, el evento se publica otra vez, así que notificaciones debe tolerar duplicados. Lograr exactamente una vez ante caídas es difícil, porque cliente y servidor deben registrar sus acciones en almacenamiento estable~\cite{ivaki2012exactlyonce}; por eso se acepta entrega al menos una vez con un receptor idempotente. RabbitMQ se ha evaluado en arquitecturas agrupadas de alta disponibilidad y tolerantes a fallos~\cite{rostanski2014rabbitmq}.}
+ {Se acepta consistencia eventual en este flujo: el estado de la reserva ya es consistente en la base de datos, y la notificación puede llegar con retraso, con los límites que eso implica~\cite{bailis2013eventual}.}
+ {\cite{ivaki2012exactlyonce,rostanski2014rabbitmq,bailis2013eventual}}
+ 
+
+% ==== 04_zona_C ====
+\section{Zona C: Pagos y notificaciones}\label{sec:zonaC}
+\autor{\integranteC}
+% Una decisión por bloque; duplica o elimina bloques según tu zona.
+
+\decision{Procesamiento del pago y recuperación ante una respuesta incierta}
+{Se eligió una llamada RPC síncrona entre Reservas y Pagos,
+implementada con gRPC sobre HTTP/2 y TLS. Pagos se comunica con
+la pasarela externa mediante REST sobre HTTPS y registra cada
+intento en PostgreSQL. El mensaje \texttt{cobrarReserva} devuelve
+APROBADO, RECHAZADO o PENDIENTE\_VERIFICACION. Estos estados
+describen el resultado del pago; la confirmación del asiento
+corresponde al inventario.}
+{R4 indica que la pasarela puede tardar hasta 30~s. El diagrama
+establece una espera máxima de 32~s hacia la pasarela y de 35~s
+para la llamada entre Reservas y Pagos, dejando un margen para
+procesar la respuesta. Durante ese tiempo, el cliente muestra
+PROCESANDO\_PAGO y mantiene la interfaz activa. Zhu et al.
+analizan los costos de comunicación RPC en microservicios,
+incluida la sobrecarga de su pila de
+protocolos~\cite{zhu2025}. Usar gRPC no elimina la
+espera de la pasarela; los plazos elegidos deben validarse al
+implementar el sistema.}
+{Se intercambia una solicitud por intento de pago, con datos
+como reserva, identificador del intento, importe, moneda y
+token del medio de pago. El escenario no establece una tasa
+de pagos por segundo: las 1\,200 consultas de R1 corresponden
+a disponibilidad. Las transacciones del registro de pagos
+deben ser cortas y no mantener bloqueos de base de datos
+mientras se espera a la pasarela.}
+{Reservas necesita conocer el resultado para continuar con
+la compra, por lo que se mantiene el RPC acordado por el
+grupo. La respuesta puede tardar varios segundos, pero el
+pasajero recibe información del estado de su operación.
+Mientras el resultado sea incierto, no debe interpretarse
+el vencimiento de la llamada como un rechazo definitivo
+ni iniciarse otro cobro independiente para la misma operación.}
+{Ante F1, un timeout deja el intento en
+PENDIENTE\_VERIFICACION. Pagos consulta posteriormente su
+estado mediante la reconciliación prevista cada 10~s en el
+diagrama. La retención del asiento conserva su vencimiento
+de 10~minutos según R2; un timeout no provoca por sí solo
+su liberación inmediata. Si después se comprueba que hubo
+un cobro y el inventario devuelve NO\_CONFIRMABLE, se solicita
+la anulación o el reembolso. Si la confirmación del inventario
+sigue en estado DESCONOCIDO, primero se verifica su resultado
+para evitar reembolsar una reserva que pudo haberse confirmado.}
+{Se registra el intento antes de solicitar el cobro y se
+reutiliza \texttt{intentoId} como clave de idempotencia,
+siempre que la pasarela admita este mecanismo. Laigner et al.
+incluyen una API de pagos idempotente para evitar cobros
+duplicados tras una recuperación~\cite{laigner2025}.
+La compensación también conserva su propio identificador.
+Navarro analiza las sagas y las transacciones compensatorias
+para recuperar la consistencia entre
+servicios~\cite{navarro2025}. Esta recuperación
+no sustituye la consistencia fuerte exigida por R3: un pago
+aprobado solo permite confirmar la reserva si el inventario
+valida el asiento y la retención correspondiente.}
+{\cite{zhu2025,laigner2025,navarro2025}}
+
+\decision{Envío asíncrono de la confirmación y del pase de abordar}
+{Se eligió mensajería asíncrona mediante RabbitMQ sobre AMQP/TCP
+para entregar el evento \texttt{ReservaConfirmada} a
+Notificaciones. Al recibirlo, el servicio consulta a Reservas
+mediante gRPC sobre HTTP/2 y TLS para obtener los datos de
+la notificación. Después prepara la confirmación y el pase
+de abordar, y solicita su envío a un servidor SMTP mediante
+TCP con TLS. La entrega desde ese servidor hasta el buzón
+del pasajero es asíncrona.}
+{R5 exige que la confirmación llegue en menos de un minuto
+después del pago, aunque permite enviarla después de responder
+al cliente. El diagrama fija un máximo de 3~s para consultar
+los datos y de 5~s para esperar la aceptación del servidor
+SMTP. Estos tiempos forman parte del presupuesto de entrega,
+pero no garantizan por sí solos R5: también deben considerarse
+la espera en la cola y la entrega hasta el buzón.}
+{Se publica un evento por reserva confirmada. La cola permite
+absorber aumentos temporales de mensajes sin exigir que
+Notificaciones los procese al mismo ritmo que se confirman
+las reservas. Maharjan et al. comparan distintas tecnologías
+de colas y muestran que su latencia y capacidad dependen de
+la carga y del escenario~\cite{maharjan2023}.
+Por ello, RabbitMQ debe evaluarse con la carga prevista,
+sin asumir que siempre será la alternativa más rápida.}
+{El envío del correo puede ser diferido y no necesita detener
+la respuesta de la compra. Por esta razón se usa mensajería
+en este enlace, mientras que Reservas y Pagos conservan RPC.
+La consulta de datos y la solicitud al servidor SMTP sí
+esperan una respuesta dentro del procesamiento de cada
+notificación.}
+{Si Notificaciones está caído cuando se confirma la reserva,
+el evento queda pendiente para procesarse cuando el servicio
+se recupere, según el mecanismo de conservación descrito en
+la siguiente decisión. Si falla la consulta a Reservas o
+el envío SMTP, se aplica la política de reintentos y de
+mensajes fallidos. La aceptación del servidor SMTP no debe
+confundirse con la entrega efectiva al buzón del pasajero.}
+{La notificación se genera a partir de
+\texttt{ReservaConfirmada}, no únicamente de un pago aprobado.
+Con \texttt{reservaId}, Notificaciones consulta si la reserva
+está confirmada y obtiene destinatario, código de reserva,
+vuelo y asiento antes de preparar el contenido. Laigner et al.
+destacan la necesidad de considerar el procesamiento de
+eventos y las restricciones de integridad entre
+microservicios~\cite{laigner2025}. En este diseño,
+si la consulta no confirma la reserva, no se envía el pase
+y el caso se registra para su revisión.}
+{\cite{maharjan2023,laigner2025}}
+
+\decision{Conservación, reintentos y reproceso de notificaciones fallidas}
+{Para responder a F2 se combina el outbox de Reservas con
+una cola quorum durable en RabbitMQ, mensajes persistentes,
+confirmaciones de publicación y ACK manual del consumidor.
+Notificaciones utiliza un registro persistente en PostgreSQL
+para controlar cada envío. Los mensajes que no pueden
+procesarse se enrutan mediante un DLX hacia una cola de
+fallidos durable y sin TTL. En el diagrama, el DLX utiliza
+\texttt{dead-letter-strategy=at-least-once} y
+\texttt{overflow=reject-publish}.}
+{Ante fallos transitorios se permiten tres reintentos con
+esperas de 5, 10 y 20~s. Esta separación evita repetir
+inmediatamente una operación que continúa fallando.
+Sin embargo, los reintentos y el tiempo de recuperación
+pueden hacer que se supere el minuto exigido por R5.
+Si una caída impide cumplir ese plazo, el objetivo es
+conservar la notificación para recuperarla; no se afirma
+que el plazo pueda garantizarse durante una indisponibilidad
+prolongada.}
+{Se identifica cada notificación mediante la combinación
+del tipo de evento, la reserva y el canal. El registro
+permite reconocer una entrega repetida y consultar si
+el correo ya fue aceptado por SMTP. Los errores permanentes
+o los intentos agotados pasan a la cola de fallidos para
+evitar un ciclo continuo de procesamiento. La cola principal
+tiene un límite de reentregas de 20; la de fallidos no
+descarta mensajes por superar ese contador.}
+{La confirmación de publicación y el ACK del consumidor
+cumplen funciones distintas. Reservas marca el evento como
+publicado después de recibir la confirmación del broker y
+comprobar que no fue devuelto por falta de enrutamiento.
+Notificaciones envía su ACK después de guardar la aceptación
+SMTP, o al reconocer un duplicado ya aceptado. No se espera
+a que el pasajero abra el correo.}
+{La reserva confirmada y su evento de outbox deben guardarse
+en una misma transacción local. Si la publicación no se
+confirma, el evento continúa pendiente. Si el consumidor
+pierde la conexión sin enviar ACK, el mensaje puede
+reentregarse. Un fallo transitorio provoca un rechazo con
+reencolado; un error permanente o el agotamiento de los
+reintentos provoca un rechazo sin reencolado y su traslado
+a la cola de fallidos. Si el registro de envíos no está
+disponible, no se envía el correo ni se confirma el mensaje.
+El reproceso de fallidos se realiza después de corregir
+la causa y contar con autorización de soporte. Se conserva
+el mensaje en esa cola hasta confirmar su republicación,
+salvo que el registro demuestre que ya fue aceptado por SMTP.}
+{La entrega al menos una vez puede producir duplicados,
+por lo que el consumidor debe reconocer los eventos ya
+procesados~\cite{laigner2025}. Navarro también
+señala la necesidad de idempotencia cuando una operación
+puede recibirse repetidamente~\cite{navarro2025}.
+En nuestro diseño se utiliza una clave estable y un registro
+persistente, con una reclamación temporal del envío para
+coordinar ejecuciones simultáneas. Aun así, si SMTP acepta
+el correo y se pierde su respuesta antes de guardar el
+resultado, un reintento puede generar un envío duplicado.
+Por ello no se garantiza una entrega exactamente una vez
+al destinatario.}
+{\cite{laigner2025,navarro2025}}
+
+% ==== 05_zona_D ====
+\section{Zona D: Aeropuerto}\label{sec:zonaD}
+\autor{\integranteD}
+% Una decisión por bloque; duplica o elimina bloques según tu zona.
+
+\decision{Lectores y quioscos mediante sockets TCP}
+ {Se mantienen sockets TCP persistentes hacia el servidor de embarque. El mensaje 5 envía \texttt{solicitudId, vuelo, pase} y devuelve \texttt{permitido, motivo}. Los quioscos usan la misma operación como alternativa a los lectores. TCP entrega un flujo ordenado de bytes; la aplicación debe separar los mensajes mediante un formato fijo o una longitud explícita~\cite{tcp9293}.}
+ {R6 pide validar en menos de 1~s. Reutilizar la conexión evita abrirla con cada lectura. Ese segundo incluye la red local, la validación y la respuesta; es un objetivo que debe medirse, no una garantía de TCP.}
+ {Se consideran unos 40 lectores (R6), con una solicitud corta y una respuesta por lectura. No se especifican lecturas por segundo ni cantidad de quioscos; no se confunden 40 dispositivos con 40 mensajes por segundo.}
+ {La respuesta es inmediata porque el personal necesita saber si permite el abordaje. Si no llega una respuesta válida, el lector no debe mostrar autorización.}
+ {Si se pierde la conexión TCP, el dispositivo reconecta y reintenta con la misma \texttt{solicitudId}. TCP no garantiza que la aplicación haya registrado el abordaje. Ante F3, los lectores continúan si la red local y el servidor funcionan; el manifiesto no resuelve una caída de esa red local.}
+ {El servidor centraliza las lecturas de las puertas y comprueba el estado del pase antes de registrar el abordaje. La comprobación y el registro deben ser atómicos para impedir que dos lectores autoricen el mismo pase. Repetir una solicitud devuelve su resultado previo. Liskov y sus colaboradores estudian la detección de mensajes duplicados para lograr ejecución a lo sumo una vez~\cite{liskov1991atmostonce}. Ese trabajo respalda la necesidad de controlar duplicados; aquí se conservan identificadores y resultados, sin adoptar su protocolo basado en relojes sincronizados.}
+ {\cite{tcp9293,liskov1991atmostonce}}
+
+\decision{Validación en línea con Reservas mediante gRPC}
+ {Se mantiene gRPC sobre HTTP/2 entre Embarque y Reservas. En 5.1, la operación \texttt{validarYRegistrarAbordaje} recibe \texttt{solicitudId, vuelo, pase} y devuelve \texttt{permitido, motivo}. Se usa una llamada unaria: una solicitud y una respuesta~\cite{grpcConcepts,grpcAbout}. La autorización incluye el registro para evitar separar ambas acciones en llamadas independientes.}
+ {Para cumplir R6, la llamada lleva un plazo que deja margen, dentro de 1~s, para la red local y la respuesta al lector. gRPC permite configurar ese plazo, pero no lo fija por defecto~\cite{grpcDeadlines}. Niswar y sus colaboradores obtuvieron menor tiempo de respuesta con gRPC que con REST y GraphQL en sus pruebas de consulta de datos~\cite{niswar2024grpc}. La caracterización de protocolos de comunicación de Kumar y sus colaboradores aporta otro antecedente de evaluación en microservicios~\cite{kumar2021protocols}. Estos estudios orientan la elección, pero no demuestran que AeroAndes cumpla R6: se debe medir su recorrido completo antes de fijar el plazo.}
+ {Cada validación en línea genera una solicitud y una respuesta a Reservas. El servidor reutiliza el canal; la descarga de manifiestos y la sincronización se realizan aparte. Los 1\,200 accesos por segundo de R1 corresponden a búsquedas, no a la tasa de embarque.}
+ {Se espera la autorización de Reservas antes de responder al lector. Un vencimiento del plazo significa que el resultado es desconocido: la operación pudo ejecutarse aunque la respuesta no llegara.}
+ {Ante F3 o un plazo vencido, se utiliza el manifiesto previamente descargado y se conserva la misma \texttt{solicitudId}. Reservas debe reconocer los reintentos para no registrar otra vez una operación ya aplicada. Si no hay manifiesto válido para ese vuelo, se requiere revisión del personal.}
+ {Reservas comprueba y registra una sola vez cada pase del vuelo mediante una operación atómica e idempotente. El abordaje no vende ni libera asientos: R2 y R3 siguen bajo Inventario, y los pagos y avisos de R4 y R5 conservan sus flujos existentes. gRPC transporta la llamada; la consistencia depende de estas reglas de la aplicación.}
+ {\cite{grpcConcepts,grpcAbout,grpcDeadlines,niswar2024grpc,kumar2021protocols}}
+
+\decision{Manifiesto local y recuperación de F3}
+ {Antes del embarque, 5.2 descarga de Reservas el manifiesto del vuelo con su versión y 5.2.1 lo guarda localmente. Durante F3, 5.3 valida el pase y registra el abordaje pendiente en almacenamiento local persistente. Al volver la conexión, 5.4 envía lotes por gRPC y 5.4.1 marca solo los registros confirmados. No se introduce RabbitMQ en el aeropuerto.}
+ {La consulta local evita esperar a la red externa y permite buscar el objetivo de menos de 1~s de R6. La recuperación se ejecuta en segundo plano para no retrasar nuevas lecturas. El tiempo total de sincronización depende de la duración del corte y de los pendientes acumulados.}
+ {Se descarga un manifiesto por vuelo y se actualiza antes de operar sin red. Cada abordaje aceptado sin conexión añade un registro pendiente; al reconectar se agrupan en lotes acotados. No se fija un tamaño ni una tasa que el enunciado no proporciona.}
+ {La validación local responde inmediatamente; la actualización de Reservas puede esperar hasta la recuperación de F3. Solo se confirma al lector después de guardar de forma durable el abordaje y su registro pendiente.}
+ {El manifiesto debe estar disponible antes del corte. La marca de abordado y el pendiente se guardan en una sola transacción local. Si falla el envío o se pierde su respuesta, los registros permanecen y se reenvían con los mismos identificadores; solo se retiran tras la confirmación individual de Reservas.}
+ {Se acepta consistencia eventual entre el aeropuerto y Reservas. Bailis y Ghodsi explican que, si dejan de producirse actualizaciones, las copias terminan convergiendo, pero esa garantía no asegura lecturas actuales durante la desconexión~\cite{bailis2013eventual}. Por eso, al recuperar la red se intercambian los abordajes pendientes y se revisan los conflictos. El manifiesto puede omitir cambios posteriores a su descarga: se limita al vuelo y su versión, se impiden duplicados locales y se envían discrepancias a revisión del personal. En 5.4 Reservas deduplica por solicitud y por pase del vuelo. Esto no garantiza consistencia global durante F3 ni autoriza vender asientos sin conexión.}
+ {\cite{bailis2013eventual,grpcConcepts}}
+
+% ==== 06_declaracion_ia ====
+\section{Declaración de uso de inteligencia artificial}\label{sec:declaracion-ia}
+Debido a que no se realizó una presentación presencial en clase, no se redactaron las preguntas previstas para dicha presentación.
+
+% Escriban solo lo que sea cierto.
+\begingroup\footnotesize
+\begin{tabularx}{\textwidth}{@{}p{2cm}XX@{}}
+\textbf{Herramienta} & \textbf{Para qué la usamos} & \textbf{Cómo verificamos}\\
+\hline
+Claude & Apoyo para entender el escenario, revisar el diseño y elaborar la plantilla base de \texttt{main.tex}. & Revisión de la correspondencia entre los requisitos del escenario, las decisiones de comunicación y el diagrama; comprobación del formato mediante la compilación del documento.\\
+\end{tabularx}
+\endgroup
+
+% Borrar \nocite{*} cuando ya citen las fuentes reales con \cite{clave}; solo deben quedar las citadas y verificadas.
+\nocite{*}
+\printbibliography[title={Referencias}]
+\end{document}
