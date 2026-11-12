@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="aeroandes_pagina" name="AeroAndes Reservas">
-        <mxGraphModel dx="534" dy="373" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="5100" pageHeight="4600" background="#FFFFFF" math="0" shadow="0">
+        <mxGraphModel dx="652" dy="373" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="5100" pageHeight="4600" background="#FFFFFF" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -426,7 +426,7 @@
                 <mxCell id="_V7i2_WOZ-luogft8gYh-8" connectable="0" parent="A_frontera_agencias" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];inheritText=1;fontSize=14;fontColor=#000000;" value="&lt;font style=&quot;font-size: 12px;&quot;&gt;[Solicitud/respuesta síncrona]&lt;/font&gt;" vertex="1">
                     <mxGeometry x="510" y="110" as="geometry"/>
                 </mxCell>
-                <mxCell id="_V7i2_WOZ-luogft8gYh-9" connectable="0" parent="A_frontera_agencias" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];inheritText=1;fontSize=14;fontColor=#000000;" value="&lt;font style=&quot;font-size: 11px;&quot;&gt;REST·HTTPS (HTTP/1.1 + LTS)&lt;/font&gt;" vertex="1">
+                <mxCell id="_V7i2_WOZ-luogft8gYh-9" connectable="0" parent="A_frontera_agencias" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];inheritText=1;fontSize=14;fontColor=#000000;" value="&lt;font style=&quot;font-size: 11px;&quot;&gt;REST·HTTPS (HTTP/1.1 + TLS)&lt;/font&gt;" vertex="1">
                     <mxGeometry x="510" y="130" as="geometry"/>
                 </mxCell>
                 <mxCell id="_V7i2_WOZ-luogft8gYh-10" connectable="0" parent="A_frontera_agencias" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];inheritText=1;fontSize=14;fontColor=#000000;" value="&lt;font style=&quot;font-size: 12px;&quot;&gt;Espera máxima: 40 s&lt;/font&gt;" vertex="1">
@@ -1555,7 +1555,7 @@
                 <mxCell id="_V7i2_WOZ-luogft8gYh-5" connectable="0" parent="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];inheritText=1;fontSize=14;fontColor=#000000;" value="&lt;font style=&quot;font-size: 12px;&quot;&gt;[Solicitud/respuesta síncrona]&lt;/font&gt;" vertex="1">
                     <mxGeometry x="600" y="770" as="geometry"/>
                 </mxCell>
-                <mxCell id="_V7i2_WOZ-luogft8gYh-6" connectable="0" parent="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];inheritText=1;fontSize=14;fontColor=#000000;" value="&lt;font style=&quot;font-size: 11px;&quot;&gt;REST·HTTPS (HTTP/1.1 + LTS)&lt;/font&gt;" vertex="1">
+                <mxCell id="_V7i2_WOZ-luogft8gYh-6" connectable="0" parent="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];inheritText=1;fontSize=14;fontColor=#000000;" value="&lt;font style=&quot;font-size: 11px;&quot;&gt;REST·HTTPS (HTTP/1.1 + TLS)&lt;/font&gt;" vertex="1">
                     <mxGeometry x="600" y="790" as="geometry"/>
                 </mxCell>
                 <mxCell id="_V7i2_WOZ-luogft8gYh-7" connectable="0" parent="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];inheritText=1;fontSize=14;fontColor=#000000;" value="&lt;font style=&quot;font-size: 12px;&quot;&gt;Espera máxima: 40 s&lt;/font&gt;" vertex="1">
@@ -1587,22 +1587,110 @@
                         </mxGeometry>
                     </mxCell>
                 </object>
-                <object label="5: resultado := validarPase(solicitudId, vuelo, pase)&lt;br>resultado = {permitido, motivo}; R6: menos de 1 s" zona="D" emisor="D_lectores" receptor="D_embarque" mensaje="5" enlace="D_enlace_lectores_embarque" id="D_m_0_etiqueta"><mxCell vertex="1" parent="1" style="text;html=1;whiteSpace=wrap;align=left;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;"><mxGeometry x="1120" y="4100" width="510" height="70" as="geometry"/></mxCell></object>
-                <object label="" zona="D" emisor="D_lectores" receptor="D_embarque" mensaje="5" enlace="D_enlace_lectores_embarque" id="D_m_0_flecha"><mxCell edge="1" parent="1" style="html=1;endArrow=block;endFill=1;strokeWidth=1;"><mxGeometry relative="1" as="geometry"><mxPoint x="1120" y="4173" as="sourcePoint"/><mxPoint x="1190" y="4173" as="targetPoint"/></mxGeometry></mxCell></object>
-                <object label="5 [alternativa: quiosco]: resultado := validarPase(solicitudId, vuelo, pase)&lt;br>resultado = {permitido, motivo}" zona="D" emisor="D_quioscos" receptor="D_embarque" mensaje="5" enlace="D_enlace_quioscos_embarque" id="D_m_1_etiqueta"><mxCell vertex="1" parent="1" style="text;html=1;whiteSpace=wrap;align=left;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;"><mxGeometry x="780" y="3840" width="540" height="65" as="geometry"/></mxCell></object>
-                <object label="" zona="D" emisor="D_quioscos" receptor="D_embarque" mensaje="5" enlace="D_enlace_quioscos_embarque" id="D_m_1_flecha"><mxCell edge="1" parent="1" style="html=1;endArrow=block;endFill=1;strokeWidth=1;"><mxGeometry relative="1" as="geometry"><mxPoint x="780" y="3908" as="sourcePoint"/><mxPoint x="850" y="3908" as="targetPoint"/></mxGeometry></mxCell></object>
-                <object label="5.1 [en línea]: resultado := validarYRegistrarAbordaje(solicitudId, vuelo, pase)&lt;br>resultado = {permitido, motivo}; operación atómica e idempotente" zona="D" emisor="D_embarque" receptor="B_reservas" mensaje="5.1" enlace="D_enlace_embarque_reservas" id="D_m_2_etiqueta"><mxCell vertex="1" parent="1" style="text;html=1;whiteSpace=wrap;align=left;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;"><mxGeometry x="2800" y="3500" width="950" height="60" as="geometry"/></mxCell></object>
-                <object label="" zona="D" emisor="D_embarque" receptor="B_reservas" mensaje="5.1" enlace="D_enlace_embarque_reservas" id="D_m_2_flecha"><mxCell edge="1" parent="1" style="html=1;endArrow=block;endFill=1;strokeWidth=1;"><mxGeometry relative="1" as="geometry"><mxPoint x="2800" y="3563" as="sourcePoint"/><mxPoint x="2870" y="3563" as="targetPoint"/></mxGeometry></mxCell></object>
-                <object label="5.2 [antes del embarque]: manifiesto := obtenerManifiesto(vuelo)&lt;br>manifiesto = {vuelo, version, pasesConfirmados, abordados}" zona="D" emisor="D_embarque" receptor="B_reservas" mensaje="5.2" enlace="D_enlace_embarque_reservas" id="D_m_3_etiqueta"><mxCell vertex="1" parent="1" style="text;html=1;whiteSpace=wrap;align=left;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;"><mxGeometry x="2800" y="3570" width="950" height="60" as="geometry"/></mxCell></object>
-                <object label="" zona="D" emisor="D_embarque" receptor="B_reservas" mensaje="5.2" enlace="D_enlace_embarque_reservas" id="D_m_3_flecha"><mxCell edge="1" parent="1" style="html=1;endArrow=block;endFill=1;strokeWidth=1;"><mxGeometry relative="1" as="geometry"><mxPoint x="2800" y="3633" as="sourcePoint"/><mxPoint x="2870" y="3633" as="targetPoint"/></mxGeometry></mxCell></object>
-                <object label="5.2.1: guardado := guardarManifiesto(manifiesto)&lt;br>Persistencia local antes de F3" zona="D" emisor="D_embarque" receptor="D_manifiesto" mensaje="5.2.1" enlace="D_enlace_embarque_manifiesto" id="D_m_4_etiqueta"><mxCell vertex="1" parent="1" style="text;html=1;whiteSpace=wrap;align=left;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;"><mxGeometry x="1910" y="3840" width="610" height="65" as="geometry"/></mxCell></object>
-                <object label="" zona="D" emisor="D_embarque" receptor="D_manifiesto" mensaje="5.2.1" enlace="D_enlace_embarque_manifiesto" id="D_m_4_flecha"><mxCell edge="1" parent="1" style="html=1;endArrow=block;endFill=1;strokeWidth=1;"><mxGeometry relative="1" as="geometry"><mxPoint x="1910" y="3908" as="sourcePoint"/><mxPoint x="1980" y="3908" as="targetPoint"/></mxGeometry></mxCell></object>
-                <object label="5.3 [F3 o resultado remoto desconocido]: resultado := validarYEncolar(solicitudId, vuelo, pase)&lt;br>resultado = {permitido, motivo}; marcar abordado y guardar pendiente atómicamente" zona="D" emisor="D_embarque" receptor="D_manifiesto" mensaje="5.3" enlace="D_enlace_embarque_manifiesto" id="D_m_5_etiqueta"><mxCell vertex="1" parent="1" style="text;html=1;whiteSpace=wrap;align=left;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;"><mxGeometry x="1900" y="4090" width="620" height="100" as="geometry"/></mxCell></object>
-                <object label="" zona="D" emisor="D_embarque" receptor="D_manifiesto" mensaje="5.3" enlace="D_enlace_embarque_manifiesto" id="D_m_5_flecha"><mxCell edge="1" parent="1" style="html=1;endArrow=block;endFill=1;strokeWidth=1;"><mxGeometry relative="1" as="geometry"><mxPoint x="1900" y="4193" as="sourcePoint"/><mxPoint x="1970" y="4193" as="targetPoint"/></mxGeometry></mxCell></object>
-                <object label="5.4 *[red recuperada y hay pendientes]: acuses := sincronizarAbordajes(vuelo, version, lote)&lt;br>lote = [{solicitudId, pase}]; acuses = [{solicitudId, estado}]&lt;br>Deduplicar por solicitud y pase del vuelo; discrepancias a revisión" zona="D" emisor="D_embarque" receptor="B_reservas" mensaje="5.4" enlace="D_enlace_embarque_reservas" id="D_m_6_etiqueta"><mxCell vertex="1" parent="1" style="text;html=1;whiteSpace=wrap;align=left;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;"><mxGeometry x="2800" y="3680" width="1000" height="90" as="geometry"/></mxCell></object>
-                <object label="" zona="D" emisor="D_embarque" receptor="B_reservas" mensaje="5.4" enlace="D_enlace_embarque_reservas" id="D_m_6_flecha"><mxCell edge="1" parent="1" style="html=1;endArrow=block;endFill=1;strokeWidth=1;"><mxGeometry relative="1" as="geometry"><mxPoint x="2800" y="3773" as="sourcePoint"/><mxPoint x="2870" y="3773" as="targetPoint"/></mxGeometry></mxCell></object>
-                <object label="5.4.1 [acuse confirmado]: guardado := marcarSincronizados(acuses)&lt;br>Sin acuse: conservar y reenviar; nunca descartar pendientes por timeout" zona="D" emisor="D_embarque" receptor="D_manifiesto" mensaje="5.4.1" enlace="D_enlace_embarque_manifiesto" id="D_m_7_etiqueta"><mxCell vertex="1" parent="1" style="text;html=1;whiteSpace=wrap;align=left;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;"><mxGeometry x="1900" y="4260" width="620" height="90" as="geometry"/></mxCell></object>
-                <object label="" zona="D" emisor="D_embarque" receptor="D_manifiesto" mensaje="5.4.1" enlace="D_enlace_embarque_manifiesto" id="D_m_7_flecha"><mxCell edge="1" parent="1" style="html=1;endArrow=block;endFill=1;strokeWidth=1;"><mxGeometry relative="1" as="geometry"><mxPoint x="1900" y="4353" as="sourcePoint"/><mxPoint x="1970" y="4353" as="targetPoint"/></mxGeometry></mxCell></object>
+                <object label="5: resultado := validarPase(solicitudId, vuelo, pase)&lt;br&gt;resultado = {permitido, motivo}; R6: menos de 1 s" zona="D" emisor="D_lectores" receptor="D_embarque" mensaje="5" enlace="D_enlace_lectores_embarque" id="D_m_0_etiqueta">
+                    <mxCell parent="1" style="text;html=1;whiteSpace=wrap;align=left;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;" vertex="1">
+                        <mxGeometry height="70" width="510" x="1120" y="4100" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="D" emisor="D_lectores" receptor="D_embarque" mensaje="5" enlace="D_enlace_lectores_embarque" id="D_m_0_flecha">
+                    <mxCell edge="1" parent="1" style="html=1;endArrow=block;endFill=1;strokeWidth=1;">
+                        <mxGeometry relative="1" as="geometry">
+                            <mxPoint x="1120" y="4173" as="sourcePoint"/>
+                            <mxPoint x="1190" y="4173" as="targetPoint"/>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="5 [alternativa: quiosco]: resultado := validarPase(solicitudId, vuelo, pase)&lt;br&gt;resultado = {permitido, motivo}" zona="D" emisor="D_quioscos" receptor="D_embarque" mensaje="5" enlace="D_enlace_quioscos_embarque" id="D_m_1_etiqueta">
+                    <mxCell parent="1" style="text;html=1;whiteSpace=wrap;align=left;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;" vertex="1">
+                        <mxGeometry height="65" width="540" x="780" y="3840" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="D" emisor="D_quioscos" receptor="D_embarque" mensaje="5" enlace="D_enlace_quioscos_embarque" id="D_m_1_flecha">
+                    <mxCell edge="1" parent="1" style="html=1;endArrow=block;endFill=1;strokeWidth=1;">
+                        <mxGeometry relative="1" as="geometry">
+                            <mxPoint x="780" y="3908" as="sourcePoint"/>
+                            <mxPoint x="850" y="3908" as="targetPoint"/>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="5.1 [en línea]: resultado := validarYRegistrarAbordaje(solicitudId, vuelo, pase)&lt;br&gt;resultado = {permitido, motivo}; operación atómica e idempotente" zona="D" emisor="D_embarque" receptor="B_reservas" mensaje="5.1" enlace="D_enlace_embarque_reservas" id="D_m_2_etiqueta">
+                    <mxCell parent="1" style="text;html=1;whiteSpace=wrap;align=left;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;" vertex="1">
+                        <mxGeometry height="60" width="950" x="2800" y="3500" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="D" emisor="D_embarque" receptor="B_reservas" mensaje="5.1" enlace="D_enlace_embarque_reservas" id="D_m_2_flecha">
+                    <mxCell edge="1" parent="1" style="html=1;endArrow=block;endFill=1;strokeWidth=1;">
+                        <mxGeometry relative="1" as="geometry">
+                            <mxPoint x="2800" y="3563" as="sourcePoint"/>
+                            <mxPoint x="2870" y="3563" as="targetPoint"/>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="5.2 [antes del embarque]: manifiesto := obtenerManifiesto(vuelo)&lt;br&gt;manifiesto = {vuelo, version, pasesConfirmados, abordados}" zona="D" emisor="D_embarque" receptor="B_reservas" mensaje="5.2" enlace="D_enlace_embarque_reservas" id="D_m_3_etiqueta">
+                    <mxCell parent="1" style="text;html=1;whiteSpace=wrap;align=left;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;" vertex="1">
+                        <mxGeometry height="60" width="950" x="2800" y="3570" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="D" emisor="D_embarque" receptor="B_reservas" mensaje="5.2" enlace="D_enlace_embarque_reservas" id="D_m_3_flecha">
+                    <mxCell edge="1" parent="1" style="html=1;endArrow=block;endFill=1;strokeWidth=1;">
+                        <mxGeometry relative="1" as="geometry">
+                            <mxPoint x="2800" y="3633" as="sourcePoint"/>
+                            <mxPoint x="2870" y="3633" as="targetPoint"/>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="5.2.1: guardado := guardarManifiesto(manifiesto)&lt;br&gt;Persistencia local antes de F3" zona="D" emisor="D_embarque" receptor="D_manifiesto" mensaje="5.2.1" enlace="D_enlace_embarque_manifiesto" id="D_m_4_etiqueta">
+                    <mxCell parent="1" style="text;html=1;whiteSpace=wrap;align=left;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;" vertex="1">
+                        <mxGeometry height="65" width="610" x="1910" y="3840" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="D" emisor="D_embarque" receptor="D_manifiesto" mensaje="5.2.1" enlace="D_enlace_embarque_manifiesto" id="D_m_4_flecha">
+                    <mxCell edge="1" parent="1" style="html=1;endArrow=block;endFill=1;strokeWidth=1;">
+                        <mxGeometry relative="1" as="geometry">
+                            <mxPoint x="1910" y="3908" as="sourcePoint"/>
+                            <mxPoint x="1980" y="3908" as="targetPoint"/>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="5.3 [F3 o resultado remoto desconocido]: resultado := validarYEncolar(solicitudId, vuelo, pase)&lt;br&gt;resultado = {permitido, motivo}; marcar abordado y guardar pendiente atómicamente" zona="D" emisor="D_embarque" receptor="D_manifiesto" mensaje="5.3" enlace="D_enlace_embarque_manifiesto" id="D_m_5_etiqueta">
+                    <mxCell parent="1" style="text;html=1;whiteSpace=wrap;align=left;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;" vertex="1">
+                        <mxGeometry height="100" width="620" x="1900" y="4090" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="D" emisor="D_embarque" receptor="D_manifiesto" mensaje="5.3" enlace="D_enlace_embarque_manifiesto" id="D_m_5_flecha">
+                    <mxCell edge="1" parent="1" style="html=1;endArrow=block;endFill=1;strokeWidth=1;">
+                        <mxGeometry relative="1" as="geometry">
+                            <mxPoint x="1900" y="4193" as="sourcePoint"/>
+                            <mxPoint x="1970" y="4193" as="targetPoint"/>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="5.4 *[red recuperada y hay pendientes]: acuses := sincronizarAbordajes(vuelo, version, lote)&lt;br&gt;lote = [{solicitudId, pase}]; acuses = [{solicitudId, estado}]&lt;br&gt;Deduplicar por solicitud y pase del vuelo; discrepancias a revisión" zona="D" emisor="D_embarque" receptor="B_reservas" mensaje="5.4" enlace="D_enlace_embarque_reservas" id="D_m_6_etiqueta">
+                    <mxCell parent="1" style="text;html=1;whiteSpace=wrap;align=left;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;" vertex="1">
+                        <mxGeometry height="90" width="1000" x="2800" y="3680" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="D" emisor="D_embarque" receptor="B_reservas" mensaje="5.4" enlace="D_enlace_embarque_reservas" id="D_m_6_flecha">
+                    <mxCell edge="1" parent="1" style="html=1;endArrow=block;endFill=1;strokeWidth=1;">
+                        <mxGeometry relative="1" as="geometry">
+                            <mxPoint x="2800" y="3773" as="sourcePoint"/>
+                            <mxPoint x="2870" y="3773" as="targetPoint"/>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="5.4.1 [acuse confirmado]: guardado := marcarSincronizados(acuses)&lt;br&gt;Sin acuse: conservar y reenviar; nunca descartar pendientes por timeout" zona="D" emisor="D_embarque" receptor="D_manifiesto" mensaje="5.4.1" enlace="D_enlace_embarque_manifiesto" id="D_m_7_etiqueta">
+                    <mxCell parent="1" style="text;html=1;whiteSpace=wrap;align=left;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;" vertex="1">
+                        <mxGeometry height="90" width="620" x="1900" y="4260" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="D" emisor="D_embarque" receptor="D_manifiesto" mensaje="5.4.1" enlace="D_enlace_embarque_manifiesto" id="D_m_7_flecha">
+                    <mxCell edge="1" parent="1" style="html=1;endArrow=block;endFill=1;strokeWidth=1;">
+                        <mxGeometry relative="1" as="geometry">
+                            <mxPoint x="1900" y="4353" as="sourcePoint"/>
+                            <mxPoint x="1970" y="4353" as="targetPoint"/>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
             </root>
         </mxGraphModel>
     </diagram>
