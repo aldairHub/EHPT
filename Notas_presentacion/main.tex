@@ -114,32 +114,32 @@ Quevedo, Ecuador --- 11 de noviembre de 2026\par
 \autor{\integranteA}
 % Una decisión por bloque; duplica o elimina bloques según tu zona.
 
-\decision{\pendiente{nombre de la decisión 1}}
- {\pendiente{qué se eligió, indicando el enlace o mensaje del diagrama}}
- {\pendiente{por qué conviene en latencia (citar requisito R)}}
- {\pendiente{cuántos mensajes se esperan y cómo los soporta}}
- {\pendiente{si necesita respuesta inmediata o puede ser diferida, y por qué}}
- {\pendiente{qué pasa si falla (citar F)}}
- {\pendiente{qué garantía de consistencia se necesita y cómo se logra}}
- {\pendiente{fuente que respalda la decisión, con \texttt{\textbackslash cite\{clave\}}}}
+\decision{Exposición de interfaz perimetral mediante REST/HTTPS hacia clientes y agencias externas}
+ {Se eligió utilizar una interfaz REST sobre HTTPS mediada por un API Gateway para la comunicación externa con clientes web, móviles y sistemas de agencias de viajes, evitando exponer gRPC o contratos binarios directamente fuera de la red corporativa.}
+ {Conviene en latencia (requisitos R1 y R2) porque la infraestructura HTTP estándar aprovecha el almacenamiento en caché perimetral, el balanceo de carga y la terminación TLS optimizada, reduciendo la complejidad de integración para clientes heterogéneos sin requerir la sobrecarga de traducción de protocolos personalizados en la frontera. Además, estudios recientes sobre la gestión de arquitectura y calidad demuestran que mantener contratos de API estandarizados previene la acumulación de deuda técnica por acoplamiento perimetral~\cite{CERNY2023111829, DETOLEDO2021110968}.}
+ {Se espera un volumen masivo y concurrente de consultas de disponibilidad (lecturas frecuentes) y un tráfico moderado de transacciones de compra (escrituras). El sistema lo soporta mediante el escalado horizontal independiente del API Gateway y el uso de análisis estricto de componentes para asegurar que los contratos de servicio no introduzcan dependencias cruzadas innecesarias~\cite{9737496}.}
+ {Sí la necesita de forma inmediata (síncrona) para las consultas de disponibilidad y la recepción inicial de la orden de reserva, permitiendo que el usuario o la agencia externa obtengan una confirmación instantánea del estado de su solicitud.}
+ {Si la pasarela perimetral o el servicio externo sufre saturación o caídas (F1), el cliente recibe códigos de estado HTTP estándar (como 503 o 504), permitiendo implementar reintentos con retroceso exponencial en el cliente sin propagar fallos en cascada hacia los microservicios internos.}
+ {Se requiere consistencia fuerte en el momento crítico de retener el asiento y confirmar la transacción, mientras que las búsquedas perimetrales de disponibilidad toleran consistencia eventual mediante caché.}
+ {~\cite{CERNY2023111829, DETOLEDO2021110968, 9737496}.}
 
-\decision{\pendiente{nombre de la decisión 2}}
- {\pendiente{qué se eligió, indicando el enlace o mensaje del diagrama}}
- {\pendiente{por qué conviene en latencia (citar requisito R)}}
- {\pendiente{cuántos mensajes se esperan y cómo los soporta}}
- {\pendiente{si necesita respuesta inmediata o puede ser diferida, y por qué}}
- {\pendiente{qué pasa si falla (citar F)}}
- {\pendiente{qué garantía de consistencia se necesita y cómo se logra}}
- {\pendiente{fuente que respalda la decisión, con \texttt{\textbackslash cite\{clave\}}}}
+\decision{Gestión de plazos (timeouts), reintentos e idempotencia ante servicios externos lentos}
+ {Se eligió configurar plazos de espera estrictos (\textit{timeouts}) acotados para las llamadas hacia pasarelas de pago externas, devolviendo un estado pendiente inmediato en la interfaz y utilizando claves de idempotencia por transacción junto con la compensación por Saga (F1).}
+ {Para cumplir con los requerimientos de tiempo de respuesta (R1), no se puede permitir que una pasarela externa lenta mantenga bloqueados indefinidamente los hilos de ejecución del servicio de Reservas. Cortar la espera síncrona a tiempo optimiza el rendimiento general y previene la propagación de retardos. Asimismo, optimizaciones de ejecución y análisis a nivel de infraestructura y tiempo de ejecución permiten mantener los tiempos de respuesta dentro de los márgenes esperados~\cite{10.1145/3486606.3488075}.}
+ {Se procesa una solicitud por cada intento de pago realizado por los usuarios. El sistema soporta este flujo liberando de inmediato las conexiones de red y delegando la verificación asíncrona o la compensación posterior sin agotar el pool de recursos.}
+ {La interfaz del cliente necesita mostrar de inmediato un estado de procesamiento pendiente para evitar la incertidumbre o reenvíos duplicados por parte del usuario, mientras que la verificación definitiva con la pasarela se difiere controladamente.}
+ {Ante un fallo o ausencia de respuesta de la pasarela (F1), la expiración del plazo activa la transacción compensatoria (Saga) para liberar la retención del asiento en el inventario. Si el cliente reintenta la operación, el uso de identificadores de idempotencia previene cargos duplicados, mitigando las interacciones inestables y problemas de latencia externa identificados en la literatura~\cite{CERNY2023111829}.}
+ {Se asegura consistencia eventual transaccional entre el sistema de reservas y los sistemas de pago externos mediante el control de estados idempotentes y compensaciones automatizadas.}
+ {~\cite{CERNY2023111829, 10.1145/3486606.3488075}.}
 
-\decision{\pendiente{nombre de la decisión 3}}
- {\pendiente{qué se eligió, indicando el enlace o mensaje del diagrama}}
- {\pendiente{por qué conviene en latencia (citar requisito R)}}
- {\pendiente{cuántos mensajes se esperan y cómo los soporta}}
- {\pendiente{si necesita respuesta inmediata o puede ser diferida, y por qué}}
- {\pendiente{qué pasa si falla (citar F)}}
- {\pendiente{qué garantía de consistencia se necesita y cómo se logra}}
- {\pendiente{fuente que respalda la decisión, con \texttt{\textbackslash cite\{clave\}}}}
+\decision{Confirmación diferida de correo electrónico mediante colas y consistencia eventual}
+ {Se eligió desacoplar completamente el envío de correos electrónicos de confirmación y boletos mediante el patrón de bandeja de salida (\textit{transactional outbox}) y una cola de mensajería durable hacia el microservicio de Notificaciones, respaldado por una cola de mensajes fallidos (\textit{DLQ}).}
+ {R2 establece pautas temporales estrictas para la confirmación de la reserva. Realizar un envío de correo electrónico de forma síncrona añadiría una latencia innecesaria y dependiente de servidores SMTP externos en la ruta crítica de compra. Extraer esta tarea acelera notablemente la respuesta visual al pasajero.}
+ {Se genera exactamente un evento de notificación por cada reserva confirmada con éxito. El bróker de mensajes absorbe las ráfagas de transacciones y alimenta al servicio de Notificaciones de forma regulada, protegiendo las bases de datos transaccionales de sobrecargas innecesarias y asegurando la evolvibilidad a largo plazo del sistema~\cite{Bogner2021}.}
+ {El envío del correo debe ser completamente diferido: el pasajero visualiza el resultado y su código de confirmación de manera instantánea en pantalla, y el correo electrónico llega a su bandeja de entrada segundos o minutos después sin alterar la validez jurídica ni operativa de la compra.}
+ {Si el microservicio de Notificaciones o el servidor SMTP externo se encuentran caídos (F2), los eventos de confirmación no se pierden ya que permanecen almacenados de forma segura en la tabla outbox y en el bróker durable. El sistema ejecuta reintentos automatizados con backoff y aísla los errores persistentes sin afectar la experiencia del usuario ni generar deuda técnica por acoplamiento temporal~\cite{DETOLEDO2021110968}.}
+ {Se garantiza consistencia eventual con entrega al menos una vez (\textit{at-least-once}), asegurando que el estado del correo electrónico enviado coincida siempre con el registro persistido en el sistema de reservas.}
+ {~\cite{CERNY2023111829, Bogner2021, DETOLEDO2021110968}.}
 
 % ==== 03_zona_B ====
 \section{Zona B: Reservas, inventario y datos}\label{sec:zonaB}
