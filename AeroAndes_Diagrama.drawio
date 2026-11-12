@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="aeroandes_pagina" name="AeroAndes Reservas">
-        <mxGraphModel dx="1493" dy="1026" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="5100" pageHeight="4600" background="#FFFFFF" math="0" shadow="0">
+        <mxGraphModel dx="534" dy="373" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="5100" pageHeight="4600" background="#FFFFFF" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -59,33 +59,33 @@
                 </object>
                 <object label="1.1: asientos := leerDisponibilidad(vuelo)" zona="B" emisor="B_reservas" receptor="B_cache" mensaje="1.1" enlace="B_enlace_reservas_cache" id="B_m_1_1_etiqueta">
                     <mxCell parent="B_frontera_centro" style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=16;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1">
-                        <mxGeometry height="20" width="320" x="360" y="180" as="geometry" />
+                        <mxGeometry height="20" width="320" x="360" y="180" as="geometry"/>
                     </mxCell>
                 </object>
                 <object label="" zona="B" emisor="B_reservas" receptor="B_inventario" mensaje="1.2" enlace="B_enlace_reservas_inventario" id="B_m_1_2_flecha">
                     <mxCell edge="1" parent="B_frontera_centro" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;dashed=0;shadow=0;startArrow=none;startFill=0;endArrow=block;endFill=1;">
                         <mxGeometry relative="1" as="geometry">
-                            <mxPoint x="540" y="420" as="sourcePoint" />
-                            <mxPoint x="570" y="420" as="targetPoint" />
+                            <mxPoint x="540" y="420" as="sourcePoint"/>
+                            <mxPoint x="570" y="420" as="targetPoint"/>
                         </mxGeometry>
                     </mxCell>
                 </object>
                 <object label="1.2 [cache miss]: asientos := consultarDisponibilidad(vuelo)" zona="B" emisor="B_reservas" receptor="B_inventario" mensaje="1.2" enlace="B_enlace_reservas_inventario" id="B_m_1_2_etiqueta">
                     <mxCell parent="B_frontera_centro" style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=16;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1">
-                        <mxGeometry height="20" width="450" x="580" y="410" as="geometry" />
+                        <mxGeometry height="20" width="450" x="580" y="410" as="geometry"/>
                     </mxCell>
                 </object>
                 <object label="" zona="B" emisor="B_inventario" receptor="B_bd_reservas" mensaje="1.2.1" enlace="B_enlace_inventario_bd" id="B_m_1_2_1_flecha">
                     <mxCell edge="1" parent="B_frontera_centro" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;dashed=0;shadow=0;startArrow=none;startFill=0;endArrow=block;endFill=1;">
                         <mxGeometry relative="1" as="geometry">
-                            <mxPoint x="1460" y="640" as="sourcePoint" />
-                            <mxPoint x="1460" y="660" as="targetPoint" />
+                            <mxPoint x="1460" y="640" as="sourcePoint"/>
+                            <mxPoint x="1460" y="660" as="targetPoint"/>
                         </mxGeometry>
                     </mxCell>
                 </object>
                 <object label="1.2.1: estados := leerEstadosAsiento(vuelo)" zona="B" emisor="B_inventario" receptor="B_bd_reservas" mensaje="1.2.1" enlace="B_enlace_inventario_bd" id="B_m_1_2_1_etiqueta">
                     <mxCell parent="B_frontera_centro" style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=16;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1">
-                        <mxGeometry height="20" width="340" x="1480" y="640" as="geometry" />
+                        <mxGeometry height="20" width="340" x="1480" y="640" as="geometry"/>
                     </mxCell>
                 </object>
                 <object label="" zona="B" emisor="B_inventario" receptor="B_cache" mensaje="1.2.2" enlace="B_enlace_inventario_cache" id="B_m_1_2_2_flecha">
@@ -98,33 +98,33 @@
                 </object>
                 <object label="1.2.2: guardarDisponibilidad(vuelo, asientos)" zona="B" emisor="B_inventario" receptor="B_cache" mensaje="1.2.2" enlace="B_enlace_inventario_cache" id="B_m_1_2_2_etiqueta">
                     <mxCell parent="B_frontera_centro" style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=16;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1">
-                        <mxGeometry height="20" width="350" x="1480" y="230" as="geometry" />
+                        <mxGeometry height="20" width="350" x="1480" y="230" as="geometry"/>
                     </mxCell>
                 </object>
                 <object label="" zona="B" emisor="B_reservas" receptor="B_inventario" mensaje="2.1" enlace="B_enlace_reservas_inventario" id="B_m_2_1_flecha">
                     <mxCell edge="1" parent="B_frontera_centro" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;dashed=0;shadow=0;startArrow=none;startFill=0;endArrow=block;endFill=1;">
                         <mxGeometry relative="1" as="geometry">
-                            <mxPoint x="540" y="450" as="sourcePoint" />
-                            <mxPoint x="570" y="450" as="targetPoint" />
+                            <mxPoint x="540" y="450" as="sourcePoint"/>
+                            <mxPoint x="570" y="450" as="targetPoint"/>
                         </mxGeometry>
                     </mxCell>
                 </object>
                 <object label="2.1: resultado := retenerAsiento(vuelo, asiento, reservaId)" zona="B" emisor="B_reservas" receptor="B_inventario" mensaje="2.1" enlace="B_enlace_reservas_inventario" id="B_m_2_1_etiqueta">
                     <mxCell parent="B_frontera_centro" style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=16;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1">
-                        <mxGeometry height="20" width="440" x="580" y="440" as="geometry" />
+                        <mxGeometry height="20" width="440" x="580" y="440" as="geometry"/>
                     </mxCell>
                 </object>
                 <object label="" zona="B" emisor="B_inventario" receptor="B_bd_reservas" mensaje="2.1.1" enlace="B_enlace_inventario_bd" id="B_m_2_1_1_flecha">
                     <mxCell edge="1" parent="B_frontera_centro" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;dashed=0;shadow=0;startArrow=none;startFill=0;endArrow=block;endFill=1;">
                         <mxGeometry relative="1" as="geometry">
-                            <mxPoint x="1460" y="670" as="sourcePoint" />
-                            <mxPoint x="1460" y="690" as="targetPoint" />
+                            <mxPoint x="1460" y="670" as="sourcePoint"/>
+                            <mxPoint x="1460" y="690" as="targetPoint"/>
                         </mxGeometry>
                     </mxCell>
                 </object>
                 <object label="2.1.1: filas := retenerSiLibre(vuelo, asiento, reservaId, venceEn)" zona="B" emisor="B_inventario" receptor="B_bd_reservas" mensaje="2.1.1" enlace="B_enlace_inventario_bd" id="B_m_2_1_1_etiqueta">
                     <mxCell parent="B_frontera_centro" style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=16;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1">
-                        <mxGeometry height="20" width="490" x="1480" y="670" as="geometry" />
+                        <mxGeometry height="20" width="490" x="1480" y="670" as="geometry"/>
                     </mxCell>
                 </object>
                 <object label="" zona="B" emisor="B_inventario" receptor="B_cache" mensaje="2.1.2" enlace="B_enlace_inventario_cache" id="B_m_2_1_2_flecha">
@@ -137,20 +137,20 @@
                 </object>
                 <object label="2.1.2 [retenido]: invalidar(vuelo, asiento)" zona="B" emisor="B_inventario" receptor="B_cache" mensaje="2.1.2" enlace="B_enlace_inventario_cache" id="B_m_2_1_2_etiqueta">
                     <mxCell parent="B_frontera_centro" style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=16;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1">
-                        <mxGeometry height="20" width="310" x="1480" y="260" as="geometry" />
+                        <mxGeometry height="20" width="310" x="1480" y="260" as="geometry"/>
                     </mxCell>
                 </object>
                 <object label="" zona="B" emisor="B_reservas" receptor="B_bd_reservas" mensaje="2.2" enlace="B_enlace_reservas_bd" id="B_m_2_2_flecha">
                     <mxCell edge="1" parent="B_frontera_centro" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;dashed=0;shadow=0;startArrow=none;startFill=0;endArrow=block;endFill=1;">
                         <mxGeometry relative="1" as="geometry">
-                            <mxPoint x="420" y="550" as="sourcePoint" />
-                            <mxPoint x="420" y="570" as="targetPoint" />
+                            <mxPoint x="420" y="550" as="sourcePoint"/>
+                            <mxPoint x="420" y="570" as="targetPoint"/>
                         </mxGeometry>
                     </mxCell>
                 </object>
                 <object label="2.2 [retenido]: crearReserva(reservaId, estado = PENDIENTE_PAGO)" zona="B" emisor="B_reservas" receptor="B_bd_reservas" mensaje="2.2" enlace="B_enlace_reservas_bd" id="B_m_2_2_etiqueta">
                     <mxCell parent="B_frontera_centro" style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=16;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1">
-                        <mxGeometry height="20" width="530" x="440" y="550" as="geometry" />
+                        <mxGeometry height="20" width="530" x="440" y="550" as="geometry"/>
                     </mxCell>
                 </object>
                 <object label="" zona="B" emisor="B_inventario" receptor="B_inventario" mensaje="2.3" id="B_m_2_3_flecha">
@@ -165,20 +165,20 @@
                 </object>
                 <object label="2.3 *[cada 30 s]: liberarVencidas()" zona="B" emisor="B_inventario" receptor="B_inventario" mensaje="2.3" id="B_m_2_3_etiqueta">
                     <mxCell parent="B_frontera_centro" style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=16;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1">
-                        <mxGeometry height="60" width="270" x="1720" y="430" as="geometry" />
+                        <mxGeometry height="60" width="270" x="1720" y="430" as="geometry"/>
                     </mxCell>
                 </object>
                 <object label="" zona="B" emisor="B_inventario" receptor="B_bd_reservas" mensaje="2.3.1" enlace="B_enlace_inventario_bd" id="B_m_2_3_1_flecha">
                     <mxCell edge="1" parent="B_frontera_centro" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;dashed=0;shadow=0;startArrow=none;startFill=0;endArrow=block;endFill=1;">
                         <mxGeometry relative="1" as="geometry">
-                            <mxPoint x="1460" y="700" as="sourcePoint" />
-                            <mxPoint x="1460" y="720" as="targetPoint" />
+                            <mxPoint x="1460" y="700" as="sourcePoint"/>
+                            <mxPoint x="1460" y="720" as="targetPoint"/>
                         </mxGeometry>
                     </mxCell>
                 </object>
                 <object label="2.3.1: filas := liberarVencidas(ahora)" zona="B" emisor="B_inventario" receptor="B_bd_reservas" mensaje="2.3.1" enlace="B_enlace_inventario_bd" id="B_m_2_3_1_etiqueta">
                     <mxCell parent="B_frontera_centro" style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=16;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1">
-                        <mxGeometry height="20" width="290" x="1480" y="700" as="geometry" />
+                        <mxGeometry height="20" width="290" x="1480" y="700" as="geometry"/>
                     </mxCell>
                 </object>
                 <object label="" zona="B" emisor="B_inventario" receptor="B_cache" mensaje="2.3.2" enlace="B_enlace_inventario_cache" id="B_m_2_3_2_flecha">
@@ -191,12 +191,201 @@
                 </object>
                 <object label="2.3.2: invalidar(vuelo, asientos)" zona="B" emisor="B_inventario" receptor="B_cache" mensaje="2.3.2" enlace="B_enlace_inventario_cache" id="B_m_2_3_2_etiqueta">
                     <mxCell parent="B_frontera_centro" style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=16;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1">
-                        <mxGeometry height="20" width="250" x="1480" y="290" as="geometry" />
+                        <mxGeometry height="20" width="250" x="1480" y="290" as="geometry"/>
                     </mxCell>
                 </object>
                 <object label="registro : BaseDatosPagos" zona="C" id="C_bd_pagos">
                     <mxCell parent="B_frontera_centro" style="shape=cylinder3;boundedLbl=1;size=15;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=14;" vertex="1">
                         <mxGeometry height="100" width="400" x="2300" y="2940" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="B" emisor="B_reservas" receptor="B_reservas" mensaje="4" id="B_m_4_flecha">
+                    <mxCell edge="1" parent="B_frontera_centro" source="B_reservas" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;dashed=0;shadow=0;startArrow=none;startFill=0;endArrow=open;endFill=0;exitX=1;exitY=0.7;entryX=1;entryY=0.9;exitPerimeter=0;entryPerimeter=0;" target="B_reservas">
+                        <mxGeometry relative="1" as="geometry">
+                            <Array as="points">
+                                <mxPoint x="530" y="490"/>
+                                <mxPoint x="530" y="510"/>
+                            </Array>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="4 *[hay eventos pendientes]: publicarEventos()" zona="B" emisor="B_reservas" receptor="B_reservas" mensaje="4" id="B_m_4_etiqueta">
+                    <mxCell parent="B_frontera_centro" style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=16;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1">
+                        <mxGeometry height="20" width="360" x="550" y="490" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="B" emisor="B_reservas" receptor="B_bd_reservas" mensaje="4.1" enlace="B_enlace_reservas_bd" id="B_m_4_1_flecha">
+                    <mxCell edge="1" parent="B_frontera_centro" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;dashed=0;shadow=0;startArrow=none;startFill=0;endArrow=block;endFill=1;">
+                        <mxGeometry relative="1" as="geometry">
+                            <mxPoint x="420" y="640" as="sourcePoint"/>
+                            <mxPoint x="420" y="660" as="targetPoint"/>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="4.1: eventos := leerPendientes()" zona="B" emisor="B_reservas" receptor="B_bd_reservas" mensaje="4.1" enlace="B_enlace_reservas_bd" id="B_m_4_1_etiqueta">
+                    <mxCell parent="B_frontera_centro" style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=16;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1">
+                        <mxGeometry height="20" width="250" x="440" y="640" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="B" emisor="B_reservas" receptor="C_rabbitmq" mensaje="4.2" enlace="B_enlace_reservas_broker" id="B_m_4_2_flecha">
+                    <mxCell edge="1" parent="B_frontera_centro" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;dashed=0;shadow=0;startArrow=none;startFill=0;endArrow=open;endFill=0;">
+                        <mxGeometry relative="1" as="geometry">
+                            <mxPoint x="320" y="2010" as="sourcePoint"/>
+                            <mxPoint x="350" y="2010" as="targetPoint"/>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="4.2: publicar(ReservaConfirmada, reservaId)" zona="B" emisor="B_reservas" receptor="C_rabbitmq" mensaje="4.2" enlace="B_enlace_reservas_broker" id="B_m_4_2_etiqueta">
+                    <mxCell parent="B_frontera_centro" style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=16;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1">
+                        <mxGeometry height="20" width="350" x="360" y="2000" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="B" emisor="B_reservas" receptor="B_bd_reservas" mensaje="4.3" enlace="B_enlace_reservas_bd" id="B_m_4_3_flecha">
+                    <mxCell edge="1" parent="B_frontera_centro" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;dashed=0;shadow=0;startArrow=none;startFill=0;endArrow=block;endFill=1;">
+                        <mxGeometry relative="1" as="geometry">
+                            <mxPoint x="420" y="670" as="sourcePoint"/>
+                            <mxPoint x="420" y="690" as="targetPoint"/>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="4.3: marcarPublicado(evento)" zona="B" emisor="B_reservas" receptor="B_bd_reservas" mensaje="4.3" enlace="B_enlace_reservas_bd" id="B_m_4_3_etiqueta">
+                    <mxCell parent="B_frontera_centro" style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=16;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1">
+                        <mxGeometry height="20" width="240" x="440" y="670" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="B" emisor="B_inventario" receptor="B_bd_reservas" mensaje="3.2.3.1.1" enlace="B_enlace_inventario_bd" id="B_m_3_2_3_1_1_flecha">
+                    <mxCell edge="1" parent="B_frontera_centro" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;dashed=0;shadow=0;startArrow=none;startFill=0;endArrow=block;endFill=1;">
+                        <mxGeometry relative="1" as="geometry">
+                            <mxPoint x="1460" y="730" as="sourcePoint"/>
+                            <mxPoint x="1460" y="750" as="targetPoint"/>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="3.2.3.1.1: filas := confirmarSiRetencionVigente(vuelo, asiento, reservaId, ahora)" zona="B" emisor="B_inventario" receptor="B_bd_reservas" mensaje="3.2.3.1.1" enlace="B_enlace_inventario_bd" id="B_m_3_2_3_1_1_etiqueta">
+                    <mxCell parent="B_frontera_centro" style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=16;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1">
+                        <mxGeometry height="20" width="600" x="1480" y="730" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="B" emisor="B_inventario" receptor="B_cache" mensaje="3.2.3.1.2" enlace="B_enlace_inventario_cache" id="B_m_3_2_3_1_2_flecha">
+                    <mxCell edge="1" parent="B_frontera_centro" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;dashed=0;shadow=0;startArrow=none;startFill=0;endArrow=open;endFill=0;">
+                        <mxGeometry relative="1" as="geometry">
+                            <mxPoint x="1460" y="340" as="sourcePoint"/>
+                            <mxPoint x="1460" y="320" as="targetPoint"/>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="3.2.3.1.2 [vendido]: invalidar(vuelo, asiento)" zona="B" emisor="B_inventario" receptor="B_cache" mensaje="3.2.3.1.2" enlace="B_enlace_inventario_cache" id="B_m_3_2_3_1_2_etiqueta">
+                    <mxCell parent="B_frontera_centro" style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=16;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1">
+                        <mxGeometry height="20" width="500" x="1480" y="320" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="B" emisor="B_inventario" receptor="B_bd_reservas" mensaje="3.2.3.4.1" enlace="B_enlace_inventario_bd" id="B_m_3_2_3_4_1_flecha">
+                    <mxCell edge="1" parent="B_frontera_centro" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;dashed=0;shadow=0;startArrow=none;startFill=0;endArrow=block;endFill=1;">
+                        <mxGeometry relative="1" as="geometry">
+                            <mxPoint x="1460" y="760" as="sourcePoint"/>
+                            <mxPoint x="1460" y="780" as="targetPoint"/>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="3.2.3.4.1: filas := liberarSiRetenidaPor(reservaId)" zona="B" emisor="B_inventario" receptor="B_bd_reservas" mensaje="3.2.3.4.1" enlace="B_enlace_inventario_bd" id="B_m_3_2_3_4_1_etiqueta">
+                    <mxCell parent="B_frontera_centro" style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=16;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1">
+                        <mxGeometry height="20" width="500" x="1480" y="760" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="B" emisor="B_inventario" receptor="B_cache" mensaje="3.2.3.4.2" enlace="B_enlace_inventario_cache" id="B_m_3_2_3_4_2_flecha">
+                    <mxCell edge="1" parent="B_frontera_centro" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;dashed=0;shadow=0;startArrow=none;startFill=0;endArrow=open;endFill=0;">
+                        <mxGeometry relative="1" as="geometry">
+                            <mxPoint x="1460" y="370" as="sourcePoint"/>
+                            <mxPoint x="1460" y="350" as="targetPoint"/>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="3.2.3.4.2 [liberado]: invalidar(vuelo, asiento)" zona="B" emisor="B_inventario" receptor="B_cache" mensaje="3.2.3.4.2" enlace="B_enlace_inventario_cache" id="B_m_3_2_3_4_2_etiqueta">
+                    <mxCell parent="B_frontera_centro" style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=16;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1">
+                        <mxGeometry height="20" width="500" x="1480" y="350" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="B" emisor="B_inventario" receptor="B_bd_reservas" mensaje="3.4.1" enlace="B_enlace_inventario_bd" id="B_m_3_4_1_flecha">
+                    <mxCell edge="1" parent="B_frontera_centro" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;dashed=0;shadow=0;startArrow=none;startFill=0;endArrow=block;endFill=1;">
+                        <mxGeometry relative="1" as="geometry">
+                            <mxPoint x="1460" y="790" as="sourcePoint"/>
+                            <mxPoint x="1460" y="810" as="targetPoint"/>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="3.4.1: estado := leerEstadoPorReserva(reservaId)" zona="B" emisor="B_inventario" receptor="B_bd_reservas" mensaje="3.4.1" enlace="B_enlace_inventario_bd" id="B_m_3_4_1_etiqueta">
+                    <mxCell parent="B_frontera_centro" style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=16;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1">
+                        <mxGeometry height="20" width="500" x="1480" y="790" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="B" emisor="B_reservas" receptor="B_bd_reservas" mensaje="3.2.3.5" enlace="B_enlace_reservas_bd" id="B_m_3_2_3_5_flecha">
+                    <mxCell edge="1" parent="B_frontera_centro" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;dashed=0;shadow=0;startArrow=none;startFill=0;endArrow=block;endFill=1;">
+                        <mxGeometry relative="1" as="geometry">
+                            <mxPoint x="420" y="580" as="sourcePoint"/>
+                            <mxPoint x="420" y="600" as="targetPoint"/>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="3.2.3.5 [CONFIRMADO]: confirmarReserva(reservaId, evento = ReservaConfirmada)" zona="B" emisor="B_reservas" receptor="B_bd_reservas" mensaje="3.2.3.5" enlace="B_enlace_reservas_bd" id="B_m_3_2_3_5_etiqueta">
+                    <mxCell parent="B_frontera_centro" style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=16;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1">
+                        <mxGeometry height="20" width="640" x="440" y="580" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="B" emisor="B_reservas" receptor="B_bd_reservas" mensaje="3.2.3.6" enlace="B_enlace_reservas_bd" id="B_m_3_2_3_6_flecha">
+                    <mxCell edge="1" parent="B_frontera_centro" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;dashed=0;shadow=0;startArrow=none;startFill=0;endArrow=block;endFill=1;">
+                        <mxGeometry relative="1" as="geometry">
+                            <mxPoint x="420" y="610" as="sourcePoint"/>
+                            <mxPoint x="420" y="630" as="targetPoint"/>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="3.2.3.6 [RECHAZADO definitivo]: cancelarReserva(reservaId)" zona="B" emisor="B_reservas" receptor="B_bd_reservas" mensaje="3.2.3.6" enlace="B_enlace_reservas_bd" id="B_m_3_2_3_6_etiqueta">
+                    <mxCell parent="B_frontera_centro" style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=16;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1">
+                        <mxGeometry height="20" width="500" x="440" y="610" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="envios : RegistroNotificaciones" zona="C" id="C_registro_notificaciones">
+                    <mxCell parent="B_frontera_centro" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=14;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=center;verticalAlign=middle;shape=cylinder3;boundedLbl=1;size=15;" vertex="1">
+                        <mxGeometry height="90" width="360" x="100" y="3040" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="A" emisor="A_cliente" receptor="B_reservas" mensaje="1" enlace="A_enlace_cliente_reservas" id="_V7i2_WOZ-luogft8gYh-15">
+                    <mxCell edge="1" parent="B_frontera_centro" style="edgeStyle=none;html=1;strokeColor=#000000;strokeWidth=1;startArrow=none;endArrow=block;endFill=1;">
+                        <mxGeometry relative="1" as="geometry">
+                            <mxPoint x="70" y="630" as="sourcePoint"/>
+                            <mxPoint x="70" y="610" as="targetPoint"/>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="1: vuelos := buscarVuelos(origen, destino, fecha)" zona="A" emisor="A_cliente" receptor="B_reservas" mensaje="1" enlace="A_enlace_cliente_reservas" id="_V7i2_WOZ-luogft8gYh-16">
+                    <mxCell parent="B_frontera_centro" style="text;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=12;align=left;verticalAlign=middle;spacing=0;" vertex="1">
+                        <mxGeometry height="20" width="190" x="80" y="610" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="A" emisor="A_cliente" receptor="B_reservas" mensaje="2" enlace="A_enlace_cliente_reservas" id="_V7i2_WOZ-luogft8gYh-17">
+                    <mxCell edge="1" parent="B_frontera_centro" style="edgeStyle=none;html=1;strokeColor=#000000;strokeWidth=1;startArrow=none;endArrow=block;endFill=1;">
+                        <mxGeometry relative="1" as="geometry">
+                            <mxPoint x="70" y="600" as="sourcePoint"/>
+                            <mxPoint x="70" y="580" as="targetPoint"/>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="2: reserva := retenerAsiento(vuelo, asiento)" zona="A" emisor="A_cliente" receptor="B_reservas" mensaje="2" enlace="A_enlace_cliente_reservas" id="_V7i2_WOZ-luogft8gYh-18">
+                    <mxCell parent="B_frontera_centro" style="text;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=12;align=left;verticalAlign=middle;spacing=0;" vertex="1">
+                        <mxGeometry height="20" width="200" x="80" y="580" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="A" emisor="A_cliente" receptor="B_reservas" mensaje="3" enlace="A_enlace_cliente_reservas" id="_V7i2_WOZ-luogft8gYh-19">
+                    <mxCell edge="1" parent="B_frontera_centro" style="edgeStyle=none;html=1;strokeColor=#000000;strokeWidth=1;startArrow=none;endArrow=block;endFill=1;">
+                        <mxGeometry relative="1" as="geometry">
+                            <mxPoint x="70" y="570" as="sourcePoint"/>
+                            <mxPoint x="70" y="550" as="targetPoint"/>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="3: resultado := pagar(reservaId, tokenPago)" zona="A" emisor="A_cliente" receptor="B_reservas" mensaje="3" enlace="A_enlace_cliente_reservas" id="_V7i2_WOZ-luogft8gYh-20">
+                    <mxCell parent="B_frontera_centro" style="text;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=12;align=left;verticalAlign=middle;spacing=0;" vertex="1">
+                        <mxGeometry height="20" width="210" x="80" y="550" as="geometry"/>
                     </mxCell>
                 </object>
                 <object label="Aeropuerto" zona="D" id="D_frontera_aeropuerto">
@@ -231,9 +420,18 @@
                 </object>
                 <object label="agencias : AgenciasDeViajes" zona="A" id="A_agencias">
                     <mxCell parent="A_frontera_agencias" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=14;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=center;verticalAlign=middle;" vertex="1">
-                        <mxGeometry height="100" width="400" x="80" y="100" as="geometry"/>
+                        <mxGeometry height="100" width="350" x="80" y="100" as="geometry"/>
                     </mxCell>
                 </object>
+                <mxCell id="_V7i2_WOZ-luogft8gYh-8" connectable="0" parent="A_frontera_agencias" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];inheritText=1;fontSize=14;fontColor=#000000;" value="&lt;font style=&quot;font-size: 12px;&quot;&gt;[Solicitud/respuesta síncrona]&lt;/font&gt;" vertex="1">
+                    <mxGeometry x="510" y="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="_V7i2_WOZ-luogft8gYh-9" connectable="0" parent="A_frontera_agencias" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];inheritText=1;fontSize=14;fontColor=#000000;" value="&lt;font style=&quot;font-size: 11px;&quot;&gt;REST·HTTPS (HTTP/1.1 + LTS)&lt;/font&gt;" vertex="1">
+                    <mxGeometry x="510" y="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="_V7i2_WOZ-luogft8gYh-10" connectable="0" parent="A_frontera_agencias" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];inheritText=1;fontSize=14;fontColor=#000000;" value="&lt;font style=&quot;font-size: 12px;&quot;&gt;Espera máxima: 40 s&lt;/font&gt;" vertex="1">
+                    <mxGeometry x="500" y="160" as="geometry"/>
+                </mxCell>
                 <object label="Sistemas externos" zona="A" id="A_frontera_pasarela">
                     <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=14;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=center;verticalAlign=middle;fillColor=none;dashed=1;dashPattern=2 4;fontSize=12;verticalAlign=top;align=left;spacingTop=10;spacingLeft=20;container=1;collapsible=0;recursiveResize=0;pointerEvents=0;" vertex="1">
                         <mxGeometry height="300" width="560" x="4400" y="1700" as="geometry"/>
@@ -251,9 +449,9 @@
                 </object>
                 <object label="" zona="A" id="A_enlace_pasajero_quioscos">
                     <mxCell edge="1" parent="1" source="A_pasajero" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=14;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=none;endFill=0;exitX=0;exitY=0.5;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;" target="D_quioscos">
-                        <mxGeometry relative="1" as="geometry">
+                        <mxGeometry relative="1" x="-0.0811" as="geometry">
                             <Array as="points">
-                                <mxPoint x="20" y="650"/>
+                                <mxPoint x="20" y="813"/>
                                 <mxPoint x="20" y="4000"/>
                             </Array>
                         </mxGeometry>
@@ -268,8 +466,9 @@
                     <mxCell edge="1" parent="1" source="A_cliente" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=14;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=none;endFill=0;exitX=1;exitY=0.5;entryX=0;entryY=0.7;exitPerimeter=0;entryPerimeter=0;" target="B_reservas">
                         <mxGeometry relative="1" as="geometry">
                             <Array as="points">
-                                <mxPoint x="740" y="650"/>
-                                <mxPoint x="740" y="550"/>
+                                <mxPoint x="480" y="810"/>
+                                <mxPoint x="760" y="810"/>
+                                <mxPoint x="760" y="550"/>
                             </Array>
                         </mxGeometry>
                     </mxCell>
@@ -324,9 +523,9 @@
                 <object label="[Acceso a datos]&lt;br&gt;PostgreSQL · TCP" zona="B" id="B_enlace_inventario_bd">
                     <mxCell edge="1" parent="1" source="B_inventario" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=2;shadow=0;dashed=1;startArrow=none;startFill=0;endArrow=none;endFill=0;exitX=0.5;exitY=1;entryX=1;entryY=0.9;exitPerimeter=0;entryPerimeter=0;dashPattern=12 4 2 4;labelBackgroundColor=#FFFFFF;labelWidth=160;whiteSpace=wrap;align=center;verticalAlign=middle;spacing=0;" target="B_bd_reservas">
                         <mxGeometry relative="1" x="1" as="geometry">
-                            <mxPoint x="-80" y="-170" as="offset" />
+                            <mxPoint x="-80" y="-170" as="offset"/>
                             <Array as="points">
-                                <mxPoint x="2140" y="870" />
+                                <mxPoint x="2140" y="870"/>
                             </Array>
                         </mxGeometry>
                     </mxCell>
@@ -362,20 +561,25 @@
                 </object>
                 <object label="[Mensajería asíncrona]&lt;br&gt;RabbitMQ · AMQP/TCP" zona="C" id="C_enlace_broker_notificaciones">
                     <mxCell edge="1" parent="1" source="C_rabbitmq" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=12;labelBackgroundColor=#FFFFFF;labelWidth=230;strokeWidth=2;shadow=0;dashed=1;dashPattern=12 6;startArrow=none;startFill=0;endArrow=none;endFill=0;exitX=0;exitY=0.5;entryX=1;entryY=0.5;exitPerimeter=0;entryPerimeter=0;" target="C_notificaciones">
-                        <mxGeometry relative="1" as="geometry"><mxPoint x="0" y="-100" as="offset" /></mxGeometry>
+                        <mxGeometry relative="1" as="geometry">
+                            <mxPoint y="-100" as="offset"/>
+                        </mxGeometry>
                     </mxCell>
                 </object>
                 <object label="[Enrutamiento interno asíncrono]&lt;br&gt;RabbitMQ · DLX configurado&lt;br&gt;dead-letter-strategy=at-least-once&lt;br&gt;overflow=reject-publish" zona="C" id="C_enlace_broker_fallidos">
                     <mxCell edge="1" parent="1" source="C_rabbitmq" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=12;labelBackgroundColor=#FFFFFF;labelWidth=300;whiteSpace=wrap;strokeWidth=2;shadow=0;dashed=1;dashPattern=12 6;startArrow=none;startFill=0;endArrow=none;endFill=0;exitX=0.5;exitY=1;entryX=0.5;entryY=0;exitPerimeter=0;entryPerimeter=0;" target="C_cola_fallidos">
-                        <mxGeometry relative="1" as="geometry"><mxPoint x="215" y="0" as="offset" /></mxGeometry>
+                        <mxGeometry relative="1" as="geometry">
+                            <mxPoint x="215" as="offset"/>
+                        </mxGeometry>
                     </mxCell>
                 </object>
                 <object label="[Correo al buzón]&lt;br&gt;Entrega asíncrona" zona="C" id="C_enlace_notificaciones_pasajero">
                     <mxCell edge="1" parent="1" source="C_correo" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=12;labelBackgroundColor=#FFFFFF;labelWidth=210;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=none;endFill=0;exitX=0;exitY=0.5;entryX=1;entryY=0.8;exitPerimeter=0;entryPerimeter=0;" target="A_pasajero">
-                        <mxGeometry relative="1" as="geometry"><mxPoint x="155" y="0" as="offset" />
+                        <mxGeometry relative="1" x="0.1893" as="geometry">
+                            <mxPoint x="155" as="offset"/>
                             <Array as="points">
                                 <mxPoint x="190" y="2350"/>
-                                <mxPoint x="190" y="680"/>
+                                <mxPoint x="190" y="843"/>
                             </Array>
                         </mxGeometry>
                     </mxCell>
@@ -409,7 +613,7 @@
                 </object>
                 <object label="Pasajero" zona="A" id="A_pasajero">
                     <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=14;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=center;verticalAlign=middle;shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;labelWidth=300;" vertex="1">
-                        <mxGeometry height="100" width="80" x="60" y="600" as="geometry"/>
+                        <mxGeometry height="100" width="50" x="60" y="763" as="geometry"/>
                     </mxCell>
                 </object>
                 <object label="Personal de aeropuerto" zona="D" id="D_personal">
@@ -419,7 +623,7 @@
                 </object>
                 <object label="cliente : AppMovilWeb" zona="A" id="A_cliente">
                     <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=14;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=center;verticalAlign=middle;" vertex="1">
-                        <mxGeometry height="100" width="400" x="240" y="600" as="geometry"/>
+                        <mxGeometry height="100" width="240" x="270" y="763" as="geometry"/>
                     </mxCell>
                 </object>
                 <object label="Leyenda" zona="A,B,C,D" id="L_marco">
@@ -755,15 +959,15 @@
                     <mxCell edge="1" parent="1" source="A_cliente" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#000000;strokeWidth=1;endArrow=block;endFill=1;exitX=0.3;exitY=1;entryX=0.7;entryY=1;exitPerimeter=0;entryPerimeter=0;" target="A_cliente">
                         <mxGeometry relative="1" as="geometry">
                             <Array as="points">
-                                <mxPoint x="360" y="760"/>
-                                <mxPoint x="520" y="760"/>
+                                <mxPoint x="360" y="923"/>
+                                <mxPoint x="520" y="923"/>
                             </Array>
                         </mxGeometry>
                     </mxCell>
                 </object>
                 <object label="3 [al solicitar el pago]:&lt;br&gt;mostrarEstado(PROCESANDO_PAGO)&lt;br&gt;Interfaz activa durante la espera (R4)." zona="C" emisor="A_cliente" receptor="A_cliente" mensaje="3" id="C_m_3_ui_etiqueta">
                     <mxCell parent="1" style="text;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=12;align=left;verticalAlign=top;spacing=2;" vertex="1">
-                        <mxGeometry height="56" width="224" x="250" y="780" as="geometry"/>
+                        <mxGeometry height="56" width="224" x="250" y="943" as="geometry"/>
                     </mxCell>
                 </object>
                 <object label="3.2.3 [resultado definitivo pendiente de entrega]:&lt;br&gt;ack := aplicarResultadoPagoIdempotente(&lt;br&gt;reservaId, intentoId, estado, transaccionId)" id="F1_m_3_2_3">
@@ -1024,456 +1228,365 @@
                         </mxGeometry>
                     </mxCell>
                 </object>
-              <object id="B_m_4_flecha" label="" zona="B" emisor="B_reservas" receptor="B_reservas" mensaje="4">
-                <mxCell source="B_reservas" target="B_reservas" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;dashed=0;shadow=0;startArrow=none;startFill=0;endArrow=open;endFill=0;exitX=1;exitY=0.7;entryX=1;entryY=0.9;exitPerimeter=0;entryPerimeter=0;" edge="1" parent="B_frontera_centro">
-                  <mxGeometry relative="1" as="geometry">
-                    <Array as="points">
-                      <mxPoint x="530" y="490" />
-                      <mxPoint x="530" y="510" />
-                    </Array>
-                  </mxGeometry>
-                </mxCell>
-              </object>
-              <object id="B_m_4_etiqueta" label="4 *[hay eventos pendientes]: publicarEventos()" zona="B" emisor="B_reservas" receptor="B_reservas" mensaje="4">
-                <mxCell style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=16;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="B_frontera_centro">
-                  <mxGeometry x="550" y="490" width="360" height="20" as="geometry" />
-                </mxCell>
-              </object>
-              <object id="B_m_4_1_flecha" label="" zona="B" emisor="B_reservas" receptor="B_bd_reservas" mensaje="4.1" enlace="B_enlace_reservas_bd">
-                <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;dashed=0;shadow=0;startArrow=none;startFill=0;endArrow=block;endFill=1;" edge="1" parent="B_frontera_centro">
-                  <mxGeometry relative="1" as="geometry">
-                    <mxPoint x="420" y="640" as="sourcePoint" />
-                    <mxPoint x="420" y="660" as="targetPoint" />
-                  </mxGeometry>
-                </mxCell>
-              </object>
-              <object id="B_m_4_1_etiqueta" label="4.1: eventos := leerPendientes()" zona="B" emisor="B_reservas" receptor="B_bd_reservas" mensaje="4.1" enlace="B_enlace_reservas_bd">
-                <mxCell style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=16;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="B_frontera_centro">
-                  <mxGeometry x="440" y="640" width="250" height="20" as="geometry" />
-                </mxCell>
-              </object>
-              <object id="B_m_4_2_flecha" label="" zona="B" emisor="B_reservas" receptor="C_rabbitmq" mensaje="4.2" enlace="B_enlace_reservas_broker">
-                <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;dashed=0;shadow=0;startArrow=none;startFill=0;endArrow=open;endFill=0;" edge="1" parent="B_frontera_centro">
-                  <mxGeometry relative="1" as="geometry">
-                    <mxPoint x="320" y="2010" as="sourcePoint" />
-                    <mxPoint x="350" y="2010" as="targetPoint" />
-                  </mxGeometry>
-                </mxCell>
-              </object>
-              <object id="B_m_4_2_etiqueta" label="4.2: publicar(ReservaConfirmada, reservaId)" zona="B" emisor="B_reservas" receptor="C_rabbitmq" mensaje="4.2" enlace="B_enlace_reservas_broker">
-                <mxCell style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=16;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="B_frontera_centro">
-                  <mxGeometry x="360" y="2000" width="350" height="20" as="geometry" />
-                </mxCell>
-              </object>
-              <object id="B_m_4_3_flecha" label="" zona="B" emisor="B_reservas" receptor="B_bd_reservas" mensaje="4.3" enlace="B_enlace_reservas_bd">
-                <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;dashed=0;shadow=0;startArrow=none;startFill=0;endArrow=block;endFill=1;" edge="1" parent="B_frontera_centro">
-                  <mxGeometry relative="1" as="geometry">
-                    <mxPoint x="420" y="670" as="sourcePoint" />
-                    <mxPoint x="420" y="690" as="targetPoint" />
-                  </mxGeometry>
-                </mxCell>
-              </object>
-              <object id="B_m_4_3_etiqueta" label="4.3: marcarPublicado(evento)" zona="B" emisor="B_reservas" receptor="B_bd_reservas" mensaje="4.3" enlace="B_enlace_reservas_bd">
-                <mxCell style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=16;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1" parent="B_frontera_centro">
-                  <mxGeometry x="440" y="670" width="240" height="20" as="geometry" />
-                </mxCell>
-              </object>
-              <object label="" zona="B" emisor="B_inventario" receptor="B_bd_reservas" mensaje="3.2.3.1.1" enlace="B_enlace_inventario_bd" id="B_m_3_2_3_1_1_flecha">
-                <mxCell edge="1" parent="B_frontera_centro" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;dashed=0;shadow=0;startArrow=none;startFill=0;endArrow=block;endFill=1;">
-                  <mxGeometry relative="1" as="geometry">
-                    <mxPoint x="1460" y="730" as="sourcePoint" />
-                    <mxPoint x="1460" y="750" as="targetPoint" />
-                  </mxGeometry>
-                </mxCell>
-              </object>
-              <object label="3.2.3.1.1: filas := confirmarSiRetencionVigente(vuelo, asiento, reservaId, ahora)" zona="B" emisor="B_inventario" receptor="B_bd_reservas" mensaje="3.2.3.1.1" enlace="B_enlace_inventario_bd" id="B_m_3_2_3_1_1_etiqueta">
-                <mxCell parent="B_frontera_centro" style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=16;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1">
-                  <mxGeometry height="20" width="600" x="1480" y="730" as="geometry" />
-                </mxCell>
-              </object>
-              <object label="" zona="B" emisor="B_inventario" receptor="B_cache" mensaje="3.2.3.1.2" enlace="B_enlace_inventario_cache" id="B_m_3_2_3_1_2_flecha">
-                <mxCell edge="1" parent="B_frontera_centro" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;dashed=0;shadow=0;startArrow=none;startFill=0;endArrow=open;endFill=0;">
-                  <mxGeometry relative="1" as="geometry">
-                    <mxPoint x="1460" y="340" as="sourcePoint" />
-                    <mxPoint x="1460" y="320" as="targetPoint" />
-                  </mxGeometry>
-                </mxCell>
-              </object>
-              <object label="3.2.3.1.2 [vendido]: invalidar(vuelo, asiento)" zona="B" emisor="B_inventario" receptor="B_cache" mensaje="3.2.3.1.2" enlace="B_enlace_inventario_cache" id="B_m_3_2_3_1_2_etiqueta">
-                <mxCell parent="B_frontera_centro" style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=16;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1">
-                  <mxGeometry height="20" width="500" x="1480" y="320" as="geometry" />
-                </mxCell>
-              </object>
-              <object label="" zona="B" emisor="B_inventario" receptor="B_bd_reservas" mensaje="3.2.3.4.1" enlace="B_enlace_inventario_bd" id="B_m_3_2_3_4_1_flecha">
-                <mxCell edge="1" parent="B_frontera_centro" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;dashed=0;shadow=0;startArrow=none;startFill=0;endArrow=block;endFill=1;">
-                  <mxGeometry relative="1" as="geometry">
-                    <mxPoint x="1460" y="760" as="sourcePoint" />
-                    <mxPoint x="1460" y="780" as="targetPoint" />
-                  </mxGeometry>
-                </mxCell>
-              </object>
-              <object label="3.2.3.4.1: filas := liberarSiRetenidaPor(reservaId)" zona="B" emisor="B_inventario" receptor="B_bd_reservas" mensaje="3.2.3.4.1" enlace="B_enlace_inventario_bd" id="B_m_3_2_3_4_1_etiqueta">
-                <mxCell parent="B_frontera_centro" style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=16;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1">
-                  <mxGeometry height="20" width="500" x="1480" y="760" as="geometry" />
-                </mxCell>
-              </object>
-              <object label="" zona="B" emisor="B_inventario" receptor="B_cache" mensaje="3.2.3.4.2" enlace="B_enlace_inventario_cache" id="B_m_3_2_3_4_2_flecha">
-                <mxCell edge="1" parent="B_frontera_centro" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;dashed=0;shadow=0;startArrow=none;startFill=0;endArrow=open;endFill=0;">
-                  <mxGeometry relative="1" as="geometry">
-                    <mxPoint x="1460" y="370" as="sourcePoint" />
-                    <mxPoint x="1460" y="350" as="targetPoint" />
-                  </mxGeometry>
-                </mxCell>
-              </object>
-              <object label="3.2.3.4.2 [liberado]: invalidar(vuelo, asiento)" zona="B" emisor="B_inventario" receptor="B_cache" mensaje="3.2.3.4.2" enlace="B_enlace_inventario_cache" id="B_m_3_2_3_4_2_etiqueta">
-                <mxCell parent="B_frontera_centro" style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=16;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1">
-                  <mxGeometry height="20" width="500" x="1480" y="350" as="geometry" />
-                </mxCell>
-              </object>
-              <object label="" zona="B" emisor="B_inventario" receptor="B_bd_reservas" mensaje="3.4.1" enlace="B_enlace_inventario_bd" id="B_m_3_4_1_flecha">
-                <mxCell edge="1" parent="B_frontera_centro" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;dashed=0;shadow=0;startArrow=none;startFill=0;endArrow=block;endFill=1;">
-                  <mxGeometry relative="1" as="geometry">
-                    <mxPoint x="1460" y="790" as="sourcePoint" />
-                    <mxPoint x="1460" y="810" as="targetPoint" />
-                  </mxGeometry>
-                </mxCell>
-              </object>
-              <object label="3.4.1: estado := leerEstadoPorReserva(reservaId)" zona="B" emisor="B_inventario" receptor="B_bd_reservas" mensaje="3.4.1" enlace="B_enlace_inventario_bd" id="B_m_3_4_1_etiqueta">
-                <mxCell parent="B_frontera_centro" style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=16;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1">
-                  <mxGeometry height="20" width="500" x="1480" y="790" as="geometry" />
-                </mxCell>
-              </object>
-              <object label="" zona="B" emisor="B_reservas" receptor="B_bd_reservas" mensaje="3.2.3.5" enlace="B_enlace_reservas_bd" id="B_m_3_2_3_5_flecha">
-                <mxCell edge="1" parent="B_frontera_centro" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;dashed=0;shadow=0;startArrow=none;startFill=0;endArrow=block;endFill=1;">
-                  <mxGeometry relative="1" as="geometry">
-                    <mxPoint x="420" y="580" as="sourcePoint" />
-                    <mxPoint x="420" y="600" as="targetPoint" />
-                  </mxGeometry>
-                </mxCell>
-              </object>
-              <object label="3.2.3.5 [CONFIRMADO]: confirmarReserva(reservaId, evento = ReservaConfirmada)" zona="B" emisor="B_reservas" receptor="B_bd_reservas" mensaje="3.2.3.5" enlace="B_enlace_reservas_bd" id="B_m_3_2_3_5_etiqueta">
-                <mxCell parent="B_frontera_centro" style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=16;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1">
-                  <mxGeometry height="20" width="640" x="440" y="580" as="geometry" />
-                </mxCell>
-              </object>
-              <object label="" zona="B" emisor="B_reservas" receptor="B_bd_reservas" mensaje="3.2.3.6" enlace="B_enlace_reservas_bd" id="B_m_3_2_3_6_flecha">
-                <mxCell edge="1" parent="B_frontera_centro" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;dashed=0;shadow=0;startArrow=none;startFill=0;endArrow=block;endFill=1;">
-                  <mxGeometry relative="1" as="geometry">
-                    <mxPoint x="420" y="610" as="sourcePoint" />
-                    <mxPoint x="420" y="630" as="targetPoint" />
-                  </mxGeometry>
-                </mxCell>
-              </object>
-              <object label="3.2.3.6 [RECHAZADO definitivo]: cancelarReserva(reservaId)" zona="B" emisor="B_reservas" receptor="B_bd_reservas" mensaje="3.2.3.6" enlace="B_enlace_reservas_bd" id="B_m_3_2_3_6_etiqueta">
-                <mxCell parent="B_frontera_centro" style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=16;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1">
-                  <mxGeometry height="20" width="500" x="440" y="610" as="geometry" />
-                </mxCell>
-              </object>
-              <object label="correo : ServidorSMTP" zona="C" id="C_correo">
-                <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=14;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=center;verticalAlign=middle;" vertex="1">
-                  <mxGeometry height="60" width="260" x="360" y="2320" as="geometry" />
-                </mxCell>
-              </object>
-              <object label="[RPC síncrono]&lt;br&gt;gRPC · HTTP/2 + TLS&lt;br&gt;Espera máxima: 3 s" zona="C" id="C_enlace_notificaciones_reservas">
-                <mxCell edge="1" parent="1" source="C_notificaciones" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=2;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=none;endFill=0;shape=link;exitX=0.1;exitY=0;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;labelBackgroundColor=#FFFFFF;labelWidth=220;whiteSpace=wrap;" target="B_reservas">
-                  <mxGeometry relative="1" x="-0.6" as="geometry">
-                    <mxPoint x="-140" y="0" as="offset" />
-                    <Array as="points">
-                      <mxPoint x="840" y="2180" />
-                      <mxPoint x="740" y="2180" />
-                      <mxPoint x="740" y="530" />
-                    </Array>
-                  </mxGeometry>
-                </mxCell>
-              </object>
-              <object label="[Solicitud/respuesta síncrona]&lt;br&gt;SMTP · TCP/TLS&lt;br&gt;Espera máxima: 5 s" zona="C" id="C_enlace_notificaciones_correo">
-                <mxCell edge="1" parent="1" source="C_notificaciones" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=none;endFill=0;exitX=0;exitY=0.5;entryX=1;entryY=0.5;exitPerimeter=0;entryPerimeter=0;labelBackgroundColor=#FFFFFF;labelWidth=250;whiteSpace=wrap;" target="C_correo">
-                  <mxGeometry relative="1" as="geometry">
-                    <mxPoint x="0" y="-95" as="offset" />
-                  </mxGeometry>
-                </mxCell>
-              </object>
-              <object label="" zona="C" emisor="C_rabbitmq" receptor="C_notificaciones" mensaje="4.2.1" enlace="C_enlace_broker_notificaciones" id="C_m_4_2_1_flecha">
-                <mxCell edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=open;endFill=0;">
-                  <mxGeometry relative="1" as="geometry">
-                    <mxPoint x="1300" y="2420" as="sourcePoint" />
-                    <mxPoint x="1270" y="2420" as="targetPoint" />
-                  </mxGeometry>
-                </mxCell>
-              </object>
-              <object label="4.2.1: recibir(ReservaConfirmada,&lt;br&gt;reservaId, deliveryTag, autoAck=false)" zona="C" emisor="C_rabbitmq" receptor="C_notificaciones" mensaje="4.2.1" enlace="C_enlace_broker_notificaciones" id="C_m_4_2_1_etiqueta">
-                <mxCell parent="1" style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=16;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1">
-                  <mxGeometry height="46" width="360" x="1210" y="2440" as="geometry" />
-                </mxCell>
-              </object>
-              <object label="" zona="C" emisor="C_notificaciones" receptor="B_reservas" mensaje="4.2.1.2" enlace="C_enlace_notificaciones_reservas" id="C_m_4_2_1_1_flecha">
-                <mxCell edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=block;endFill=1;">
-                  <mxGeometry relative="1" as="geometry">
-                    <mxPoint x="765" y="2124" as="sourcePoint" />
-                    <mxPoint x="765" y="2094" as="targetPoint" />
-                  </mxGeometry>
-                </mxCell>
-              </object>
-              <object label="4.2.1.2: datos := consultarDatosNotificacion(reservaId)&lt;br&gt;datos = {confirmada, destinatario, codigoReserva, vuelo, asiento}" zona="C" emisor="C_notificaciones" receptor="B_reservas" mensaje="4.2.1.2" enlace="C_enlace_notificaciones_reservas" id="C_m_4_2_1_1_etiqueta">
-                <mxCell parent="1" style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=16;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1">
-                  <mxGeometry height="44" width="600" x="800" y="2085" as="geometry" />
-                </mxCell>
-              </object>
-              <object label="" zona="C" emisor="C_notificaciones" receptor="C_notificaciones" mensaje="4.2.1.3" id="C_m_4_2_1_2_flecha">
-                <mxCell edge="1" parent="1" source="C_notificaciones" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=block;endFill=1;exitX=0.3;exitY=1;entryX=0.7;entryY=1;exitPerimeter=0;entryPerimeter=0;" target="C_notificaciones">
-                  <mxGeometry relative="1" as="geometry">
-                    <Array as="points">
-                      <mxPoint x="920" y="2490" />
-                      <mxPoint x="1080" y="2490" />
-                    </Array>
-                  </mxGeometry>
-                </mxCell>
-              </object>
-              <object label="4.2.1.3 [datos.confirmada y envio reclamado]:&lt;br&gt;contenido := prepararConfirmacionYPase(datos)" zona="C" emisor="C_notificaciones" receptor="C_notificaciones" mensaje="4.2.1.3" id="C_m_4_2_1_2_etiqueta">
-                <mxCell parent="1" style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=16;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1">
-                  <mxGeometry height="46" width="510" x="800" y="2510" as="geometry" />
-                </mxCell>
-              </object>
-              <object label="" zona="C" emisor="C_notificaciones" receptor="C_correo" mensaje="4.2.1.4" enlace="C_enlace_notificaciones_correo" id="C_m_4_2_1_3_flecha">
-                <mxCell edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=block;endFill=1;">
-                  <mxGeometry relative="1" as="geometry">
-                    <mxPoint x="740" y="2410" as="sourcePoint" />
-                    <mxPoint x="710" y="2410" as="targetPoint" />
-                  </mxGeometry>
-                </mxCell>
-              </object>
-              <object label="4.2.1.4 [contenido preparado y no ACEPTADO_SMTP]:&lt;br&gt;aceptado := enviarCorreo(datos.destinatario,&lt;br&gt;contenido, Message-ID = notificacionId)&lt;br&gt;[respuesta SMTP perdida: posible duplicado al reintentar]" zona="C" emisor="C_notificaciones" receptor="C_correo" mensaje="4.2.1.4" enlace="C_enlace_notificaciones_correo" id="C_m_4_2_1_3_etiqueta">
-                <mxCell parent="1" style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=16;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1">
-                  <mxGeometry height="124" width="370" x="410" y="2435" as="geometry" />
-                </mxCell>
-              </object>
-              <object label="" zona="C" emisor="C_correo" receptor="A_pasajero" mensaje="4.2.1.4.1" enlace="C_enlace_notificaciones_pasajero" id="C_m_4_2_1_4_flecha">
-                <mxCell edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=open;endFill=0;">
-                  <mxGeometry relative="1" as="geometry">
-                    <mxPoint x="215" y="1850" as="sourcePoint" />
-                    <mxPoint x="215" y="1820" as="targetPoint" />
-                  </mxGeometry>
-                </mxCell>
-              </object>
-              <object label="4.2.1.4.1 [correo entregado al buzón]:&lt;br&gt;entregarConfirmacionYPase(codigoReserva, vuelo, asiento)&lt;br&gt;Objetivo R5: entrega en menos de 60 s desde el pago.&lt;br&gt;[caída &gt; 60 s: R5 no garantizado; evento conservado]" zona="C" emisor="C_correo" receptor="A_pasajero" mensaje="4.2.1.4.1" enlace="C_enlace_notificaciones_pasajero" id="C_m_4_2_1_4_etiqueta">
-                <mxCell parent="1" style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=16;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1">
-                  <mxGeometry height="85" width="440" x="235" y="1770" as="geometry" />
-                </mxCell>
-              </object>
-              <object label="envios : RegistroNotificaciones" zona="C" id="C_registro_notificaciones">
-                <mxCell parent="B_frontera_centro" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=14;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=center;verticalAlign=middle;shape=cylinder3;boundedLbl=1;size=15;" vertex="1">
-                  <mxGeometry height="90" width="360" x="100" y="3040" as="geometry" />
-                </mxCell>
-              </object>
-              <object label="[Acceso a datos síncrono]&lt;br&gt;PostgreSQL · TCP/TLS" zona="C" id="C_enlace_notificaciones_registro">
-                <mxCell edge="1" parent="1" source="C_notificaciones" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=2;shadow=0;dashed=1;dashPattern=12 4 2 4;startArrow=none;startFill=0;endArrow=none;endFill=0;exitX=0;exitY=0.9;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;labelBackgroundColor=#FFFFFF;labelWidth=220;whiteSpace=wrap;" target="C_registro_notificaciones">
-                  <mxGeometry relative="1" as="geometry">
-                    <mxPoint x="-160" y="0" as="offset" />
-                    <Array as="points">
-                      <mxPoint x="790" y="2390" />
-                      <mxPoint x="790" y="3145" />
-                    </Array>
-                  </mxGeometry>
-                </mxCell>
-              </object>
-              <object label="[Mensajería]&lt;br&gt;RabbitMQ · AMQP/TCP" zona="C" id="C_enlace_notificaciones_fallidos">
-                <mxCell edge="1" parent="1" source="C_notificaciones" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=2;shadow=0;dashed=1;dashPattern=12 6;startArrow=none;startFill=0;endArrow=none;endFill=0;exitX=1;exitY=0.8;entryX=1;entryY=0.5;exitPerimeter=0;entryPerimeter=0;labelBackgroundColor=#FFFFFF;labelWidth=220;whiteSpace=wrap;" target="C_cola_fallidos">
-                  <mxGeometry relative="1" x="0.55" as="geometry">
-                    <mxPoint x="140" y="0" as="offset" />
-                    <Array as="points">
-                      <mxPoint x="1230" y="2380" />
-                      <mxPoint x="1230" y="2405" />
-                      <mxPoint x="2300" y="2405" />
-                      <mxPoint x="2300" y="3150" />
-                    </Array>
-                  </mxGeometry>
-                </mxCell>
-              </object>
-              <object label="" zona="C" emisor="C_rabbitmq" receptor="B_reservas" mensaje="4.2.2" enlace="B_enlace_reservas_broker" id="C_m_4_2_2_flecha">
-                <mxCell edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=open;endFill=0;">
-                  <mxGeometry relative="1" as="geometry">
-                    <mxPoint x="1530" y="2190" as="sourcePoint" />
-                    <mxPoint x="1530" y="2160" as="targetPoint" />
-                  </mxGeometry>
-                </mxCell>
-              </object>
-              <object label="4.2.2: publisherConfirm(secuencia)&lt;br&gt;[4.3 solo tras confirmación y sin basic.return]&lt;br&gt;Outbox: reserva y evento en una transacción local." zona="C" emisor="C_rabbitmq" receptor="B_reservas" mensaje="4.2.2" enlace="B_enlace_reservas_broker" id="C_m_4_2_2_etiqueta">
-                <mxCell parent="1" style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=16;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1">
-                  <mxGeometry height="66" width="590" x="1570" y="2110" as="geometry" />
-                </mxCell>
-              </object>
-              <object label="" zona="C" emisor="C_notificaciones" receptor="C_registro_notificaciones" mensaje="4.2.1.1" enlace="C_enlace_notificaciones_registro" id="C_m_envio_registrar_flecha">
-                <mxCell edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=block;endFill=1;">
-                  <mxGeometry relative="1" as="geometry"><mxPoint x="750" y="2608" as="sourcePoint"/><mxPoint x="750" y="2636" as="targetPoint"/></mxGeometry>
-                </mxCell>
-              </object>
-              <object label="4.2.1.1: envio := registrarOReclamar(&lt;br&gt;notificacionId único, lease = 30 s)&lt;br&gt;notificacionId = (ReservaConfirmada, reservaId, correo)&lt;br&gt;[ACEPTADO_SMTP: ACK sin reenviar;&lt;br&gt;otra ejecución activa: esperar o reencolar]" zona="C" emisor="C_notificaciones" receptor="C_registro_notificaciones" mensaje="4.2.1.1" enlace="C_enlace_notificaciones_registro" id="C_m_envio_registrar_etiqueta">
-                <mxCell parent="1" style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=16;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1">
-                  <mxGeometry height="104" width="430" x="800" y="2590" as="geometry" />
-                </mxCell>
-              </object>
-              <object label="" zona="C" emisor="C_notificaciones" receptor="C_registro_notificaciones" mensaje="4.2.1.5" enlace="C_enlace_notificaciones_registro" id="C_m_envio_aceptado_flecha">
-                <mxCell edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=block;endFill=1;">
-                  <mxGeometry relative="1" as="geometry"><mxPoint x="750" y="2730" as="sourcePoint"/><mxPoint x="750" y="2758" as="targetPoint"/></mxGeometry>
-                </mxCell>
-              </object>
-              <object label="4.2.1.5 [SMTP aceptado]: guardarAceptado(&lt;br&gt;notificacionId, Message-ID, referenciaSMTP)&lt;br&gt;[persistir antes de ACK]" zona="C" emisor="C_notificaciones" receptor="C_registro_notificaciones" mensaje="4.2.1.5" enlace="C_enlace_notificaciones_registro" id="C_m_envio_aceptado_etiqueta">
-                <mxCell parent="1" style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=16;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1">
-                  <mxGeometry height="66" width="400" x="800" y="2712" as="geometry" />
-                </mxCell>
-              </object>
-              <object label="" zona="C" emisor="C_notificaciones" receptor="C_registro_notificaciones" mensaje="4.2.1.7" enlace="C_enlace_notificaciones_registro" id="C_m_envio_fallo_flecha">
-                <mxCell edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=block;endFill=1;">
-                  <mxGeometry relative="1" as="geometry"><mxPoint x="750" y="2814" as="sourcePoint"/><mxPoint x="750" y="2842" as="targetPoint"/></mxGeometry>
-                </mxCell>
-              </object>
-              <object label="4.2.1.7 [fallo o datos.confirmada=false]:&lt;br&gt;fallo := registrarFallo(notificacionId, motivo)&lt;br&gt;fallos = fallo.contador; estado = REINTENTO o FALLIDO" zona="C" emisor="C_notificaciones" receptor="C_registro_notificaciones" mensaje="4.2.1.7" enlace="C_enlace_notificaciones_registro" id="C_m_envio_fallo_etiqueta">
-                <mxCell parent="1" style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=16;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1">
-                  <mxGeometry height="85" width="400" x="800" y="2796" as="geometry" />
-                </mxCell>
-              </object>
-              <object label="" zona="C" emisor="C_notificaciones" receptor="C_registro_notificaciones" mensaje="4.4.2" enlace="C_enlace_notificaciones_registro" id="C_m_reproceso_reset_flecha">
-                <mxCell edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=block;endFill=1;">
-                  <mxGeometry relative="1" as="geometry"><mxPoint x="750" y="2917" as="sourcePoint"/><mxPoint x="750" y="2945" as="targetPoint"/></mxGeometry>
-                </mxCell>
-              </object>
-              <object label="4.4.2: estado := autorizarReproceso(&lt;br&gt;notificacionId, fallos = 0, estado = PENDIENTE)&lt;br&gt;[no reiniciar si ya ACEPTADO_SMTP]" zona="C" emisor="C_notificaciones" receptor="C_registro_notificaciones" mensaje="4.4.2" enlace="C_enlace_notificaciones_registro" id="C_m_reproceso_reset_etiqueta">
-                <mxCell parent="1" style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=16;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1">
-                  <mxGeometry height="66" width="400" x="800" y="2899" as="geometry" />
-                </mxCell>
-              </object>
-              <object label="" zona="C" emisor="C_notificaciones" receptor="C_rabbitmq" mensaje="4.2.1.6" enlace="C_enlace_broker_notificaciones" id="C_m_envio_ack_flecha">
-                <mxCell edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=open;endFill=0;">
-                  <mxGeometry relative="1" as="geometry">
-                    <mxPoint x="1270" y="2575" as="sourcePoint" />
-                    <mxPoint x="1300" y="2575" as="targetPoint" />
-                  </mxGeometry>
-                </mxCell>
-              </object>
-              <object label="4.2.1.6 [ACEPTADO_SMTP persistido&lt;br&gt;o duplicado ya aceptado]:&lt;br&gt;basicAck(deliveryTag)" zona="C" emisor="C_notificaciones" receptor="C_rabbitmq" mensaje="4.2.1.6" enlace="C_enlace_broker_notificaciones" id="C_m_envio_ack_etiqueta">
-                <mxCell parent="1" style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=16;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1">
-                  <mxGeometry height="66" width="340" x="1240" y="2590" as="geometry" />
-                </mxCell>
-              </object>
-              <object label="" zona="C" emisor="C_notificaciones" receptor="C_rabbitmq" mensaje="4.2.1.8" enlace="C_enlace_broker_notificaciones" id="C_m_envio_reintento_flecha">
-                <mxCell edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=open;endFill=0;">
-                  <mxGeometry relative="1" as="geometry">
-                    <mxPoint x="1270" y="2665" as="sourcePoint" />
-                    <mxPoint x="1300" y="2665" as="targetPoint" />
-                  </mxGeometry>
-                </mxCell>
-              </object>
-              <object label="4.2.1.8 [transitorio y fallos &lt;= 3]:&lt;br&gt;esperar 5 / 10 / 20 s, sin ACK;&lt;br&gt;basicReject(deliveryTag, requeue=true)" zona="C" emisor="C_notificaciones" receptor="C_rabbitmq" mensaje="4.2.1.8" enlace="C_enlace_broker_notificaciones" id="C_m_envio_reintento_etiqueta">
-                <mxCell parent="1" style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=16;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1">
-                  <mxGeometry height="66" width="340" x="1240" y="2680" as="geometry" />
-                </mxCell>
-              </object>
-              <object label="" zona="C" emisor="C_notificaciones" receptor="C_rabbitmq" mensaje="4.2.1.9" enlace="C_enlace_broker_notificaciones" id="C_m_envio_terminal_flecha">
-                <mxCell edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=open;endFill=0;">
-                  <mxGeometry relative="1" as="geometry">
-                    <mxPoint x="1270" y="2765" as="sourcePoint" />
-                    <mxPoint x="1300" y="2765" as="targetPoint" />
-                  </mxGeometry>
-                </mxCell>
-              </object>
-              <object label="4.2.1.9 [permanente, no confirmada o fallos &gt; 3]:&lt;br&gt;basicReject(deliveryTag, requeue=false)" zona="C" emisor="C_notificaciones" receptor="C_rabbitmq" mensaje="4.2.1.9" enlace="C_enlace_broker_notificaciones" id="C_m_envio_terminal_etiqueta">
-                <mxCell parent="1" style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=16;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1">
-                  <mxGeometry height="66" width="340" x="1240" y="2780" as="geometry" />
-                </mxCell>
-              </object>
-              <object label="" zona="C" emisor="C_rabbitmq" receptor="C_cola_fallidos" mensaje="4.2.1.10" enlace="C_enlace_broker_fallidos" id="C_m_envio_dlx_flecha">
-                <mxCell edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=open;endFill=0;">
-                  <mxGeometry relative="1" as="geometry">
-                    <mxPoint x="1630" y="2910" as="sourcePoint" />
-                    <mxPoint x="1630" y="2938" as="targetPoint" />
-                  </mxGeometry>
-                </mxCell>
-              </object>
-              <object label="4.2.1.10 [rechazo sin reencolar&lt;br&gt;o delivery-limit alcanzado]:&lt;br&gt;enrutarDLX(mensaje)&lt;br&gt;[retener origen hasta confirmar destino]" zona="C" emisor="C_rabbitmq" receptor="C_cola_fallidos" mensaje="4.2.1.10" enlace="C_enlace_broker_fallidos" id="C_m_envio_dlx_etiqueta">
-                <mxCell parent="1" style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=16;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1">
-                  <mxGeometry height="85" width="550" x="1660" y="2860" as="geometry" />
-                </mxCell>
-              </object>
-              <object label="" zona="C" emisor="C_notificaciones" receptor="C_cola_fallidos" mensaje="4.4.1" enlace="C_enlace_notificaciones_fallidos" id="C_m_reproceso_get_flecha">
-                <mxCell edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=block;endFill=1;">
-                  <mxGeometry relative="1" as="geometry">
-                    <mxPoint x="2330" y="2930" as="sourcePoint" />
-                    <mxPoint x="2330" y="2958" as="targetPoint" />
-                  </mxGeometry>
-                </mxCell>
-              </object>
-              <object label="4.4.1: mensaje := basicGet(&lt;br&gt;fallidos, autoAck=false)" zona="C" emisor="C_notificaciones" receptor="C_cola_fallidos" mensaje="4.4.1" enlace="C_enlace_notificaciones_fallidos" id="C_m_reproceso_get_etiqueta">
-                <mxCell parent="1" style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=16;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1">
-                  <mxGeometry height="47" width="350" x="2370" y="2880" as="geometry" />
-                </mxCell>
-              </object>
-              <object label="" zona="C" emisor="C_notificaciones" receptor="C_rabbitmq" mensaje="4.4.3" enlace="C_enlace_broker_notificaciones" id="C_m_reproceso_publicar_flecha">
-                <mxCell edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=open;endFill=0;">
-                  <mxGeometry relative="1" as="geometry">
-                    <mxPoint x="1270" y="2875" as="sourcePoint" />
-                    <mxPoint x="1300" y="2875" as="targetPoint" />
-                  </mxGeometry>
-                </mxCell>
-              </object>
-              <object label="4.4.3 [reproceso autorizado y no aceptado]:&lt;br&gt;publicarPersistente(mismo mensaje,&lt;br&gt;messageId = notificacionId, mandatory=true)" zona="C" emisor="C_notificaciones" receptor="C_rabbitmq" mensaje="4.4.3" enlace="C_enlace_broker_notificaciones" id="C_m_reproceso_publicar_etiqueta">
-                <mxCell parent="1" style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=16;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1">
-                  <mxGeometry height="66" width="350" x="1240" y="2890" as="geometry" />
-                </mxCell>
-              </object>
-              <object label="" zona="C" emisor="C_rabbitmq" receptor="C_notificaciones" mensaje="4.4.4" enlace="C_enlace_broker_notificaciones" id="C_m_reproceso_confirm_flecha">
-                <mxCell edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=open;endFill=0;">
-                  <mxGeometry relative="1" as="geometry">
-                    <mxPoint x="1300" y="2985" as="sourcePoint" />
-                    <mxPoint x="1270" y="2985" as="targetPoint" />
-                  </mxGeometry>
-                </mxCell>
-              </object>
-              <object label="4.4.4: publisherConfirm(secuencia)&lt;br&gt;[sin basic.return]" zona="C" emisor="C_rabbitmq" receptor="C_notificaciones" mensaje="4.4.4" enlace="C_enlace_broker_notificaciones" id="C_m_reproceso_confirm_etiqueta">
-                <mxCell parent="1" style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=16;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1">
-                  <mxGeometry height="47" width="340" x="1240" y="3000" as="geometry" />
-                </mxCell>
-              </object>
-              <object label="" zona="C" emisor="C_notificaciones" receptor="C_cola_fallidos" mensaje="4.4.5" enlace="C_enlace_notificaciones_fallidos" id="C_m_reproceso_ack_flecha">
-                <mxCell edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=open;endFill=0;">
-                  <mxGeometry relative="1" as="geometry">
-                    <mxPoint x="2330" y="3080" as="sourcePoint" />
-                    <mxPoint x="2330" y="3108" as="targetPoint" />
-                  </mxGeometry>
-                </mxCell>
-              </object>
-              <object label="4.4.5 [4.4.4 confirmado o&lt;br&gt;ya ACEPTADO_SMTP]:&lt;br&gt;basicAck(fallidoTag)&lt;br&gt;[sin confirmación: conservar en DLQ]" zona="C" emisor="C_notificaciones" receptor="C_cola_fallidos" mensaje="4.4.5" enlace="C_enlace_notificaciones_fallidos" id="C_m_reproceso_ack_etiqueta">
-                <mxCell parent="1" style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=16;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1">
-                  <mxGeometry height="85" width="370" x="2370" y="3000" as="geometry" />
-                </mxCell>
-              </object>
-              <object label="" zona="C" emisor="C_notificaciones" receptor="C_notificaciones" mensaje="4.4" id="C_m_reprocesar_flecha">
-                <mxCell edge="1" parent="1" source="C_notificaciones" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=block;endFill=1;exitX=0.6;exitY=0;entryX=0.9;entryY=0;exitPerimeter=0;entryPerimeter=0;" target="C_notificaciones">
-                  <mxGeometry relative="1" as="geometry">
-                    <Array as="points">
-                      <mxPoint x="1040" y="2230" />
-                      <mxPoint x="1160" y="2230" />
-                    </Array>
-                  </mxGeometry>
-                </mxCell>
-              </object>
-              <object label="4.4 [causa corregida y autorización de soporte]:&lt;br&gt;reprocesarFallidos()" zona="C" emisor="C_notificaciones" receptor="C_notificaciones" mensaje="4.4" id="C_m_reprocesar_etiqueta">
-                <mxCell parent="1" style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=16;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1">
-                  <mxGeometry height="47" width="380" x="850" y="2150" as="geometry" />
-                </mxCell>
-              </object>
-              <object label="" zona="C" emisor="C_notificaciones" receptor="C_rabbitmq" mensaje="4.2.1.11" enlace="C_enlace_broker_notificaciones" id="C_m_envio_bd_caida_flecha">
-                <mxCell edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=open;endFill=0;">
-                  <mxGeometry relative="1" as="geometry">
-                    <mxPoint x="1760" y="2510" as="sourcePoint" />
-                    <mxPoint x="1790" y="2510" as="targetPoint" />
-                  </mxGeometry>
-                </mxCell>
-              </object>
-              <object label="4.2.1.11 [registro no disponible o lease ocupado]:&lt;br&gt;esperar 5 s; basicReject(deliveryTag, requeue=true)&lt;br&gt;[sin reclamar registro: no enviar ni hacer ACK]" zona="C" emisor="C_notificaciones" receptor="C_rabbitmq" mensaje="4.2.1.11" enlace="C_enlace_broker_notificaciones" id="C_m_envio_bd_caida_etiqueta">
-                <mxCell parent="1" style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=16;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1">
-                  <mxGeometry height="66" width="470" x="1800" y="2480" as="geometry" />
-                </mxCell>
-              </object>
+                <object label="correo : ServidorSMTP" zona="C" id="C_correo">
+                    <mxCell parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;fontColor=#000000;fontFamily=Helvetica;fontSize=14;fontStyle=0;shadow=0;gradientColor=none;strokeWidth=1;align=center;verticalAlign=middle;" vertex="1">
+                        <mxGeometry height="60" width="260" x="360" y="2320" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="[RPC síncrono]&lt;br&gt;gRPC · HTTP/2 + TLS&lt;br&gt;Espera máxima: 3 s" zona="C" id="C_enlace_notificaciones_reservas">
+                    <mxCell edge="1" parent="1" source="C_notificaciones" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=2;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=none;endFill=0;shape=link;exitX=0.1;exitY=0;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;labelBackgroundColor=#FFFFFF;labelWidth=220;whiteSpace=wrap;" target="B_reservas">
+                        <mxGeometry relative="1" x="-0.6" as="geometry">
+                            <mxPoint x="-140" as="offset"/>
+                            <Array as="points">
+                                <mxPoint x="840" y="2180"/>
+                                <mxPoint x="740" y="2180"/>
+                                <mxPoint x="740" y="530"/>
+                            </Array>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="[Solicitud/respuesta síncrona]&lt;br&gt;SMTP · TCP/TLS&lt;br&gt;Espera máxima: 5 s" zona="C" id="C_enlace_notificaciones_correo">
+                    <mxCell edge="1" parent="1" source="C_notificaciones" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=none;endFill=0;exitX=0;exitY=0.5;entryX=1;entryY=0.5;exitPerimeter=0;entryPerimeter=0;labelBackgroundColor=#FFFFFF;labelWidth=250;whiteSpace=wrap;" target="C_correo">
+                        <mxGeometry relative="1" as="geometry">
+                            <mxPoint y="-95" as="offset"/>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="" zona="C" emisor="C_rabbitmq" receptor="C_notificaciones" mensaje="4.2.1" enlace="C_enlace_broker_notificaciones" id="C_m_4_2_1_flecha">
+                    <mxCell edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=open;endFill=0;">
+                        <mxGeometry relative="1" as="geometry">
+                            <mxPoint x="1300" y="2420" as="sourcePoint"/>
+                            <mxPoint x="1270" y="2420" as="targetPoint"/>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="4.2.1: recibir(ReservaConfirmada,&lt;br&gt;reservaId, deliveryTag, autoAck=false)" zona="C" emisor="C_rabbitmq" receptor="C_notificaciones" mensaje="4.2.1" enlace="C_enlace_broker_notificaciones" id="C_m_4_2_1_etiqueta">
+                    <mxCell parent="1" style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=16;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1">
+                        <mxGeometry height="46" width="360" x="1210" y="2440" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="C" emisor="C_notificaciones" receptor="B_reservas" mensaje="4.2.1.2" enlace="C_enlace_notificaciones_reservas" id="C_m_4_2_1_1_flecha">
+                    <mxCell edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=block;endFill=1;">
+                        <mxGeometry relative="1" as="geometry">
+                            <mxPoint x="765" y="2124" as="sourcePoint"/>
+                            <mxPoint x="765" y="2094" as="targetPoint"/>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="4.2.1.2: datos := consultarDatosNotificacion(reservaId)&lt;br&gt;datos = {confirmada, destinatario, codigoReserva, vuelo, asiento}" zona="C" emisor="C_notificaciones" receptor="B_reservas" mensaje="4.2.1.2" enlace="C_enlace_notificaciones_reservas" id="C_m_4_2_1_1_etiqueta">
+                    <mxCell parent="1" style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=16;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1">
+                        <mxGeometry height="44" width="600" x="800" y="2085" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="C" emisor="C_notificaciones" receptor="C_notificaciones" mensaje="4.2.1.3" id="C_m_4_2_1_2_flecha">
+                    <mxCell edge="1" parent="1" source="C_notificaciones" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=block;endFill=1;exitX=0.3;exitY=1;entryX=0.7;entryY=1;exitPerimeter=0;entryPerimeter=0;" target="C_notificaciones">
+                        <mxGeometry relative="1" as="geometry">
+                            <Array as="points">
+                                <mxPoint x="920" y="2490"/>
+                                <mxPoint x="1080" y="2490"/>
+                            </Array>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="4.2.1.3 [datos.confirmada y envio reclamado]:&lt;br&gt;contenido := prepararConfirmacionYPase(datos)" zona="C" emisor="C_notificaciones" receptor="C_notificaciones" mensaje="4.2.1.3" id="C_m_4_2_1_2_etiqueta">
+                    <mxCell parent="1" style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=16;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1">
+                        <mxGeometry height="46" width="510" x="800" y="2510" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="C" emisor="C_notificaciones" receptor="C_correo" mensaje="4.2.1.4" enlace="C_enlace_notificaciones_correo" id="C_m_4_2_1_3_flecha">
+                    <mxCell edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=block;endFill=1;">
+                        <mxGeometry relative="1" as="geometry">
+                            <mxPoint x="740" y="2410" as="sourcePoint"/>
+                            <mxPoint x="710" y="2410" as="targetPoint"/>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="4.2.1.4 [contenido preparado y no ACEPTADO_SMTP]:&lt;br&gt;aceptado := enviarCorreo(datos.destinatario,&lt;br&gt;contenido, Message-ID = notificacionId)&lt;br&gt;[respuesta SMTP perdida: posible duplicado al reintentar]" zona="C" emisor="C_notificaciones" receptor="C_correo" mensaje="4.2.1.4" enlace="C_enlace_notificaciones_correo" id="C_m_4_2_1_3_etiqueta">
+                    <mxCell parent="1" style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=16;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1">
+                        <mxGeometry height="124" width="370" x="410" y="2435" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="C" emisor="C_correo" receptor="A_pasajero" mensaje="4.2.1.4.1" enlace="C_enlace_notificaciones_pasajero" id="C_m_4_2_1_4_flecha">
+                    <mxCell edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=open;endFill=0;">
+                        <mxGeometry relative="1" as="geometry">
+                            <mxPoint x="215" y="1850" as="sourcePoint"/>
+                            <mxPoint x="215" y="1820" as="targetPoint"/>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="4.2.1.4.1 [correo entregado al buzón]:&lt;br&gt;entregarConfirmacionYPase(codigoReserva, vuelo, asiento)&lt;br&gt;Objetivo R5: entrega en menos de 60 s desde el pago.&lt;br&gt;[caída &gt; 60 s: R5 no garantizado; evento conservado]" zona="C" emisor="C_correo" receptor="A_pasajero" mensaje="4.2.1.4.1" enlace="C_enlace_notificaciones_pasajero" id="C_m_4_2_1_4_etiqueta">
+                    <mxCell parent="1" style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=16;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1">
+                        <mxGeometry height="85" width="440" x="235" y="1770" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="[Acceso a datos síncrono]&lt;br&gt;PostgreSQL · TCP/TLS" zona="C" id="C_enlace_notificaciones_registro">
+                    <mxCell edge="1" parent="1" source="C_notificaciones" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=2;shadow=0;dashed=1;dashPattern=12 4 2 4;startArrow=none;startFill=0;endArrow=none;endFill=0;exitX=0;exitY=0.9;entryX=0;entryY=0.5;exitPerimeter=0;entryPerimeter=0;labelBackgroundColor=#FFFFFF;labelWidth=220;whiteSpace=wrap;" target="C_registro_notificaciones">
+                        <mxGeometry relative="1" as="geometry">
+                            <mxPoint x="-160" as="offset"/>
+                            <Array as="points">
+                                <mxPoint x="790" y="2390"/>
+                                <mxPoint x="790" y="3145"/>
+                            </Array>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="[Mensajería]&lt;br&gt;RabbitMQ · AMQP/TCP" zona="C" id="C_enlace_notificaciones_fallidos">
+                    <mxCell edge="1" parent="1" source="C_notificaciones" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=2;shadow=0;dashed=1;dashPattern=12 6;startArrow=none;startFill=0;endArrow=none;endFill=0;exitX=1;exitY=0.8;entryX=1;entryY=0.5;exitPerimeter=0;entryPerimeter=0;labelBackgroundColor=#FFFFFF;labelWidth=220;whiteSpace=wrap;" target="C_cola_fallidos">
+                        <mxGeometry relative="1" x="0.55" as="geometry">
+                            <mxPoint x="140" as="offset"/>
+                            <Array as="points">
+                                <mxPoint x="1230" y="2380"/>
+                                <mxPoint x="1230" y="2405"/>
+                                <mxPoint x="2300" y="2405"/>
+                                <mxPoint x="2300" y="3150"/>
+                            </Array>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="" zona="C" emisor="C_rabbitmq" receptor="B_reservas" mensaje="4.2.2" enlace="B_enlace_reservas_broker" id="C_m_4_2_2_flecha">
+                    <mxCell edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=open;endFill=0;">
+                        <mxGeometry relative="1" as="geometry">
+                            <mxPoint x="1530" y="2190" as="sourcePoint"/>
+                            <mxPoint x="1530" y="2160" as="targetPoint"/>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="4.2.2: publisherConfirm(secuencia)&lt;br&gt;[4.3 solo tras confirmación y sin basic.return]&lt;br&gt;Outbox: reserva y evento en una transacción local." zona="C" emisor="C_rabbitmq" receptor="B_reservas" mensaje="4.2.2" enlace="B_enlace_reservas_broker" id="C_m_4_2_2_etiqueta">
+                    <mxCell parent="1" style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=16;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1">
+                        <mxGeometry height="66" width="590" x="1570" y="2110" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="C" emisor="C_notificaciones" receptor="C_registro_notificaciones" mensaje="4.2.1.1" enlace="C_enlace_notificaciones_registro" id="C_m_envio_registrar_flecha">
+                    <mxCell edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=block;endFill=1;">
+                        <mxGeometry relative="1" as="geometry">
+                            <mxPoint x="750" y="2608" as="sourcePoint"/>
+                            <mxPoint x="750" y="2636" as="targetPoint"/>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="4.2.1.1: envio := registrarOReclamar(&lt;br&gt;notificacionId único, lease = 30 s)&lt;br&gt;notificacionId = (ReservaConfirmada, reservaId, correo)&lt;br&gt;[ACEPTADO_SMTP: ACK sin reenviar;&lt;br&gt;otra ejecución activa: esperar o reencolar]" zona="C" emisor="C_notificaciones" receptor="C_registro_notificaciones" mensaje="4.2.1.1" enlace="C_enlace_notificaciones_registro" id="C_m_envio_registrar_etiqueta">
+                    <mxCell parent="1" style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=16;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1">
+                        <mxGeometry height="104" width="430" x="800" y="2590" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="C" emisor="C_notificaciones" receptor="C_registro_notificaciones" mensaje="4.2.1.5" enlace="C_enlace_notificaciones_registro" id="C_m_envio_aceptado_flecha">
+                    <mxCell edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=block;endFill=1;">
+                        <mxGeometry relative="1" as="geometry">
+                            <mxPoint x="750" y="2730" as="sourcePoint"/>
+                            <mxPoint x="750" y="2758" as="targetPoint"/>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="4.2.1.5 [SMTP aceptado]: guardarAceptado(&lt;br&gt;notificacionId, Message-ID, referenciaSMTP)&lt;br&gt;[persistir antes de ACK]" zona="C" emisor="C_notificaciones" receptor="C_registro_notificaciones" mensaje="4.2.1.5" enlace="C_enlace_notificaciones_registro" id="C_m_envio_aceptado_etiqueta">
+                    <mxCell parent="1" style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=16;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1">
+                        <mxGeometry height="66" width="400" x="800" y="2712" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="C" emisor="C_notificaciones" receptor="C_registro_notificaciones" mensaje="4.2.1.7" enlace="C_enlace_notificaciones_registro" id="C_m_envio_fallo_flecha">
+                    <mxCell edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=block;endFill=1;">
+                        <mxGeometry relative="1" as="geometry">
+                            <mxPoint x="750" y="2814" as="sourcePoint"/>
+                            <mxPoint x="750" y="2842" as="targetPoint"/>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="4.2.1.7 [fallo o datos.confirmada=false]:&lt;br&gt;fallo := registrarFallo(notificacionId, motivo)&lt;br&gt;fallos = fallo.contador; estado = REINTENTO o FALLIDO" zona="C" emisor="C_notificaciones" receptor="C_registro_notificaciones" mensaje="4.2.1.7" enlace="C_enlace_notificaciones_registro" id="C_m_envio_fallo_etiqueta">
+                    <mxCell parent="1" style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=16;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1">
+                        <mxGeometry height="85" width="400" x="800" y="2796" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="C" emisor="C_notificaciones" receptor="C_registro_notificaciones" mensaje="4.4.2" enlace="C_enlace_notificaciones_registro" id="C_m_reproceso_reset_flecha">
+                    <mxCell edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=block;endFill=1;">
+                        <mxGeometry relative="1" as="geometry">
+                            <mxPoint x="750" y="2917" as="sourcePoint"/>
+                            <mxPoint x="750" y="2945" as="targetPoint"/>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="4.4.2: estado := autorizarReproceso(&lt;br&gt;notificacionId, fallos = 0, estado = PENDIENTE)&lt;br&gt;[no reiniciar si ya ACEPTADO_SMTP]" zona="C" emisor="C_notificaciones" receptor="C_registro_notificaciones" mensaje="4.4.2" enlace="C_enlace_notificaciones_registro" id="C_m_reproceso_reset_etiqueta">
+                    <mxCell parent="1" style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=16;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1">
+                        <mxGeometry height="66" width="400" x="800" y="2899" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="C" emisor="C_notificaciones" receptor="C_rabbitmq" mensaje="4.2.1.6" enlace="C_enlace_broker_notificaciones" id="C_m_envio_ack_flecha">
+                    <mxCell edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=open;endFill=0;">
+                        <mxGeometry relative="1" as="geometry">
+                            <mxPoint x="1270" y="2575" as="sourcePoint"/>
+                            <mxPoint x="1300" y="2575" as="targetPoint"/>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="4.2.1.6 [ACEPTADO_SMTP persistido&lt;br&gt;o duplicado ya aceptado]:&lt;br&gt;basicAck(deliveryTag)" zona="C" emisor="C_notificaciones" receptor="C_rabbitmq" mensaje="4.2.1.6" enlace="C_enlace_broker_notificaciones" id="C_m_envio_ack_etiqueta">
+                    <mxCell parent="1" style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=16;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1">
+                        <mxGeometry height="66" width="340" x="1240" y="2590" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="C" emisor="C_notificaciones" receptor="C_rabbitmq" mensaje="4.2.1.8" enlace="C_enlace_broker_notificaciones" id="C_m_envio_reintento_flecha">
+                    <mxCell edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=open;endFill=0;">
+                        <mxGeometry relative="1" as="geometry">
+                            <mxPoint x="1270" y="2665" as="sourcePoint"/>
+                            <mxPoint x="1300" y="2665" as="targetPoint"/>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="4.2.1.8 [transitorio y fallos &lt;= 3]:&lt;br&gt;esperar 5 / 10 / 20 s, sin ACK;&lt;br&gt;basicReject(deliveryTag, requeue=true)" zona="C" emisor="C_notificaciones" receptor="C_rabbitmq" mensaje="4.2.1.8" enlace="C_enlace_broker_notificaciones" id="C_m_envio_reintento_etiqueta">
+                    <mxCell parent="1" style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=16;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1">
+                        <mxGeometry height="66" width="340" x="1240" y="2680" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="C" emisor="C_notificaciones" receptor="C_rabbitmq" mensaje="4.2.1.9" enlace="C_enlace_broker_notificaciones" id="C_m_envio_terminal_flecha">
+                    <mxCell edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=open;endFill=0;">
+                        <mxGeometry relative="1" as="geometry">
+                            <mxPoint x="1270" y="2765" as="sourcePoint"/>
+                            <mxPoint x="1300" y="2765" as="targetPoint"/>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="4.2.1.9 [permanente, no confirmada o fallos &gt; 3]:&lt;br&gt;basicReject(deliveryTag, requeue=false)" zona="C" emisor="C_notificaciones" receptor="C_rabbitmq" mensaje="4.2.1.9" enlace="C_enlace_broker_notificaciones" id="C_m_envio_terminal_etiqueta">
+                    <mxCell parent="1" style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=16;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1">
+                        <mxGeometry height="66" width="340" x="1240" y="2780" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="C" emisor="C_rabbitmq" receptor="C_cola_fallidos" mensaje="4.2.1.10" enlace="C_enlace_broker_fallidos" id="C_m_envio_dlx_flecha">
+                    <mxCell edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=open;endFill=0;">
+                        <mxGeometry relative="1" as="geometry">
+                            <mxPoint x="1630" y="2910" as="sourcePoint"/>
+                            <mxPoint x="1630" y="2938" as="targetPoint"/>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="4.2.1.10 [rechazo sin reencolar&lt;br&gt;o delivery-limit alcanzado]:&lt;br&gt;enrutarDLX(mensaje)&lt;br&gt;[retener origen hasta confirmar destino]" zona="C" emisor="C_rabbitmq" receptor="C_cola_fallidos" mensaje="4.2.1.10" enlace="C_enlace_broker_fallidos" id="C_m_envio_dlx_etiqueta">
+                    <mxCell parent="1" style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=16;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1">
+                        <mxGeometry height="85" width="550" x="1660" y="2860" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="C" emisor="C_notificaciones" receptor="C_cola_fallidos" mensaje="4.4.1" enlace="C_enlace_notificaciones_fallidos" id="C_m_reproceso_get_flecha">
+                    <mxCell edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=block;endFill=1;">
+                        <mxGeometry relative="1" as="geometry">
+                            <mxPoint x="2330" y="2930" as="sourcePoint"/>
+                            <mxPoint x="2330" y="2958" as="targetPoint"/>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="4.4.1: mensaje := basicGet(&lt;br&gt;fallidos, autoAck=false)" zona="C" emisor="C_notificaciones" receptor="C_cola_fallidos" mensaje="4.4.1" enlace="C_enlace_notificaciones_fallidos" id="C_m_reproceso_get_etiqueta">
+                    <mxCell parent="1" style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=16;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1">
+                        <mxGeometry height="47" width="350" x="2370" y="2880" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="C" emisor="C_notificaciones" receptor="C_rabbitmq" mensaje="4.4.3" enlace="C_enlace_broker_notificaciones" id="C_m_reproceso_publicar_flecha">
+                    <mxCell edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=open;endFill=0;">
+                        <mxGeometry relative="1" as="geometry">
+                            <mxPoint x="1270" y="2875" as="sourcePoint"/>
+                            <mxPoint x="1300" y="2875" as="targetPoint"/>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="4.4.3 [reproceso autorizado y no aceptado]:&lt;br&gt;publicarPersistente(mismo mensaje,&lt;br&gt;messageId = notificacionId, mandatory=true)" zona="C" emisor="C_notificaciones" receptor="C_rabbitmq" mensaje="4.4.3" enlace="C_enlace_broker_notificaciones" id="C_m_reproceso_publicar_etiqueta">
+                    <mxCell parent="1" style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=16;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1">
+                        <mxGeometry height="66" width="350" x="1240" y="2890" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="C" emisor="C_rabbitmq" receptor="C_notificaciones" mensaje="4.4.4" enlace="C_enlace_broker_notificaciones" id="C_m_reproceso_confirm_flecha">
+                    <mxCell edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=open;endFill=0;">
+                        <mxGeometry relative="1" as="geometry">
+                            <mxPoint x="1300" y="2985" as="sourcePoint"/>
+                            <mxPoint x="1270" y="2985" as="targetPoint"/>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="4.4.4: publisherConfirm(secuencia)&lt;br&gt;[sin basic.return]" zona="C" emisor="C_rabbitmq" receptor="C_notificaciones" mensaje="4.4.4" enlace="C_enlace_broker_notificaciones" id="C_m_reproceso_confirm_etiqueta">
+                    <mxCell parent="1" style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=16;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1">
+                        <mxGeometry height="47" width="340" x="1240" y="3000" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="C" emisor="C_notificaciones" receptor="C_cola_fallidos" mensaje="4.4.5" enlace="C_enlace_notificaciones_fallidos" id="C_m_reproceso_ack_flecha">
+                    <mxCell edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=open;endFill=0;">
+                        <mxGeometry relative="1" as="geometry">
+                            <mxPoint x="2330" y="3080" as="sourcePoint"/>
+                            <mxPoint x="2330" y="3108" as="targetPoint"/>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="4.4.5 [4.4.4 confirmado o&lt;br&gt;ya ACEPTADO_SMTP]:&lt;br&gt;basicAck(fallidoTag)&lt;br&gt;[sin confirmación: conservar en DLQ]" zona="C" emisor="C_notificaciones" receptor="C_cola_fallidos" mensaje="4.4.5" enlace="C_enlace_notificaciones_fallidos" id="C_m_reproceso_ack_etiqueta">
+                    <mxCell parent="1" style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=16;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1">
+                        <mxGeometry height="85" width="370" x="2370" y="3000" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="C" emisor="C_notificaciones" receptor="C_notificaciones" mensaje="4.4" id="C_m_reprocesar_flecha">
+                    <mxCell edge="1" parent="1" source="C_notificaciones" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=block;endFill=1;exitX=0.6;exitY=0;entryX=0.9;entryY=0;exitPerimeter=0;entryPerimeter=0;" target="C_notificaciones">
+                        <mxGeometry relative="1" as="geometry">
+                            <Array as="points">
+                                <mxPoint x="1040" y="2230"/>
+                                <mxPoint x="1160" y="2230"/>
+                            </Array>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="4.4 [causa corregida y autorización de soporte]:&lt;br&gt;reprocesarFallidos()" zona="C" emisor="C_notificaciones" receptor="C_notificaciones" mensaje="4.4" id="C_m_reprocesar_etiqueta">
+                    <mxCell parent="1" style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=16;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1">
+                        <mxGeometry height="47" width="380" x="850" y="2150" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="C" emisor="C_notificaciones" receptor="C_rabbitmq" mensaje="4.2.1.11" enlace="C_enlace_broker_notificaciones" id="C_m_envio_bd_caida_flecha">
+                    <mxCell edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontColor=#000000;fontFamily=Helvetica;fontSize=12;strokeWidth=1;shadow=0;dashed=0;startArrow=none;startFill=0;endArrow=open;endFill=0;">
+                        <mxGeometry relative="1" as="geometry">
+                            <mxPoint x="1760" y="2510" as="sourcePoint"/>
+                            <mxPoint x="1790" y="2510" as="targetPoint"/>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="4.2.1.11 [registro no disponible o lease ocupado]:&lt;br&gt;esperar 5 s; basicReject(deliveryTag, requeue=true)&lt;br&gt;[sin reclamar registro: no enviar ni hacer ACK]" zona="C" emisor="C_notificaciones" receptor="C_rabbitmq" mensaje="4.2.1.11" enlace="C_enlace_broker_notificaciones" id="C_m_envio_bd_caida_etiqueta">
+                    <mxCell parent="1" style="text;html=1;rounded=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=16;fontStyle=0;shadow=0;gradientColor=none;align=left;verticalAlign=middle;spacing=0;" vertex="1">
+                        <mxGeometry height="66" width="470" x="1800" y="2480" as="geometry"/>
+                    </mxCell>
+                </object>
+                <mxCell id="_V7i2_WOZ-luogft8gYh-1" connectable="0" parent="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];inheritText=1;fontSize=14;fontColor=#000000;" value="&lt;font style=&quot;font-size: 12px;&quot;&gt;[Interacción humana]&lt;/font&gt;" vertex="1">
+                    <mxGeometry x="180" y="770" as="geometry"/>
+                </mxCell>
+                <mxCell id="_V7i2_WOZ-luogft8gYh-2" connectable="0" parent="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];inheritText=1;fontSize=14;fontColor=#000000;" value="&lt;font style=&quot;font-size: 12px;&quot;&gt;Pantalla táctil · app móvil o web&lt;/font&gt;" vertex="1">
+                    <mxGeometry x="180" y="813" as="geometry"/>
+                </mxCell>
+                <mxCell id="_V7i2_WOZ-luogft8gYh-3" connectable="0" parent="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];inheritText=1;fontSize=14;fontColor=#000000;" value="&lt;font style=&quot;font-size: 12px;&quot;&gt;[Interacción humana]&lt;/font&gt;" vertex="1">
+                    <mxGeometry x="80" y="1620" as="geometry"/>
+                </mxCell>
+                <mxCell id="_V7i2_WOZ-luogft8gYh-4" connectable="0" parent="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];inheritText=1;fontSize=14;fontColor=#000000;" value="&lt;font style=&quot;font-size: 12px;&quot;&gt;Pantalla de quiosco&lt;/font&gt;" vertex="1">
+                    <mxGeometry x="80" y="1640" as="geometry"/>
+                </mxCell>
+                <mxCell id="_V7i2_WOZ-luogft8gYh-5" connectable="0" parent="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];inheritText=1;fontSize=14;fontColor=#000000;" value="&lt;font style=&quot;font-size: 12px;&quot;&gt;[Solicitud/respuesta síncrona]&lt;/font&gt;" vertex="1">
+                    <mxGeometry x="600" y="770" as="geometry"/>
+                </mxCell>
+                <mxCell id="_V7i2_WOZ-luogft8gYh-6" connectable="0" parent="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];inheritText=1;fontSize=14;fontColor=#000000;" value="&lt;font style=&quot;font-size: 11px;&quot;&gt;REST·HTTPS (HTTP/1.1 + LTS)&lt;/font&gt;" vertex="1">
+                    <mxGeometry x="600" y="790" as="geometry"/>
+                </mxCell>
+                <mxCell id="_V7i2_WOZ-luogft8gYh-7" connectable="0" parent="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];inheritText=1;fontSize=14;fontColor=#000000;" value="&lt;font style=&quot;font-size: 12px;&quot;&gt;Espera máxima: 40 s&lt;/font&gt;" vertex="1">
+                    <mxGeometry x="590" y="820" as="geometry"/>
+                </mxCell>
+                <object label="1: vuelos := buscarVuelos(origen,destino, fecha)" zona="A" emisor="A_agencias" receptor="B_reservas" mensaje="1" enlace="A_enlace_agencias_reservas" id="_V7i2_WOZ-luogft8gYh-11">
+                    <mxCell parent="1" style="text;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=12;align=left;verticalAlign=middle;spacing=0;" vertex="1">
+                        <mxGeometry height="36" width="260" x="380" y="390" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="A" emisor="A_agencias" receptor="B_reservas" mensaje="1" enlace="A_enlace_agencias_reservas" id="_V7i2_WOZ-luogft8gYh-12">
+                    <mxCell edge="1" parent="1" style="edgeStyle=none;html=1;strokeColor=#000000;strokeWidth=1;startArrow=none;endArrow=block;endFill=1;">
+                        <mxGeometry relative="1" as="geometry">
+                            <mxPoint x="650" y="398" as="sourcePoint"/>
+                            <mxPoint x="650" y="418" as="targetPoint"/>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
+                <object label="2: reserva := retenerAsiento(vuelo, asiento)" zona="A" emisor="A_agencias" receptor="B_reservas" mensaje="2" enlace="A_enlace_agencias_reservas" id="_V7i2_WOZ-luogft8gYh-13">
+                    <mxCell parent="1" style="text;html=1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=none;fontColor=#000000;fontFamily=Helvetica;fontSize=12;align=left;verticalAlign=middle;spacing=0;" vertex="1">
+                        <mxGeometry height="36" width="240" x="400" y="424" as="geometry"/>
+                    </mxCell>
+                </object>
+                <object label="" zona="A" emisor="A_agencias" receptor="B_reservas" mensaje="1" enlace="A_enlace_agencias_reservas" id="_V7i2_WOZ-luogft8gYh-14">
+                    <mxCell edge="1" parent="1" style="edgeStyle=none;html=1;strokeColor=#000000;strokeWidth=1;startArrow=none;endArrow=block;endFill=1;">
+                        <mxGeometry relative="1" as="geometry">
+                            <mxPoint x="649" y="432" as="sourcePoint"/>
+                            <mxPoint x="649" y="452" as="targetPoint"/>
+                        </mxGeometry>
+                    </mxCell>
+                </object>
             </root>
         </mxGraphModel>
     </diagram>
