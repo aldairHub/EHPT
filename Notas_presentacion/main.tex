@@ -210,32 +210,32 @@ Quevedo, Ecuador --- 11 de noviembre de 2026\par
 \autor{\integranteD}
 % Una decisión por bloque; duplica o elimina bloques según tu zona.
 
-\decision{\pendiente{nombre de la decisión 1}}
- {\pendiente{qué se eligió, indicando el enlace o mensaje del diagrama}}
- {\pendiente{por qué conviene en latencia (citar requisito R)}}
- {\pendiente{cuántos mensajes se esperan y cómo los soporta}}
- {\pendiente{si necesita respuesta inmediata o puede ser diferida, y por qué}}
- {\pendiente{qué pasa si falla (citar F)}}
- {\pendiente{qué garantía de consistencia se necesita y cómo se logra}}
- {\pendiente{fuente que respalda la decisión, con \texttt{\textbackslash cite\{clave\}}}}
+\decision{Lectores y quioscos mediante sockets TCP}
+ {Se mantienen sockets TCP persistentes hacia el servidor de embarque. El mensaje 5 envía \texttt{solicitudId, vuelo, pase} y devuelve \texttt{permitido, motivo}. Los quioscos usan la misma operación como alternativa a los lectores. TCP entrega un flujo ordenado de bytes; la aplicación debe separar los mensajes mediante un formato fijo o una longitud explícita~\cite{tcp9293}.}
+ {R6 pide validar en menos de 1~s. Reutilizar la conexión evita abrirla con cada lectura. Ese segundo incluye la red local, la validación y la respuesta; es un objetivo que debe medirse, no una garantía de TCP.}
+ {Se consideran unos 40 lectores (R6), con una solicitud corta y una respuesta por lectura. No se especifican lecturas por segundo ni cantidad de quioscos; no se confunden 40 dispositivos con 40 mensajes por segundo.}
+ {La respuesta es inmediata porque el personal necesita saber si permite el abordaje. Si no llega una respuesta válida, el lector no debe mostrar autorización.}
+ {Si se pierde la conexión TCP, el dispositivo reconecta y reintenta con la misma \texttt{solicitudId}. TCP no garantiza que la aplicación haya registrado el abordaje. Ante F3, los lectores continúan si la red local y el servidor funcionan; el manifiesto no resuelve una caída de esa red local.}
+ {El servidor centraliza las lecturas de las puertas y comprueba el estado del pase antes de registrar el abordaje. La comprobación y el registro deben ser atómicos para impedir que dos lectores autoricen el mismo pase. Repetir una solicitud devuelve su resultado previo. Liskov y sus colaboradores estudian la detección de mensajes duplicados para lograr ejecución a lo sumo una vez~\cite{liskov1991atmostonce}. Ese trabajo respalda la necesidad de controlar duplicados; aquí se conservan identificadores y resultados, sin adoptar su protocolo basado en relojes sincronizados.}
+ {\cite{tcp9293,liskov1991atmostonce}}
 
-\decision{\pendiente{nombre de la decisión 2}}
- {\pendiente{qué se eligió, indicando el enlace o mensaje del diagrama}}
- {\pendiente{por qué conviene en latencia (citar requisito R)}}
- {\pendiente{cuántos mensajes se esperan y cómo los soporta}}
- {\pendiente{si necesita respuesta inmediata o puede ser diferida, y por qué}}
- {\pendiente{qué pasa si falla (citar F)}}
- {\pendiente{qué garantía de consistencia se necesita y cómo se logra}}
- {\pendiente{fuente que respalda la decisión, con \texttt{\textbackslash cite\{clave\}}}}
+\decision{Validación en línea con Reservas mediante gRPC}
+ {Se mantiene gRPC sobre HTTP/2 entre Embarque y Reservas. En 5.1, la operación \texttt{validarYRegistrarAbordaje} recibe \texttt{solicitudId, vuelo, pase} y devuelve \texttt{permitido, motivo}. Se usa una llamada unaria: una solicitud y una respuesta~\cite{grpcConcepts,grpcAbout}. La autorización incluye el registro para evitar separar ambas acciones en llamadas independientes.}
+ {Para cumplir R6, la llamada lleva un plazo que deja margen, dentro de 1~s, para la red local y la respuesta al lector. gRPC permite configurar ese plazo, pero no lo fija por defecto~\cite{grpcDeadlines}. Niswar y sus colaboradores obtuvieron menor tiempo de respuesta con gRPC que con REST y GraphQL en sus pruebas de consulta de datos~\cite{niswar2024grpc}. La caracterización de protocolos de comunicación de Kumar y sus colaboradores aporta otro antecedente de evaluación en microservicios~\cite{kumar2021protocols}. Estos estudios orientan la elección, pero no demuestran que AeroAndes cumpla R6: se debe medir su recorrido completo antes de fijar el plazo.}
+ {Cada validación en línea genera una solicitud y una respuesta a Reservas. El servidor reutiliza el canal; la descarga de manifiestos y la sincronización se realizan aparte. Los 1\,200 accesos por segundo de R1 corresponden a búsquedas, no a la tasa de embarque.}
+ {Se espera la autorización de Reservas antes de responder al lector. Un vencimiento del plazo significa que el resultado es desconocido: la operación pudo ejecutarse aunque la respuesta no llegara.}
+ {Ante F3 o un plazo vencido, se utiliza el manifiesto previamente descargado y se conserva la misma \texttt{solicitudId}. Reservas debe reconocer los reintentos para no registrar otra vez una operación ya aplicada. Si no hay manifiesto válido para ese vuelo, se requiere revisión del personal.}
+ {Reservas comprueba y registra una sola vez cada pase del vuelo mediante una operación atómica e idempotente. El abordaje no vende ni libera asientos: R2 y R3 siguen bajo Inventario, y los pagos y avisos de R4 y R5 conservan sus flujos existentes. gRPC transporta la llamada; la consistencia depende de estas reglas de la aplicación.}
+ {\cite{grpcConcepts,grpcAbout,grpcDeadlines,niswar2024grpc,kumar2021protocols}}
 
-\decision{\pendiente{nombre de la decisión 3}}
- {\pendiente{qué se eligió, indicando el enlace o mensaje del diagrama}}
- {\pendiente{por qué conviene en latencia (citar requisito R)}}
- {\pendiente{cuántos mensajes se esperan y cómo los soporta}}
- {\pendiente{si necesita respuesta inmediata o puede ser diferida, y por qué}}
- {\pendiente{qué pasa si falla (citar F)}}
- {\pendiente{qué garantía de consistencia se necesita y cómo se logra}}
- {\pendiente{fuente que respalda la decisión, con \texttt{\textbackslash cite\{clave\}}}}
+\decision{Manifiesto local y recuperación de F3}
+ {Antes del embarque, 5.2 descarga de Reservas el manifiesto del vuelo con su versión y 5.2.1 lo guarda localmente. Durante F3, 5.3 valida el pase y registra el abordaje pendiente en almacenamiento local persistente. Al volver la conexión, 5.4 envía lotes por gRPC y 5.4.1 marca solo los registros confirmados. No se introduce RabbitMQ en el aeropuerto.}
+ {La consulta local evita esperar a la red externa y permite buscar el objetivo de menos de 1~s de R6. La recuperación se ejecuta en segundo plano para no retrasar nuevas lecturas. El tiempo total de sincronización depende de la duración del corte y de los pendientes acumulados.}
+ {Se descarga un manifiesto por vuelo y se actualiza antes de operar sin red. Cada abordaje aceptado sin conexión añade un registro pendiente; al reconectar se agrupan en lotes acotados. No se fija un tamaño ni una tasa que el enunciado no proporciona.}
+ {La validación local responde inmediatamente; la actualización de Reservas puede esperar hasta la recuperación de F3. Solo se confirma al lector después de guardar de forma durable el abordaje y su registro pendiente.}
+ {El manifiesto debe estar disponible antes del corte. La marca de abordado y el pendiente se guardan en una sola transacción local. Si falla el envío o se pierde su respuesta, los registros permanecen y se reenvían con los mismos identificadores; solo se retiran tras la confirmación individual de Reservas.}
+ {Se acepta consistencia eventual entre el aeropuerto y Reservas. Bailis y Ghodsi explican que, si dejan de producirse actualizaciones, las copias terminan convergiendo, pero esa garantía no asegura lecturas actuales durante la desconexión~\cite{bailis2013eventual}. Por eso, al recuperar la red se intercambian los abordajes pendientes y se revisan los conflictos. El manifiesto puede omitir cambios posteriores a su descarga: se limita al vuelo y su versión, se impiden duplicados locales y se envían discrepancias a revisión del personal. En 5.4 Reservas deduplica por solicitud y por pase del vuelo. Esto no garantiza consistencia global durante F3 ni autoriza vender asientos sin conexión.}
+ {\cite{bailis2013eventual,grpcConcepts}}
 
 % ==== 06_declaracion_ia ====
 \section{Declaración de uso de inteligencia artificial}\label{sec:declaracion-ia}
