@@ -178,32 +178,171 @@ Quevedo, Ecuador --- 11 de noviembre de 2026\par
 \autor{\integranteC}
 % Una decisión por bloque; duplica o elimina bloques según tu zona.
 
-\decision{\pendiente{nombre de la decisión 1}}
- {\pendiente{qué se eligió, indicando el enlace o mensaje del diagrama}}
- {\pendiente{por qué conviene en latencia (citar requisito R)}}
- {\pendiente{cuántos mensajes se esperan y cómo los soporta}}
- {\pendiente{si necesita respuesta inmediata o puede ser diferida, y por qué}}
- {\pendiente{qué pasa si falla (citar F)}}
- {\pendiente{qué garantía de consistencia se necesita y cómo se logra}}
- {\pendiente{fuente que respalda la decisión, con \texttt{\textbackslash cite\{clave\}}}}
+\decision{Procesamiento del pago y recuperación ante una respuesta incierta}
+{Se eligió una llamada RPC síncrona entre Reservas y Pagos,
+implementada con gRPC sobre HTTP/2 y TLS. Pagos se comunica con
+la pasarela externa mediante REST sobre HTTPS y registra cada
+intento en PostgreSQL. El mensaje \texttt{cobrarReserva} devuelve
+APROBADO, RECHAZADO o PENDIENTE\_VERIFICACION. Estos estados
+describen el resultado del pago; la confirmación del asiento
+corresponde al inventario.}
+{R4 indica que la pasarela puede tardar hasta 30~s. El diagrama
+establece una espera máxima de 32~s hacia la pasarela y de 35~s
+para la llamada entre Reservas y Pagos, dejando un margen para
+procesar la respuesta. Durante ese tiempo, el cliente muestra
+PROCESANDO\_PAGO y mantiene la interfaz activa. Zhu et al.
+analizan los costos de comunicación RPC en microservicios,
+incluida la sobrecarga de su pila de
+protocolos~\cite{zhu2025}. Usar gRPC no elimina la
+espera de la pasarela; los plazos elegidos deben validarse al
+implementar el sistema.}
+{Se intercambia una solicitud por intento de pago, con datos
+como reserva, identificador del intento, importe, moneda y
+token del medio de pago. El escenario no establece una tasa
+de pagos por segundo: las 1\,200 consultas de R1 corresponden
+a disponibilidad. Las transacciones del registro de pagos
+deben ser cortas y no mantener bloqueos de base de datos
+mientras se espera a la pasarela.}
+{Reservas necesita conocer el resultado para continuar con
+la compra, por lo que se mantiene el RPC acordado por el
+grupo. La respuesta puede tardar varios segundos, pero el
+pasajero recibe información del estado de su operación.
+Mientras el resultado sea incierto, no debe interpretarse
+el vencimiento de la llamada como un rechazo definitivo
+ni iniciarse otro cobro independiente para la misma operación.}
+{Ante F1, un timeout deja el intento en
+PENDIENTE\_VERIFICACION. Pagos consulta posteriormente su
+estado mediante la reconciliación prevista cada 10~s en el
+diagrama. La retención del asiento conserva su vencimiento
+de 10~minutos según R2; un timeout no provoca por sí solo
+su liberación inmediata. Si después se comprueba que hubo
+un cobro y el inventario devuelve NO\_CONFIRMABLE, se solicita
+la anulación o el reembolso. Si la confirmación del inventario
+sigue en estado DESCONOCIDO, primero se verifica su resultado
+para evitar reembolsar una reserva que pudo haberse confirmado.}
+{Se registra el intento antes de solicitar el cobro y se
+reutiliza \texttt{intentoId} como clave de idempotencia,
+siempre que la pasarela admita este mecanismo. Laigner et al.
+incluyen una API de pagos idempotente para evitar cobros
+duplicados tras una recuperación~\cite{laigner2025}.
+La compensación también conserva su propio identificador.
+Navarro analiza las sagas y las transacciones compensatorias
+para recuperar la consistencia entre
+servicios~\cite{navarro2025}. Esta recuperación
+no sustituye la consistencia fuerte exigida por R3: un pago
+aprobado solo permite confirmar la reserva si el inventario
+valida el asiento y la retención correspondiente.}
+{\cite{zhu2025,laigner2025,navarro2025}}
 
-\decision{\pendiente{nombre de la decisión 2}}
- {\pendiente{qué se eligió, indicando el enlace o mensaje del diagrama}}
- {\pendiente{por qué conviene en latencia (citar requisito R)}}
- {\pendiente{cuántos mensajes se esperan y cómo los soporta}}
- {\pendiente{si necesita respuesta inmediata o puede ser diferida, y por qué}}
- {\pendiente{qué pasa si falla (citar F)}}
- {\pendiente{qué garantía de consistencia se necesita y cómo se logra}}
- {\pendiente{fuente que respalda la decisión, con \texttt{\textbackslash cite\{clave\}}}}
+\decision{Envío asíncrono de la confirmación y del pase de abordar}
+{Se eligió mensajería asíncrona mediante RabbitMQ sobre AMQP/TCP
+para entregar el evento \texttt{ReservaConfirmada} a
+Notificaciones. Al recibirlo, el servicio consulta a Reservas
+mediante gRPC sobre HTTP/2 y TLS para obtener los datos de
+la notificación. Después prepara la confirmación y el pase
+de abordar, y solicita su envío a un servidor SMTP mediante
+TCP con TLS. La entrega desde ese servidor hasta el buzón
+del pasajero es asíncrona.}
+{R5 exige que la confirmación llegue en menos de un minuto
+después del pago, aunque permite enviarla después de responder
+al cliente. El diagrama fija un máximo de 3~s para consultar
+los datos y de 5~s para esperar la aceptación del servidor
+SMTP. Estos tiempos forman parte del presupuesto de entrega,
+pero no garantizan por sí solos R5: también deben considerarse
+la espera en la cola y la entrega hasta el buzón.}
+{Se publica un evento por reserva confirmada. La cola permite
+absorber aumentos temporales de mensajes sin exigir que
+Notificaciones los procese al mismo ritmo que se confirman
+las reservas. Maharjan et al. comparan distintas tecnologías
+de colas y muestran que su latencia y capacidad dependen de
+la carga y del escenario~\cite{maharjan2023}.
+Por ello, RabbitMQ debe evaluarse con la carga prevista,
+sin asumir que siempre será la alternativa más rápida.}
+{El envío del correo puede ser diferido y no necesita detener
+la respuesta de la compra. Por esta razón se usa mensajería
+en este enlace, mientras que Reservas y Pagos conservan RPC.
+La consulta de datos y la solicitud al servidor SMTP sí
+esperan una respuesta dentro del procesamiento de cada
+notificación.}
+{Si Notificaciones está caído cuando se confirma la reserva,
+el evento queda pendiente para procesarse cuando el servicio
+se recupere, según el mecanismo de conservación descrito en
+la siguiente decisión. Si falla la consulta a Reservas o
+el envío SMTP, se aplica la política de reintentos y de
+mensajes fallidos. La aceptación del servidor SMTP no debe
+confundirse con la entrega efectiva al buzón del pasajero.}
+{La notificación se genera a partir de
+\texttt{ReservaConfirmada}, no únicamente de un pago aprobado.
+Con \texttt{reservaId}, Notificaciones consulta si la reserva
+está confirmada y obtiene destinatario, código de reserva,
+vuelo y asiento antes de preparar el contenido. Laigner et al.
+destacan la necesidad de considerar el procesamiento de
+eventos y las restricciones de integridad entre
+microservicios~\cite{laigner2025}. En este diseño,
+si la consulta no confirma la reserva, no se envía el pase
+y el caso se registra para su revisión.}
+{\cite{maharjan2023,laigner2025}}
 
-\decision{\pendiente{nombre de la decisión 3}}
- {\pendiente{qué se eligió, indicando el enlace o mensaje del diagrama}}
- {\pendiente{por qué conviene en latencia (citar requisito R)}}
- {\pendiente{cuántos mensajes se esperan y cómo los soporta}}
- {\pendiente{si necesita respuesta inmediata o puede ser diferida, y por qué}}
- {\pendiente{qué pasa si falla (citar F)}}
- {\pendiente{qué garantía de consistencia se necesita y cómo se logra}}
- {\pendiente{fuente que respalda la decisión, con \texttt{\textbackslash cite\{clave\}}}}
+\decision{Conservación, reintentos y reproceso de notificaciones fallidas}
+{Para responder a F2 se combina el outbox de Reservas con
+una cola quorum durable en RabbitMQ, mensajes persistentes,
+confirmaciones de publicación y ACK manual del consumidor.
+Notificaciones utiliza un registro persistente en PostgreSQL
+para controlar cada envío. Los mensajes que no pueden
+procesarse se enrutan mediante un DLX hacia una cola de
+fallidos durable y sin TTL. En el diagrama, el DLX utiliza
+\texttt{dead-letter-strategy=at-least-once} y
+\texttt{overflow=reject-publish}.}
+{Ante fallos transitorios se permiten tres reintentos con
+esperas de 5, 10 y 20~s. Esta separación evita repetir
+inmediatamente una operación que continúa fallando.
+Sin embargo, los reintentos y el tiempo de recuperación
+pueden hacer que se supere el minuto exigido por R5.
+Si una caída impide cumplir ese plazo, el objetivo es
+conservar la notificación para recuperarla; no se afirma
+que el plazo pueda garantizarse durante una indisponibilidad
+prolongada.}
+{Se identifica cada notificación mediante la combinación
+del tipo de evento, la reserva y el canal. El registro
+permite reconocer una entrega repetida y consultar si
+el correo ya fue aceptado por SMTP. Los errores permanentes
+o los intentos agotados pasan a la cola de fallidos para
+evitar un ciclo continuo de procesamiento. La cola principal
+tiene un límite de reentregas de 20; la de fallidos no
+descarta mensajes por superar ese contador.}
+{La confirmación de publicación y el ACK del consumidor
+cumplen funciones distintas. Reservas marca el evento como
+publicado después de recibir la confirmación del broker y
+comprobar que no fue devuelto por falta de enrutamiento.
+Notificaciones envía su ACK después de guardar la aceptación
+SMTP, o al reconocer un duplicado ya aceptado. No se espera
+a que el pasajero abra el correo.}
+{La reserva confirmada y su evento de outbox deben guardarse
+en una misma transacción local. Si la publicación no se
+confirma, el evento continúa pendiente. Si el consumidor
+pierde la conexión sin enviar ACK, el mensaje puede
+reentregarse. Un fallo transitorio provoca un rechazo con
+reencolado; un error permanente o el agotamiento de los
+reintentos provoca un rechazo sin reencolado y su traslado
+a la cola de fallidos. Si el registro de envíos no está
+disponible, no se envía el correo ni se confirma el mensaje.
+El reproceso de fallidos se realiza después de corregir
+la causa y contar con autorización de soporte. Se conserva
+el mensaje en esa cola hasta confirmar su republicación,
+salvo que el registro demuestre que ya fue aceptado por SMTP.}
+{La entrega al menos una vez puede producir duplicados,
+por lo que el consumidor debe reconocer los eventos ya
+procesados~\cite{laigner2025}. Navarro también
+señala la necesidad de idempotencia cuando una operación
+puede recibirse repetidamente~\cite{navarro2025}.
+En nuestro diseño se utiliza una clave estable y un registro
+persistente, con una reclamación temporal del envío para
+coordinar ejecuciones simultáneas. Aun así, si SMTP acepta
+el correo y se pierde su respuesta antes de guardar el
+resultado, un reintento puede generar un envío duplicado.
+Por ello no se garantiza una entrega exactamente una vez
+al destinatario.}
+{\cite{laigner2025,navarro2025}}
 
 % ==== 05_zona_D ====
 \section{Zona D: Aeropuerto}\label{sec:zonaD}
