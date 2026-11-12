@@ -280,3 +280,108 @@ numpages = {26}
   doi={10.1109/ACCESS.2025.3566230},
   ISSN={2169-3536}
   }
+
+% bailis2013eventual: contenido contrastado con la copia del autor:
+% https://www.bailis.org/papers/eventual-queue2013.pdf
+% Revisión de zona D (2026-11-11): DOI, título, autores y año de
+% niswar2024grpc, kumar2021protocols, liskov1991atmostonce y
+% bailis2013eventual contrastados con los registros de Crossref.
+% El acceso editorial directo a ACM sigue devolviendo HTTP 403.
+% Kumar: metadatos verificados; no se accedió al texto completo ni se
+% atribuyen cifras o resultados concretos a esta fuente en la zona D.
+
+
+
+
+% === Zona A ref ===========
+
+@article{DETOLEDO2021110968,
+title = {Identifying architectural technical debt, principal, and interest in microservices: A multiple-case study},
+journal = {Journal of Systems and Software},
+volume = {177},
+pages = {110968},
+year = {2021},
+issn = {0164-1212},
+doi = {https://doi.org/10.1016/j.jss.2021.110968},
+url = {https://www.sciencedirect.com/science/article/pii/S0164121221000650},
+author = {Saulo S. {de Toledo} and Antonio Martini and Dag I.K. Sjøberg},
+keywords = {Cost of software, Cross-company study, Software quality, Software maintainability, Qualitative analysis},
+abstract = {Background:
+Using a microservices architecture is a popular strategy for software organizations to deliver value to their customers fast and continuously. However, scientific knowledge on how to manage architectural debt in microservices is scarce.
+Objectives:
+In the context of microservices applications, this paper aims to identify architectural technical debts (ATDs), their costs, and their most common solutions.
+Method:
+We conducted an exploratory multiple case study by conducting 25 interviews with practitioners working with microservices in seven large companies.
+Results:
+We found 16 ATD issues, their negative impact (interest), and common solutions to repay each debt together with the related costs (principal). Two examples of critical ATD issues found were the use of shared databases that, if not properly planned, leads to potential breaks on services every time the database schema changes and bad API designs, which leads to coupling among teams. We identified ATDs occurring in different domains and stages of development and created a map of the relationships among those debts.
+Conclusion:
+The findings may guide organizations in developing microservices systems that better manage and avoid architectural debts.}
+}
+
+@article{CERNY2023111829,
+title = {Catalog and detection techniques of microservice anti-patterns and bad smells: A tertiary study},
+journal = {Journal of Systems and Software},
+volume = {206},
+pages = {111829},
+year = {2023},
+issn = {0164-1212},
+doi = {https://doi.org/10.1016/j.jss.2023.111829},
+url = {https://www.sciencedirect.com/science/article/pii/S0164121223002248},
+author = {Tomas Cerny and Amr S. Abdelfattah and Abdullah Al Maruf and Andrea Janes and Davide Taibi},
+keywords = {Microservices, Anti-patterns, Antipatterns, Anti patterns, Bad smells, Software maintenance},
+abstract = {Background:
+Various works investigated microservice anti-patterns and bad smells in the past few years. We identified seven secondary publications that summarize these, but they have little overlap in purpose and often use different terms to describe the identified anti-patterns and smells.
+Objective:
+This work catalogs recurring bad design practices known as anti-patterns and bad smells for microservice architectures, and provides a classification into categories as well as methods for detecting these practices.
+Method:
+We conducted a systematic literature review in the form of a tertiary study targeting secondary studies identifying poor design practices for microservices.
+Results:
+We provide a comprehensive catalog of 58 disjoint anti-patterns, grouped into five categories, which we derived from 203 originally identified anti-patterns for microservices.
+Conclusion:
+The results provide a reference to microservice developers to design better-quality systems and researchers who aim to detect system quality based on anti-patterns. It also serves as an anti-pattern catalog for development-aiding tools, which are not currently available for microservice system development but could mitigate quality degradation throughout system evolution.}
+}
+
+@article{Bogner2021,
+  author  = {Bogner, Justus and Fritzsch, Jonas and Wagner, Stefan and Zimmermann, Alfred},
+  title   = {Industry practices and challenges for the evolvability assurance of microservices},
+  journal = {Empirical Software Engineering},
+  year    = {2021},
+  volume  = {26},
+  number  = {5},
+  pages   = {104},
+  month   = {jul},
+  doi     = {10.1007/s10664-021-09999-9},
+  url     = {https://doi.org/10.1007/s10664-021-09999-9},
+  issn    = {1573-7616},
+  abstract = {Microservices as a lightweight and decentralized architectural style with fine-grained services promise several beneficial characteristics for sustainable long-term software evolution. Success stories from early adopters like Netflix, Amazon, or Spotify have demonstrated that it is possible to achieve a high degree of flexibility and evolvability with these systems. However, the described advantageous characteristics offer no concrete guidance and little is known about evolvability assurance processes for microservices in industry as well as challenges in this area. Insights into the current state of practice are a very important prerequisite for relevant research in this field.}
+}
+
+@inproceedings{10.1145/3486606.3488075,
+author = {Wimmer, Christian},
+title = {GraalVM native image: large-scale static analysis for Java (keynote)},
+year = {2021},
+isbn = {9781450391092},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3486606.3488075},
+doi = {10.1145/3486606.3488075},
+abstract = {GraalVM Native Image combines static analysis, heap snapshotting, and ahead-of-time compilation to produce a highly optimized standalone executable for a Java application. In this talk, we first introduce the overall architecture of GraalVM Native Image: instead of “just” compiling Java bytecode ahead of time, it also initializes parts of the application at build time. This reduces the startup time and memory footprint of the application at run time.  In the second part of the talk, we dive into details of the points-to analysis. We show which of our original research ideas worked or did not work when analyzing large production applications; and we show the benefits of tightly integrating the static analysis with the ahead-of-time compiler.},
+booktitle = {Proceedings of the 13th ACM SIGPLAN International Workshop on Virtual Machines and Intermediate Languages},
+pages = {3},
+numpages = {1},
+keywords = {Ahead-of-Time Compilation, GraalVM, Points-to Analysis, Static Analysis},
+location = {Chicago, IL, USA},
+series = {VMIL 2021}
+}
+
+@ARTICLE{9737496,
+  author={Schiewe, Micah and Curtis, Jacob and Bushong, Vincent and Cerny, Tomas},
+  journal={IEEE Access}, 
+  title={Advancing Static Code Analysis With Language-Agnostic Component Identification}, 
+  year={2022},
+  volume={10},
+  number={},
+  pages={30743-30761},
+  keywords={Codes;Microservice architectures;Unified modeling language;Task analysis;Static analysis;Complexity theory;Optimization;Code analysis;distributed systems;enterprise architecture;microservices},
+  doi={10.1109/ACCESS.2022.3160485}
+}
